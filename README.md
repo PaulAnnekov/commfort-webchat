@@ -1,4 +1,4 @@
-CommFort WebChat allows users to use web interface for chating
+CommFort WebChat allows users to use web interface for chating.
 
 # License
 
