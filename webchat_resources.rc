@@ -1,0 +1,3 @@
+en_lang RCDATA "C:\\ProgramData\\CommFort_server\\PluginsData\\WebChat\\languages\\en.ini"
+plug_off BITMAP "resources\\wine\\plug_off.bmp"
+plug_on BITMAP "resources\\wine\\plug_on.bmp"
