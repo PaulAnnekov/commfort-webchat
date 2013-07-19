@@ -27,5 +27,15 @@ It was my first serious project on C++ so don't be preconceived. I have started 
 
 The code is in transition state. I had many todos but my motivation fell and I have closed the project.
 
+# Screenshots
+## Server plugin
+All server plugin images are stored [here](https://github.com/PaulAnnekov/commfort-webchat/tree/master/server_plugin_screen).
+
+![Main form](https://raw.github.com/PaulAnnekov/commfort-webchat/master/server_plugin_screen/main_form.png)
+![Connections form](https://raw.github.com/PaulAnnekov/commfort-webchat/master/server_plugin_screen/connections_form.png)
+
+## Web client
+![Chat](https://raw.github.com/PaulAnnekov/commfort-webchat/master/web_client_screen/chat.png)
+
 # License
 The source code of this plugin is licensed under the [GNU GENERAL PUBLIC LICENSE](https://github.com/PaulAnnekov/commfort-webchat/blob/master/COPYING.txt).
