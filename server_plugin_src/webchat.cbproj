@@ -1,0 +1,338 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{D47CF144-411B-4F86-B72A-A03DB0585985}</ProjectGuid>
+			<ProjectVersion>12.3</ProjectVersion>
+			<Config Condition="'$(Config)'==''">Release</Config>
+			<Base>True</Base>
+			<Platform>Win32</Platform>
+			<AppType>Library</AppType>
+			<FrameworkType>None</FrameworkType>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<BCC_SelectedWarnings>false</BCC_SelectedWarnings>
+			<BCC_DisableWarnings>true</BCC_DisableWarnings>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<BCC_MonitorGlobalAndStackData>true</BCC_MonitorGlobalAndStackData>
+			<BCC_MonitorThis>true</BCC_MonitorThis>
+			<BCC_MonitorInlinePtrAccess>true</BCC_MonitorInlinePtrAccess>
+			<BCC_CallingConvention>stdcall</BCC_CallingConvention>
+			<ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+			<LinkPackageStatics>rtl.lib;vcl.lib;dbrtl.lib;dbexpress.lib;DbxClientDriver.lib;dsnap.lib;vcldb.lib;DbxCommonDriver.lib;DBXMySQLDriver.lib;vclimg.lib;dbxcds.lib;IndySystem.lib;IndyProtocols.lib;IndyCore.lib;inet.lib;vclx.lib</LinkPackageStatics>
+			<Multithreaded>true</Multithreaded>
+			<PackageImports>vcl.bpi;rtl.bpi;bcbie.bpi;vclx.bpi;vclactnband.bpi;xmlrtl.bpi;bcbsmp.bpi;vclimg.bpi;dbrtl.bpi;vcldb.bpi;vcldbx.bpi;bdertl.bpi;vcltouch.bpi;dsnap.bpi;dsnapcon.bpi;TeeUI.bpi;TeeDB.bpi;Tee.bpi;vclib.bpi;ibxpress.bpi;adortl.bpi;IndyCore.bpi;IndySystem.bpi;IndyProtocols.bpi;inet.bpi;intrawebdb_100_140.bpi;Intraweb_100_140.bpi;VclSmp.bpi;vclie.bpi;websnap.bpi;webdsnap.bpi;inetdb.bpi;inetdbbde.bpi;inetdbxpress.bpi;soaprtl.bpi;dbexpress.bpi;DbxCommonDriver.bpi;DataSnapIndy10ServerTransport.bpi;DataSnapProviderClient.bpi;DbxClientDriver.bpi;DataSnapServer.bpi;DBXInterBaseDriver.bpi;DBXMySQLDriver.bpi;dbxcds.bpi;DBXFirebirdDriver.bpi;DBXSybaseASEDriver.bpi;DBXSybaseASADriver.bpi;DBXOracleDriver.bpi;DBXMSSQLDriver.bpi;DBXInformixDriver.bpi;DBXDb2Driver.bpi</PackageImports>
+			<ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
+			<ProjectType>CppDynamicLibrary</ProjectType>
+			<OutputExt>cfplug</OutputExt>
+			<AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;dbexpress.lib;DbxClientDriver.lib;dsnap.lib;vcldb.lib;DbxCommonDriver.lib;DBXMySQLDriver.lib;vclimg.lib;dbxcds.lib;IndySystem.lib;IndyProtocols.lib;IndyCore.lib;inet.lib;vclx.lib</AllPackageLibs>
+			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+			<IncludePath>$(BDS)\include\boost_1_39\libs\system\src\;db\;listeners\;json\;$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\mysql_5.5;$(IncludePath)</IncludePath>
+			<ILINK_LibraryPath>$(BDS)\include\boost_1_39\libs\system\src\;db\;$(BDS)\lib\win32\release\psdk\;C:\Users\SteelRat\Desktop\11_kgrid_1.7\source\;C:\Users\SteelRat\Desktop\11_kgrid_1.7\packages\kgrid\;listeners\;$(BDS)\mysql_5.5\;json\;$(BDS)\lib;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<BCC_wpar>false</BCC_wpar>
+			<BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+			<BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
+			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<BCC_SelectedWarnings>true</BCC_SelectedWarnings>
+			<BCC_CodeView4DebugInfo>true</BCC_CodeView4DebugInfo>
+			<BCC_DisableWarnings>false</BCC_DisableWarnings>
+			<BCC_AllCodeguardOptions>true</BCC_AllCodeguardOptions>
+			<BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+			<BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<Defines>_DEBUG;$(Defines)</Defines>
+			<IntermediateOutputDir>Debug</IntermediateOutputDir>
+			<BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+			<DCC_Define>DEBUG</DCC_Define>
+			<BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+			<TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+			<BCC_StackFrames>true</BCC_StackFrames>
+			<ILINK_LibraryPath>$(BDS)\lib\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+			<TASM_Debugging>Full</TASM_Debugging>
+			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\debug;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<Defines>NDEBUG;$(Defines)</Defines>
+			<IntermediateOutputDir>Release</IntermediateOutputDir>
+			<ILINK_LibraryPath>$(BDS)\lib\release;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<TASM_Debugging>None</TASM_Debugging>
+			<ILINK_TranslatedLibraryPath>$(BDS)\lib\$(LANGDIR)\release;$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
+		</PropertyGroup>
+		<ItemGroup>
+			<LibFiles Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\lib\win32\release\psdk\wininet.lib">
+				<IgnorePath>true</IgnorePath>
+				<BuildOrder>31</BuildOrder>
+			</LibFiles>
+			<RcItem Include="C:\ProgramData\CommFort_server\PluginsData\WebChat\languages\en.ini">
+				<ContainerId>ResourceItem</ContainerId>
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>en_lang</ResourceId>
+			</RcItem>
+			<CppCompile Include="about_form.cpp">
+				<VirtualFolder>{30CCD2F5-ABBC-4738-930B-65CD2E851729}</VirtualFolder>
+				<Form>AboutForm</Form>
+				<DependentOn>about_form.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="cf_events.cpp">
+				<DependentOn>cf_events.h</DependentOn>
+				<BuildOrder>12</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="cf_functions.cpp">
+				<DependentOn>cf_functions.h</DependentOn>
+				<BuildOrder>6</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="connections_form.cpp">
+				<VirtualFolder>{30CCD2F5-ABBC-4738-930B-65CD2E851729}</VirtualFolder>
+				<Form>ConnectionsList</Form>
+				<DependentOn>connections_form.h</DependentOn>
+				<BuildOrder>15</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="db\auth_queue.cpp">
+				<DependentOn>db\auth_queue.h</DependentOn>
+				<BuildOrder>38</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="db\channels.cpp">
+				<DependentOn>db\channels.h</DependentOn>
+				<BuildOrder>36</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="db\channels_watch.cpp">
+				<DependentOn>db\channels_watch.h</DependentOn>
+				<BuildOrder>24</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="db\connections.cpp">
+				<DependentOn>db\connections.h</DependentOn>
+				<BuildOrder>38</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="db\http_messages_queue.cpp">
+				<DependentOn>db\http_messages_queue.h</DependentOn>
+				<BuildOrder>38</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="db\online_users.cpp">
+				<DependentOn>db\online_users.h</DependentOn>
+				<BuildOrder>35</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="db\users.cpp">
+				<DependentOn>db\users.h</DependentOn>
+				<BuildOrder>34</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="db\user_channel.cpp">
+				<DependentOn>db\user_channel.h</DependentOn>
+				<BuildOrder>37</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="debug.cpp">
+				<DependentOn>debug.h</DependentOn>
+				<BuildOrder>11</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="first_config_form.cpp">
+				<VirtualFolder>{30CCD2F5-ABBC-4738-930B-65CD2E851729}</VirtualFolder>
+				<Form>FastConfigForm</Form>
+				<DependentOn>first_config_form.h</DependentOn>
+				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="global.cpp">
+				<DependentOn>global.h</DependentOn>
+				<BuildOrder>1</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="json\json_main.cpp">
+				<VirtualFolder>{1197610A-CA15-4925-A3EC-E35876483CDB}</VirtualFolder>
+				<DependentOn>json\json_main.h</DependentOn>
+				<BuildOrder>16</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="json\json_reader.cpp">
+				<VirtualFolder>{1197610A-CA15-4925-A3EC-E35876483CDB}</VirtualFolder>
+				<DependentOn>json\json_reader.h</DependentOn>
+				<BuildOrder>9</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="json\json_writer.cpp">
+				<VirtualFolder>{1197610A-CA15-4925-A3EC-E35876483CDB}</VirtualFolder>
+				<DependentOn>json\json_writer.h</DependentOn>
+				<BuildOrder>10</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="l18n.cpp">
+				<DependentOn>l18n.h</DependentOn>
+				<BuildOrder>29</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="listeners\http_listen_thread.cpp">
+				<VirtualFolder>{99B9D8D1-AEFA-4C0F-A2F9-1C73F70FC734}</VirtualFolder>
+				<DependentOn>listeners\http_listen_thread.h</DependentOn>
+				<BuildOrder>21</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="listeners\socket_listen_thread.cpp">
+				<VirtualFolder>{99B9D8D1-AEFA-4C0F-A2F9-1C73F70FC734}</VirtualFolder>
+				<DependentOn>listeners\socket_listen_thread.h</DependentOn>
+				<BuildOrder>22</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="log_form.cpp">
+				<VirtualFolder>{30CCD2F5-ABBC-4738-930B-65CD2E851729}</VirtualFolder>
+				<Form>LogForm</Form>
+				<DependentOn>log_form.h</DependentOn>
+				<BuildOrder>18</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="main_form.cpp">
+				<VirtualFolder>{30CCD2F5-ABBC-4738-930B-65CD2E851729}</VirtualFolder>
+				<Form>MainForm</Form>
+				<DependentOn>main_form.h</DependentOn>
+				<BuildOrder>0</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="methods.cpp">
+				<VirtualFolder>{734BC389-AEE9-4472-A040-34579FF572F1}</VirtualFolder>
+				<DependentOn>methods.h</DependentOn>
+				<BuildOrder>13</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="notif.cpp">
+				<DependentOn>notif.h</DependentOn>
+				<BuildOrder>7</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="plug_init.cpp">
+				<DependentOn>plug_init.h</DependentOn>
+				<BuildOrder>19</BuildOrder>
+			</CppCompile>
+			<RcItem Include="resources\wine\plug_off.bmp">
+				<ResourceType>BITMAP</ResourceType>
+				<ResourceId>plug_off</ResourceId>
+			</RcItem>
+			<RcItem Include="resources\wine\plug_on.bmp">
+				<ResourceType>BITMAP</ResourceType>
+				<ResourceId>plug_on</ResourceId>
+			</RcItem>
+			<CppCompile Include="settings_form.cpp">
+				<VirtualFolder>{30CCD2F5-ABBC-4738-930B-65CD2E851729}</VirtualFolder>
+				<Form>SettingsForm</Form>
+				<DependentOn>settings_form.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="socket_utils.cpp">
+				<VirtualFolder>{734BC389-AEE9-4472-A040-34579FF572F1}</VirtualFolder>
+				<DependentOn>socket_utils.h</DependentOn>
+				<BuildOrder>23</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="update_form.cpp">
+				<VirtualFolder>{30CCD2F5-ABBC-4738-930B-65CD2E851729}</VirtualFolder>
+				<Form>UpdateForm</Form>
+				<DependentOn>update_form.h</DependentOn>
+				<BuildOrder>30</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="webchat.cpp">
+				<DependentOn>webchat.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<ResFiles Include="webchat.res">
+				<VirtualFolder>{6D7EB1C9-F9A3-468A-9C51-A13F9593F038}</VirtualFolder>
+				<BuildOrder>3</BuildOrder>
+			</ResFiles>
+			<None Include="webchat.todo"/>
+			<FormResources Include="main_form.dfm"/>
+			<FormResources Include="log_form.dfm"/>
+			<FormResources Include="update_form.dfm"/>
+			<FormResources Include="settings_form.dfm"/>
+			<FormResources Include="connections_form.dfm"/>
+			<FormResources Include="about_form.dfm"/>
+			<FormResources Include="first_config_form.dfm"/>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')" Project="$(BDS)\Bin\CodeGear.Cpp.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<PropertyGroup Condition="'$(FileToCompile)'==''">
+			<PostBuildEvent><![CDATA[copy "$(OUTPUTPATH).dll" "C:\Program Files (x86)\CommFort_server\Plugins\$(OUTPUTNAME).cfplug" /Y
+copy "$(OUTPUTPATH).dll" "e:\projects\webchat\setup\$(OUTPUTNAME).cfplug" /Y]]></PostBuildEvent>
+		</PropertyGroup>
+		<ProjectExtensions>
+			<Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+			<Borland.ProjectType>CppDynamicLibrary</Borland.ProjectType>
+			<BorlandProject>
+				<CPlusPlusBuilder.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">2</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">True</VersionInfo>
+						<VersionInfo Name="Locale">1049</VersionInfo>
+						<VersionInfo Name="CodePage">1251</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">SteelRat Productions &amp; Eterion</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">WebChat Plugin for CommFort chat</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">2.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">WebChat Plugin</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright">SteelRat Productions &amp; Eterion</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks">SteelRat Productions &amp; Eterion</VersionInfoKeys>
+						<VersionInfoKeys Name="OriginalFilename">webchat.cfsplug</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductName">WebChat Plugin</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">2.0.0.0 alpha</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Debugging>
+						<Debugging Name="DebugSourceDirs"/>
+					</Debugging>
+					<Parameters>
+						<Parameters Name="HostApplication">C:\Program Files (x86)\CommFort_server\CommFort_server.exe</Parameters>
+						<Parameters Name="RemoteHost"/>
+						<Parameters Name="RemotePath"/>
+						<Parameters Name="RemoteParams"/>
+						<Parameters Name="RemoteLauncher"/>
+						<Parameters Name="UseRemoteLauncher">False</Parameters>
+						<Parameters Name="RemoteCWD"/>
+						<Parameters Name="RemoteDebug">False</Parameters>
+					</Parameters>
+					<ProjectProperties>
+						<ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+						<ProjectProperties Name="ManagePaths">True</ProjectProperties>
+						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+					</ProjectProperties>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k150.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp150.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k150.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp150.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+					<VFOLDERS>
+						<VFOLDER name="Forms" ID="{30CCD2F5-ABBC-4738-930B-65CD2E851729}"/>
+						<VFOLDER name="listen" ID="{734BC389-AEE9-4472-A040-34579FF572F1}">
+							<VFOLDER name="json" ID="{1197610A-CA15-4925-A3EC-E35876483CDB}"/>
+							<VFOLDER name="listeners" ID="{99B9D8D1-AEFA-4C0F-A2F9-1C73F70FC734}"/>
+						</VFOLDER>
+						<VFOLDER name="Other" ID="{6D7EB1C9-F9A3-468A-9C51-A13F9593F038}"/>
+					</VFOLDERS>
+				</CPlusPlusBuilder.Personality>
+				<ModelSupport>False</ModelSupport>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

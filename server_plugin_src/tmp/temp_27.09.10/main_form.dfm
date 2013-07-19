@@ -1,0 +1,512 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'WebChat plugin'
+  ClientHeight = 222
+  ClientWidth = 574
+  Color = clBtnFace
+  Constraints.MaxHeight = 250
+  Constraints.MaxWidth = 580
+  Constraints.MinHeight = 250
+  Constraints.MinWidth = 580
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Icon.Data = {
+    0000010001001010000001000800680500001600000028000000100000002000
+    0000010008000000000040010000000000000000000000010000000000000000
+    0000FFFFFF005D99CD0070A7D6005193CA007AAFDC0074AAD8005B98CB004F90
+    C70072A7D40076AAD70077ACD90078AEDB003D7DB400598DBB004180B700558C
+    BA004B88BC003F80B7005B8FBC00518BBC003B7DB4003A7DB600256399003167
+    950025659C0033679400326897002B679B00386C9900236399001A507E001C52
+    8000124E800016548A001A4E7B001B5383001751820026669C00356996002866
+    9C00386D99002B689B002567A00034689600286296003F7FB5005089BB00387B
+    B40048FF85006CFF9D0090FFB500B4FFCD00003E0000005D0000007C0000009B
+    000000BA000000D9000000F0000024FF240048FF48006CFF6C0090FF9000B4FF
+    B400143E00001E5D0000287C0000329B00003CBA000046D9000055F000006DFF
+    240085FF48009DFF6C00B5FF9000CDFFB4002A3E00003F5D0000547C0000699B
+    00007EBA000093D90000AAF00000B6FF2400C2FF4800CEFF6C00DAFF9000E6FF
+    B4003E3E00005D5D00007C7C00009B9B0000BABA0000D9D90000F0F00000FFFF
+    2400FFFF4800FFFF6C00FFFF9000FFFFB4003E2A00005D3F00007C5400009B69
+    0000BA7E0000D9930000F0AA0000FFB62400FFC24800FFCE6C00FFDA9000FFE6
+    B4003E1400005D1E00007C2800009B320000BA3C0000D9460000F0550000FF6D
+    2400FF854800FF9D6C00FFB59000FFCDB4003E0000005D0000007C0000009B00
+    0000BA000000D9000000F0000000FF242400FF484800FF6C6C00FF909000FFB4
+    B4003E0014005D001E007C0028009B003200BA003C00D9004600F0005500FF24
+    6D00FF488500FF6C9D00FF90B500FFB4CD003E002A005D003F007C0054009B00
+    6900BA007E00D9009300F000AA00FF24B600FF48C200FF6CCE00FF90DA00FFB4
+    E6003E003E005D005D007C007C009B009B00BA00BA00D900D900F000F000FF24
+    FF00FF48FF00FF6CFF00FF90FF00FFB4FF002A003E003F005D0054007C006900
+    9B007E00BA009300D900AA00F000B624FF00C248FF00CE6CFF00DA90FF00E6B4
+    FF0014003E001E005D0028007C0032009B003C00BA004600D9005500F0006D24
+    FF008548FF009D6CFF00B590FF00CDB4FF0000000000C8A06700C8A06700B804
+    0000D0A06700B004000000000000000000000000000000000000000000000000
+    00000000000000000000000000000000000004A1670004A167007C0400001000
+    0000010001000000000040000000000000000000000002000000000000000000
+    0000FFFFFF00481B49004B0000004C0000003B3C0E00003E3F00134100004300
+    4400323334000035040037380000090A0B000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    00002E002F000000000000300000000000262728292A0000002B2C1B2D000000
+    001F20212223000000242500000000001718191A001B1C00001D1E000000000D
+    0E0F001011121300001415000016000203000004050006070008090A0B0C0000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    000000000000000000000000000000000000000000000000000000000000FFFF
+    0000FFFF0000FFFF0000FFFF0000F5FB0000E0E10000E0E70000C26700008866
+    000099200000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000}
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object states_list_rich: TRichEdit
+    Left = 0
+    Top = 257
+    Width = 574
+    Height = 0
+    Hint = 
+      #1056#1072#1089#1094#1074#1077#1090#1082#1072': '#1050#1088#1072#1089#1085#1099#1081' '#1090#1077#1082#1089#1090' - '#1086#1096#1080#1073#1082#1072', '#1054#1083#1080#1074#1082#1086#1074#1099#1081' - '#1087#1088#1077#1076#1091#1087#1088#1077#1078#1076#1077#1085#1080#1077', '#1063 +
+      #1105#1088#1085#1099#1081' - '#1086#1073#1099#1095#1085#1086#1077' '#1091#1074#1077#1076#1086#1084#1083#1077#1085#1080#1077
+    Align = alClient
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    ParentShowHint = False
+    ReadOnly = True
+    ScrollBars = ssVertical
+    ShowHint = True
+    TabOrder = 0
+  end
+  object info_panel: TPanel
+    Left = 0
+    Top = 0
+    Width = 574
+    Height = 257
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 1
+    object errors_label: TLabel
+      Left = 9
+      Top = 9
+      Width = 44
+      Height = 13
+      Hint = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1089#1077#1088#1100#1105#1079#1085#1099#1093' '#1086#1096#1080#1073#1086#1082
+      Caption = #1054#1096#1080#1073#1086#1082':'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object warnings_label: TLabel
+      Left = 9
+      Top = 28
+      Width = 93
+      Height = 13
+      Hint = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' '#1086#1073#1088#1072#1073#1086#1090#1072#1085#1085#1099#1093' '#1086#1096#1080#1073#1086#1082' - '#1087#1088#1077#1076#1091#1087#1088#1077#1078#1076#1077#1085#1080#1081
+      Caption = #1055#1088#1077#1076#1091#1087#1088#1077#1078#1076#1077#1085#1080#1081':'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object online_users_label: TLabel
+      Left = 9
+      Top = 47
+      Width = 122
+      Height = 31
+      Hint = #1050#1086#1083#1080#1095#1089#1090#1074#1086' '#1086#1085#1083#1072#1081#1085' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1077#1081' '#1074' '#1072#1082#1090#1080#1074#1085#1086#1084' '#1082#1072#1085#1072#1083#1077
+      AutoSize = False
+      Caption = #1054#1085#1083#1072#1081#1085' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1077#1081':'
+      Enabled = False
+      ParentShowHint = False
+      ShowHint = True
+      Layout = tlCenter
+    end
+    object bd_connection_label: TLabel
+      Left = 9
+      Top = 84
+      Width = 101
+      Height = 32
+      Hint = #1054#1087#1088#1077#1076#1077#1083#1103#1077#1090' '#1089#1086#1089#1090#1086#1103#1085#1080#1077' '#1089#1074#1103#1079#1080' '#1089' '#1073#1072#1079#1086#1081' '#1076#1072#1085#1085#1099#1093
+      AutoSize = False
+      Caption = #1055#1086#1076#1082#1083#1102#1095#1077#1085#1080#1077' '#1082' '#1041#1044':'
+      ParentShowHint = False
+      ShowHint = True
+      Layout = tlCenter
+    end
+    object plugin_state_label: TLabel
+      Left = 9
+      Top = 122
+      Width = 102
+      Height = 32
+      Hint = 
+        #1057#1086#1089#1090#1086#1103#1085#1080#1077' '#1087#1083#1072#1075#1080#1085#1072' '#1086#1087#1088#1077#1076#1077#1083#1103#1077#1090' '#1086#1073#1088#1072#1073#1086#1090#1082#1091' '#1087#1086#1089#1090#1091#1087#1072#1102#1097#1080#1093' '#1089#1086#1086#1073#1097#1077#1085#1080#1081' '#1086#1090' ' +
+        #1089#1077#1088#1074#1077#1088#1072' ('#1074#1093#1086#1076' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1077#1081', '#1089#1084#1077#1085#1072' '#1089#1086#1089#1090#1086#1103#1085#1080#1103'...)'
+      AutoSize = False
+      BiDiMode = bdLeftToRight
+      Caption = #1057#1086#1089#1090#1086#1103#1085#1080#1077' '#1087#1083#1072#1075#1080#1085#1072':'
+      ParentBiDiMode = False
+      ParentShowHint = False
+      ShowHint = True
+      Layout = tlCenter
+    end
+    object web_public_state_label: TLabel
+      Left = 9
+      Top = 160
+      Width = 159
+      Height = 32
+      Hint = 
+        #1054#1087#1088#1077#1076#1077#1083#1103#1077#1090' '#1074#1082#1083#1102#1095#1077#1085#1072' '#1083#1080' '#1087#1091#1073#1083#1080#1082#1072#1094#1080#1103' '#1089#1086#1086#1073#1097#1077#1085#1080#1081' '#1074' '#1095#1072#1090' '#1089' '#1074#1077#1073'-'#1080#1085#1090#1077#1088#1092#1077#1081 +
+        #1089#1072
+      AutoSize = False
+      Caption = #1055#1091#1073#1083#1080#1082#1072#1094#1080#1103' '#1089#1086#1086#1073#1097#1077#1085#1080#1081' '#1089' '#1074#1077#1073#1072':'
+      Enabled = False
+      ParentShowHint = False
+      ShowHint = True
+      Layout = tlCenter
+    end
+    object next_web_public_label: TLabel
+      Left = 23
+      Top = 195
+      Width = 145
+      Height = 13
+      Hint = #1042#1088#1077#1084#1103' '#1076#1086' '#1089#1083#1077#1076#1091#1102#1097#1077#1081' '#1087#1088#1086#1074#1077#1088#1082#1080' '#1085#1086#1074#1099#1093' '#1089#1086#1086#1073#1097#1077#1085#1080#1081' '#1074' '#1041#1044
+      Caption = #1057#1083#1077#1076#1091#1102#1097#1072#1103' '#1087#1088#1086#1074#1077#1088#1082#1072' ('#1089#1077#1082'):'
+      Enabled = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object errors_state: TLabel
+      Left = 174
+      Top = 9
+      Width = 116
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = '0'
+    end
+    object warnings_state: TLabel
+      Left = 174
+      Top = 28
+      Width = 116
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = '0'
+    end
+    object online_users_state: TLabel
+      Left = 174
+      Top = 47
+      Width = 116
+      Height = 31
+      Alignment = taCenter
+      AutoSize = False
+      Caption = '0'
+      Enabled = False
+      Layout = tlCenter
+    end
+    object bd_connection_state: TLabel
+      Left = 176
+      Top = 84
+      Width = 114
+      Height = 32
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #1054#1090#1089#1091#1090#1089#1090#1074#1091#1077#1090
+      Layout = tlCenter
+    end
+    object plugin_state: TLabel
+      Left = 176
+      Top = 122
+      Width = 114
+      Height = 32
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #1054#1090#1082#1083#1102#1095#1077#1085
+      Layout = tlCenter
+    end
+    object web_public_state: TLabel
+      Left = 174
+      Top = 160
+      Width = 116
+      Height = 32
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #1042#1099#1082#1083#1102#1095#1077#1085#1072
+      Enabled = False
+      Layout = tlCenter
+    end
+    object next_web_public: TLabel
+      Left = 176
+      Top = 195
+      Width = 114
+      Height = 13
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #1054#1090#1082#1083#1102#1095#1077#1085#1072
+      Enabled = False
+    end
+    object open_log_but: TButton
+      Left = 296
+      Top = 9
+      Width = 75
+      Height = 32
+      Caption = #1054#1090#1082#1088#1099#1090#1100' '#1083#1086#1075
+      TabOrder = 0
+      OnClick = open_log_butClick
+    end
+    object online_users_but: TButton
+      Left = 296
+      Top = 46
+      Width = 75
+      Height = 32
+      Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+      Enabled = False
+      TabOrder = 1
+      OnClick = online_users_butClick
+    end
+    object bd_connection_but: TButton
+      Left = 296
+      Top = 84
+      Width = 75
+      Height = 32
+      Caption = #1055#1086#1076#1082#1083#1102#1095#1080#1090#1100
+      TabOrder = 2
+      OnClick = bd_connection_butClick
+    end
+    object plugin_state_but: TButton
+      Left = 296
+      Top = 122
+      Width = 75
+      Height = 32
+      Caption = #1042#1082#1083#1102#1095#1080#1090#1100
+      TabOrder = 3
+      OnClick = plugin_state_butClick
+    end
+    object web_public_state_but: TButton
+      Left = 296
+      Top = 160
+      Width = 75
+      Height = 32
+      Caption = #1042#1082#1083#1102#1095#1080#1090#1100
+      Enabled = False
+      TabOrder = 4
+      OnClick = web_public_state_butClick
+    end
+    object clear_logs_but: TButton
+      Left = 186
+      Top = 227
+      Width = 176
+      Height = 25
+      Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1089#1087#1080#1089#1086#1082' '#1083#1086#1075#1086#1074
+      TabOrder = 5
+      OnClick = clear_logs_butClick
+    end
+    object main_box: TGroupBox
+      Left = 377
+      Top = 1
+      Width = 190
+      Height = 217
+      Caption = #1057#1080#1089#1090#1077#1084#1072
+      TabOrder = 6
+      object stop_plugin_but: TButton
+        Left = 7
+        Top = 121
+        Width = 177
+        Height = 32
+        Hint = #1055#1086#1083#1085#1072#1103' '#1086#1089#1090#1072#1085#1086#1074#1082#1072' '#1087#1083#1072#1075#1080#1085#1072
+        Caption = #1054#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1087#1083#1072#1075#1080#1085
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        WordWrap = True
+        OnClick = stop_plugin_butClick
+      end
+      object about_but: TButton
+        Left = 7
+        Top = 83
+        Width = 177
+        Height = 32
+        Hint = #1055#1088#1086#1089#1084#1086#1090#1088#1077#1090#1100' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1102' '#1086' '#1087#1083#1072#1075#1080#1085#1077
+        Caption = #1054' '#1087#1083#1072#1075#1080#1085#1077
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+        OnClick = about_butClick
+      end
+      object settings_but: TButton
+        Left = 7
+        Top = 45
+        Width = 177
+        Height = 32
+        Hint = #1053#1072#1089#1090#1088#1086#1080#1090#1100' '#1087#1083#1072#1075#1080#1085
+        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+        OnClick = settings_butClick
+      end
+    end
+  end
+  object full_refresh_timer: TTimer
+    Left = 456
+    Top = 160
+  end
+  object bd_sql_connection1: TSQLConnection
+    ConnectionName = 'MySQLConnection'
+    DriverName = 'MySQL'
+    GetDriverFunc = 'getSQLDriverMYSQL'
+    LibraryName = 'dbxmys.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=MySQL'
+      'HostName=localhost'
+      'Database=drupal'
+      'User_Name=root'
+      'Password='
+      'ServerCharSet=utf8'
+      
+        'ConnectionString=DriverName=MySQL,HostName=localhost,Database=dr' +
+        'upal,User_Name=root,Password=,ServerCharSet=utf8,ConnectionStrin' +
+        'g=DriverName=MySQL,HostName=localhost,Database=drupal,User_Name=' +
+        'root,Password=,ServerCharSet=utf8,ConnectionString=DriverName=My' +
+        'SQL,HostName=localhost,Database=test,User_Name=root,Password=,Se' +
+        'rverCharSet=0000')
+    VendorLib = 'libmysql.dll'
+    AfterConnect = bd_sql_connection1AfterConnect
+    AfterDisconnect = bd_sql_connection1AfterDisconnect
+    Left = 512
+  end
+  object tray_icon: TTrayIcon
+    Hint = 'WebChat Plugin'
+    Icon.Data = {
+      0000010001001010000001000800680500001600000028000000100000002000
+      0000010008000000000040010000000000000000000000010000000000000000
+      0000FFFFFF005D99CD0070A7D6005193CA007AAFDC0074AAD8005B98CB004F90
+      C70072A7D40076AAD70077ACD90078AEDB003D7DB400598DBB004180B700558C
+      BA004B88BC003F80B7005B8FBC00518BBC003B7DB4003A7DB600256399003167
+      950025659C0033679400326897002B679B00386C9900236399001A507E001C52
+      8000124E800016548A001A4E7B001B5383001751820026669C00356996002866
+      9C00386D99002B689B002567A00034689600286296003F7FB5005089BB00387B
+      B40048FF85006CFF9D0090FFB500B4FFCD00003E0000005D0000007C0000009B
+      000000BA000000D9000000F0000024FF240048FF48006CFF6C0090FF9000B4FF
+      B400143E00001E5D0000287C0000329B00003CBA000046D9000055F000006DFF
+      240085FF48009DFF6C00B5FF9000CDFFB4002A3E00003F5D0000547C0000699B
+      00007EBA000093D90000AAF00000B6FF2400C2FF4800CEFF6C00DAFF9000E6FF
+      B4003E3E00005D5D00007C7C00009B9B0000BABA0000D9D90000F0F00000FFFF
+      2400FFFF4800FFFF6C00FFFF9000FFFFB4003E2A00005D3F00007C5400009B69
+      0000BA7E0000D9930000F0AA0000FFB62400FFC24800FFCE6C00FFDA9000FFE6
+      B4003E1400005D1E00007C2800009B320000BA3C0000D9460000F0550000FF6D
+      2400FF854800FF9D6C00FFB59000FFCDB4003E0000005D0000007C0000009B00
+      0000BA000000D9000000F0000000FF242400FF484800FF6C6C00FF909000FFB4
+      B4003E0014005D001E007C0028009B003200BA003C00D9004600F0005500FF24
+      6D00FF488500FF6C9D00FF90B500FFB4CD003E002A005D003F007C0054009B00
+      6900BA007E00D9009300F000AA00FF24B600FF48C200FF6CCE00FF90DA00FFB4
+      E6003E003E005D005D007C007C009B009B00BA00BA00D900D900F000F000FF24
+      FF00FF48FF00FF6CFF00FF90FF00FFB4FF002A003E003F005D0054007C006900
+      9B007E00BA009300D900AA00F000B624FF00C248FF00CE6CFF00DA90FF00E6B4
+      FF0014003E001E005D0028007C0032009B003C00BA004600D9005500F0006D24
+      FF008548FF009D6CFF00B590FF00CDB4FF0000000000C8A06700C8A06700B804
+      0000D0A06700B004000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000004A1670004A167007C0400001000
+      0000010001000000000040000000000000000000000002000000000000000000
+      0000FFFFFF00481B49004B0000004C0000003B3C0E00003E3F00134100004300
+      4400323334000035040037380000090A0B000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00002E002F000000000000300000000000262728292A0000002B2C1B2D000000
+      001F20212223000000242500000000001718191A001B1C00001D1E000000000D
+      0E0F001011121300001415000016000203000004050006070008090A0B0C0000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000FFFF
+      0000FFFF0000FFFF0000FFFF0000F5FB0000E0E10000E0E70000C26700008866
+      000099200000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000}
+    PopupMenu = tray_popup
+    Visible = True
+    OnClick = tray_iconClick
+    Left = 392
+    Top = 168
+  end
+  object send_from_web_timer: TTimer
+    Enabled = False
+    OnTimer = send_from_web_timerTimer
+    Left = 520
+    Top = 168
+  end
+  object result_set1: TSQLDataSet
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftWideMemo
+        Name = 'body'
+        ParamType = ptUnknown
+        Value = ''
+      end>
+    SQLConnection = bd_sql_connection1
+    Left = 392
+  end
+  object tray_popup: TPopupMenu
+    Left = 448
+    object open_window_item: TMenuItem
+      Tag = 1
+      Caption = #1057#1074#1077#1088#1085#1091#1090#1100' '#1086#1082#1085#1086
+      OnClick = open_window_itemClick
+    end
+    object plugin_state_item: TMenuItem
+      Caption = #1042#1082#1083#1102#1095#1080#1090#1100' '#1087#1083#1072#1075#1080#1085
+      OnClick = plugin_state_itemClick
+    end
+    object plugin_terminate_item: TMenuItem
+      Caption = #1054#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1087#1083#1072#1075#1080#1085
+      OnClick = plugin_terminate_itemClick
+    end
+    object settings_item: TMenuItem
+      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
+      OnClick = settings_itemClick
+    end
+    object about_item: TMenuItem
+      Caption = #1054' '#1087#1083#1072#1075#1080#1085#1077
+      OnClick = about_itemClick
+    end
+  end
+  object bd_sql_connection: TMyConnection
+    Database = 'drupal'
+    ConnectionTimeout = 5
+    Options.UseUnicode = True
+    Options.LocalFailover = True
+    Username = 'root'
+    Server = 'localhost'
+    OnConnectionLost = bd_sql_connectionConnectionLost
+    LoginPrompt = False
+    Left = 144
+    Top = 80
+  end
+  object IdTCPClient1: TIdTCPClient
+    OnConnected = IdTCPClient1Connected
+    ConnectTimeout = 500
+    Host = 'localhost'
+    IPVersion = Id_IPv4
+    Port = 3306
+    ReadTimeout = -1
+    Left = 152
+    Top = 16
+  end
+end

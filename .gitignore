@@ -1,0 +1,7 @@
+server_plugin_src/Release
+server_plugin_src/Debug
+server_plugin_src/__history
+server_plugin_src/listeners/__history
+server_plugin_src/json/__history
+server_plugin_src/db/__history
+.svn

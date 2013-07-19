@@ -1,0 +1,39 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{1A7759F8-C689-4ACB-9143-1683F57C4C88}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="webchat.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\comm_plug\webchat.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="webchat">
+			<MSBuild Projects="..\comm_plug\webchat.dproj"/>
+		</Target>
+		<Target Name="webchat:Clean">
+			<MSBuild Targets="Clean" Projects="..\comm_plug\webchat.dproj"/>
+		</Target>
+		<Target Name="webchat:Make">
+			<MSBuild Targets="Make" Projects="..\comm_plug\webchat.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="webchat;webchat"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="webchat:Clean;webchat:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="webchat:Make;webchat:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
