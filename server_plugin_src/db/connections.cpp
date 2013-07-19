@@ -36,7 +36,7 @@
 #pragma package(smart_init)
 LogicalConnections logical_connections;
 
-// Генерирует случайный хеш для идентификатора соединения.
+// Р“РµРЅРµСЂРёСЂСѓРµС‚ СЃР»СѓС‡Р°Р№РЅС‹Р№ С…РµС€ РґР»СЏ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂР° СЃРѕРµРґРёРЅРµРЅРёСЏ.
 String RandomHashGen() {
 	int rand_num;
 	String conn_id;
@@ -58,8 +58,8 @@ String RandomHashGen() {
   return conn_id;
 }
 
-// Добавляет соединение.
-// Возвращает идентификатор созданного соединения.
+// Р”РѕР±Р°РІР»СЏРµС‚ СЃРѕРµРґРёРЅРµРЅРёРµ.
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРѕР·РґР°РЅРЅРѕРіРѕ СЃРѕРµРґРёРЅРµРЅРёСЏ.
 String AddConnection(String app_name, String ip, SOCKET sock, bool auto_actions_get, unsigned int transport) {
 	String conn_id = RandomHashGen();
 
@@ -86,8 +86,8 @@ String AddConnection(String app_name, String ip, SOCKET sock, bool auto_actions_
 	return conn_id;
 }
 
-// Ищет соединение по идентификатору.
-// Возвращает итератор.
+// РС‰РµС‚ СЃРѕРµРґРёРЅРµРЅРёРµ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ.
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ РёС‚РµСЂР°С‚РѕСЂ.
 LogicalConnections::iterator SearchConnection(String conn_id) {
 	LogicalConnections::iterator res;
 	bool is_found = false;
@@ -118,8 +118,8 @@ LogicalConnections::iterator SearchConnection(String conn_id) {
 	return res;
 }
 
-// Ищет соединение по сокету.
-// Возвращает итератор.
+// РС‰РµС‚ СЃРѕРµРґРёРЅРµРЅРёРµ РїРѕ СЃРѕРєРµС‚Сѓ.
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ РёС‚РµСЂР°С‚РѕСЂ.
 LogicalConnections::iterator SearchBySocket(SOCKET &sock) {
 	LogicalConnections::iterator res;
 	bool is_found = false;
@@ -183,8 +183,8 @@ LogicalConnections::iterator SearchByIP(String ip) {
 	return res;
 }
 
-// Ищет соединение по имени виртуального пользователя.
-// Возвращает итератор.
+// РС‰РµС‚ СЃРѕРµРґРёРЅРµРЅРёРµ РїРѕ РёРјРµРЅРё РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ РёС‚РµСЂР°С‚РѕСЂ.
 LogicalConnections::iterator FindConnectionByUser(String user) {
 	LogicalConnections::iterator result, connection;
 
@@ -379,12 +379,12 @@ void FullUserConnectionDelete(LogicalConnections::iterator conn) {
 	LeaveCriticalSection(&connections_manipulation_cs);
 }
 
-// Удаляет соединение по его id.
+// РЈРґР°Р»СЏРµС‚ СЃРѕРµРґРёРЅРµРЅРёРµ РїРѕ РµРіРѕ id.
 void DeleteConnection(String conn_id) {
 	DeleteConnection(SearchConnection(conn_id));
 }
 
-// Удаляет соединение по заранее известному итератору + отключение пользователя, если он не аноним.
+// РЈРґР°Р»СЏРµС‚ СЃРѕРµРґРёРЅРµРЅРёРµ РїРѕ Р·Р°СЂР°РЅРµРµ РёР·РІРµСЃС‚РЅРѕРјСѓ РёС‚РµСЂР°С‚РѕСЂСѓ + РѕС‚РєР»СЋС‡РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РµСЃР»Рё РѕРЅ РЅРµ Р°РЅРѕРЅРёРј.
 void DeleteConnection(LogicalConnections::iterator conn) {
 	try {
 		EnterCriticalSection(&connections_manipulation_cs);
@@ -411,7 +411,7 @@ void DeleteConnection(LogicalConnections::iterator conn) {
 	LeaveCriticalSection(&connections_manipulation_cs);
 }
 
-// Устанавливает итератор виртуального пользователя в соединении.
+// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РёС‚РµСЂР°С‚РѕСЂ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ СЃРѕРµРґРёРЅРµРЅРёРё.
 void SetConnectionUser(LogicalConnections::iterator conn, OnlineUsersList::iterator user) {
 	try {
 		EnterCriticalSection(&connections_manipulation_cs);
@@ -432,7 +432,7 @@ void SetConnectionUser(LogicalConnections::iterator conn, OnlineUsersList::itera
 	LeaveCriticalSection(&connections_manipulation_cs);
 }
 
-// Устанавливает итератор виртуального пользователя на конец, убирает состояние авторизации и удаляет пользователя.
+// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РёС‚РµСЂР°С‚РѕСЂ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅР° РєРѕРЅРµС†, СѓР±РёСЂР°РµС‚ СЃРѕСЃС‚РѕСЏРЅРёРµ Р°РІС‚РѕСЂРёР·Р°С†РёРё Рё СѓРґР°Р»СЏРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 void UnsetConnectionUser(String user) {
 	UnsetConnectionUser(FindConnectionByUser(user));
 }
@@ -463,7 +463,7 @@ void UnsetConnectionUser(LogicalConnections::iterator conn) {
 	LeaveCriticalSection(&connections_manipulation_cs);
 }
 
-// Обновляет время последнего действия для соединения.
+// РћР±РЅРѕРІР»СЏРµС‚ РІСЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РґРµР№СЃС‚РІРёСЏ РґР»СЏ СЃРѕРµРґРёРЅРµРЅРёСЏ.
 void UpdateConnectionLastAction(String conn_id) {
 	LogicalConnections::iterator conn = SearchConnection(conn_id);
 
@@ -488,7 +488,7 @@ void UpdateConnectionLastAction(LogicalConnections::iterator conn) {
 	LeaveCriticalSection(&connections_manipulation_cs);
 }
 
-// Получение состояния авторизации соединения по его id.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё СЃРѕРµРґРёРЅРµРЅРёСЏ РїРѕ РµРіРѕ id.
 void SetAuthorizationStatus(LogicalConnections::iterator connection, int authorization_status) {
 	try {
 		EnterCriticalSection(&connections_manipulation_cs);
@@ -546,7 +546,7 @@ void SetConnectionActionsGet(LogicalConnections::iterator connection, bool auto_
 	LeaveCriticalSection(&connections_manipulation_cs);
 }
 
-// Получение состояния авторизации соединения по его id.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё СЃРѕРµРґРёРЅРµРЅРёСЏ РїРѕ РµРіРѕ id.
 void SetAuthorizationStatus(String conn_id, int authorization_status) {
 	LogicalConnections::iterator connection = SearchConnection(conn_id);
 
@@ -572,7 +572,7 @@ int GetAuthorizationStatus(LogicalConnections::iterator connection) {
 	return authorization_status;
 }
 
-// Получение состояния авторизации соединения по его id.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё СЃРѕРµРґРёРЅРµРЅРёСЏ РїРѕ РµРіРѕ id.
 int GetAuthorizationStatus(String conn_id) {
 	return GetAuthorizationStatus(SearchConnection(conn_id));
 }
@@ -599,7 +599,7 @@ bool IsHTTPConnection(LogicalConnections::iterator connection) {
 	return is_http;
 }
 
-// Проверка соединения на существование по указанному идентификатору.
+// РџСЂРѕРІРµСЂРєР° СЃРѕРµРґРёРЅРµРЅРёСЏ РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ.
 bool ConnectionExists(LogicalConnections::iterator connection) {
 	bool result = false;
 
@@ -619,14 +619,14 @@ bool ConnectionExists(LogicalConnections::iterator connection) {
 	return result;
 }
 
-// Проверка соединения на существование по указанному идентификатору.
+// РџСЂРѕРІРµСЂРєР° СЃРѕРµРґРёРЅРµРЅРёСЏ РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ.
 bool ConnectionExists(String conn_id) {
 	bool result = ConnectionExists(SearchConnection(conn_id));
 
 	return result;
 }
 
-// Очистка списка пользователей.
+// РћС‡РёСЃС‚РєР° СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№.
 void Clear() {
 	try {
 		EnterCriticalSection(&connections_manipulation_cs);
@@ -637,8 +637,8 @@ void Clear() {
 	}
 }
 
-// Запрашивает состояние авторизации пользователя у соединения.
-// Возвращает ответ на вопрос: Пользователь онлайн или возможно скоро будет онлайн?
+// Р—Р°РїСЂР°С€РёРІР°РµС‚ СЃРѕСЃС‚РѕСЏРЅРёРµ Р°РІС‚РѕСЂРёР·Р°С†РёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ СЃРѕРµРґРёРЅРµРЅРёСЏ.
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ РѕС‚РІРµС‚ РЅР° РІРѕРїСЂРѕСЃ: РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РѕРЅР»Р°Р№РЅ РёР»Рё РІРѕР·РјРѕР¶РЅРѕ СЃРєРѕСЂРѕ Р±СѓРґРµС‚ РѕРЅР»Р°Р№РЅ?
 bool GetUserOnlineStatus(LogicalConnections::iterator conn) {
 	bool in_chat = false;
 

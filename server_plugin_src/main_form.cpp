@@ -85,7 +85,7 @@ int TMainForm::CFProcessRequest(TMessage &Message) {
 //---------------------------------------------------------------------------
 
 void __fastcall TMainForm::exception_handler(TObject *Sender, Exception *E) {
-  MainEvent("Íåèçâåñòíàÿ îøèáêà: \"" + E->Message + "\" ñ ïîìåòêîé \"" + E->ClassName() + "\" â ıëåìåíòå " + Sender->ClassName(), 2);
+  MainEvent("ĞĞµĞ¸Ğ·Ğ²ĞµÑÑ‚Ğ½Ğ°Ñ Ğ¾ÑˆĞ¸Ğ±ĞºĞ°: \"" + E->Message + "\" Ñ Ğ¿Ğ¾Ğ¼ĞµÑ‚ĞºĞ¾Ğ¹ \"" + E->ClassName() + "\" Ğ² ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğµ " + Sender->ClassName(), 2);
 }
 //---------------------------------------------------------------------------
 void TMainForm::load_first_config_run_form() {
@@ -96,7 +96,7 @@ void TMainForm::load_first_config_run_form() {
 }
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::FormClose(TObject *Sender, TCloseAction &Action) {
-	open_window_item->Caption = "Îòêğûòü îêíî";
+	open_window_item->Caption = "ĞÑ‚ĞºÑ€Ñ‹Ñ‚ÑŒ Ğ¾ĞºĞ½Ğ¾";
 }
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::tray_iconClick(TObject *Sender) {
@@ -110,7 +110,7 @@ void __fastcall TMainForm::load_first_config_butClick(TObject *Sender) {
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::online_users_butClick(TObject *Sender) {
 	try {
-    	// Ïîëíîñòüş îáíîâëÿåì ñïèñîê ïîëüçîâàòåëåé â ÁÄ è òàáëèö ñîîòâåòñòâèé ïîëüçîâàòåëü=êàíàë.
+    	// ĞŸĞ¾Ğ»Ğ½Ğ¾ÑÑ‚ÑŒÑ Ğ¾Ğ±Ğ½Ğ¾Ğ²Ğ»ÑĞµĞ¼ ÑĞ¿Ğ¸ÑĞ¾Ğº Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ĞµĞ¹ Ğ² Ğ‘Ğ” Ğ¸ Ñ‚Ğ°Ğ±Ğ»Ğ¸Ñ† ÑĞ¾Ğ¾Ñ‚Ğ²ĞµÑ‚ÑÑ‚Ğ²Ğ¸Ğ¹ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒ=ĞºĞ°Ğ½Ğ°Ğ».
 		UpdateUsersList();
 		MainEvent(n_users_list_updated, 0);    
 	} catch (String error) {
@@ -119,7 +119,7 @@ void __fastcall TMainForm::online_users_butClick(TObject *Sender) {
 }
 //---------------------------------------------------------------------------
 void TMainForm::set_window_height() {
-	// Óñòàíàâëèâàåì ñòàòè÷åñêóş âûñîòó îêíà ó÷èòûâàÿ âûñîòó âåğõíåãî áàğà, êîòîğàÿ ìîæåò áûòü âåçäå ğàçíàÿ.
+	// Ğ£ÑÑ‚Ğ°Ğ½Ğ°Ğ²Ğ»Ğ¸Ğ²Ğ°ĞµĞ¼ ÑÑ‚Ğ°Ñ‚Ğ¸Ñ‡ĞµÑĞºÑƒÑ Ğ²Ñ‹ÑĞ¾Ñ‚Ñƒ Ğ¾ĞºĞ½Ğ° ÑƒÑ‡Ğ¸Ñ‚Ñ‹Ğ²Ğ°Ñ Ğ²Ñ‹ÑĞ¾Ñ‚Ñƒ Ğ²ĞµÑ€Ñ…Ğ½ĞµĞ³Ğ¾ Ğ±Ğ°Ñ€Ğ°, ĞºĞ¾Ñ‚Ğ¾Ñ€Ğ°Ñ Ğ¼Ğ¾Ğ¶ĞµÑ‚ Ğ±Ñ‹Ñ‚ÑŒ Ğ²ĞµĞ·Ğ´Ğµ Ñ€Ğ°Ğ·Ğ½Ğ°Ñ.
 	int bar_height = Height - ClientHeight;
 	Constraints->MaxHeight = 170 + bar_height;
 	Constraints->MinHeight = 170 + bar_height;
@@ -134,8 +134,8 @@ void __fastcall TMainForm::plug_sync_butClick(TObject *Sender) {
 }
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::stop_plugin_butClick(TObject *Sender) {
-	int id = ShowMsg(Handle, "Âû äåéñòâèòåëüíî õîòèòå çàâåğøèòü ğàáîòó ïëàãèíà?"
-				" İòî ïğèâåä¸ò ê ïîëíîé îñòàíîâêå åãî ğàáîòû.", 3);
+	int id = ShowMsg(Handle, "Ğ’Ñ‹ Ğ´ĞµĞ¹ÑÑ‚Ğ²Ğ¸Ñ‚ĞµĞ»ÑŒĞ½Ğ¾ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ Ğ·Ğ°Ğ²ĞµÑ€ÑˆĞ¸Ñ‚ÑŒ Ñ€Ğ°Ğ±Ğ¾Ñ‚Ñƒ Ğ¿Ğ»Ğ°Ğ³Ğ¸Ğ½Ğ°?"
+				" Ğ­Ñ‚Ğ¾ Ğ¿Ñ€Ğ¸Ğ²ĞµĞ´Ñ‘Ñ‚ Ğº Ğ¿Ğ¾Ğ»Ğ½Ğ¾Ğ¹ Ğ¾ÑÑ‚Ğ°Ğ½Ğ¾Ğ²ĞºĞµ ĞµĞ³Ğ¾ Ñ€Ğ°Ğ±Ğ¾Ñ‚Ñ‹.", 3);
 	if (id == IDYES) {
 		(*CommFortProcess)(dwPluginID, 2100, NULL, NULL);
 	}
@@ -152,11 +152,11 @@ void __fastcall TMainForm::settings_butClick(TObject *Sender) {
 void __fastcall TMainForm::open_window_itemClick(TObject *Sender) {
 	if (Visible) {
 		Close();
-		open_window_item->Caption = "Îòêğûòü îêíî";
+		open_window_item->Caption = "ĞÑ‚ĞºÑ€Ñ‹Ñ‚ÑŒ Ğ¾ĞºĞ½Ğ¾";
 	}
 	else {
 		Show();
-		open_window_item->Caption = "Ñâåğíóòü îêíî";
+		open_window_item->Caption = "Ğ¡Ğ²ĞµÑ€Ğ½ÑƒÑ‚ÑŒ Ğ¾ĞºĞ½Ğ¾";
 	}
 }
 //---------------------------------------------------------------------------
@@ -179,7 +179,7 @@ void __fastcall TMainForm::plugin_state_itemClick(TObject *Sender) {
 void __fastcall TMainForm::work_time_timerTimer(TObject *Sender) {
 	work_time_timer->Enabled = false;
 
-	// Îáíîâëÿåì âğåìÿ.
+	// ĞĞ±Ğ½Ğ¾Ğ²Ğ»ÑĞµĞ¼ Ğ²Ñ€ĞµĞ¼Ñ.
 	time_plus_state->Caption = get_time_offset(work_time_begin);
 
 	work_time_timer->Enabled = true;
@@ -188,25 +188,20 @@ void __fastcall TMainForm::work_time_timerTimer(TObject *Sender) {
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::FormShow(TObject *Sender){
 	if (isfirstrun) {
-		int id = ShowMsg(Handle, "Ïëàãèí çàïóùåí âïåğâûå è òğåáóåò îáÿçàòåëüíîé íàñòğîéêè. Âíåñèòå íàñòğîéêè âî âñåõ ğàçäåëàõ", 4);
+		int id = ShowMsg(Handle, "ĞŸĞ»Ğ°Ğ³Ğ¸Ğ½ Ğ·Ğ°Ğ¿ÑƒÑ‰ĞµĞ½ Ğ²Ğ¿ĞµÑ€Ğ²Ñ‹Ğµ Ğ¸ Ñ‚Ñ€ĞµĞ±ÑƒĞµÑ‚ Ğ¾Ğ±ÑĞ·Ğ°Ñ‚ĞµĞ»ÑŒĞ½Ğ¾Ğ¹ Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹ĞºĞ¸. Ğ’Ğ½ĞµÑĞ¸Ñ‚Ğµ Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹ĞºĞ¸ Ğ²Ğ¾ Ğ²ÑĞµÑ… Ñ€Ğ°Ğ·Ğ´ĞµĞ»Ğ°Ñ…", 4);
 
-		//if (id == IDYES) {
-		//	load_first_config_run_form();
-		//}
-		//else {
-			TIniFile *inifile = NULL;
-			try {
-				inifile = new TIniFile(config_ini_path);
-				inifile->WriteBool("Additional Properties", "FirstPlugRun", false);
+		TIniFile *inifile = NULL;
+		try {
+			inifile = new TIniFile(config_ini_path);
+			inifile->WriteBool("Additional Properties", "FirstPlugRun", false);
+		}
+		__finally {
+			if (inifile) {
+				delete inifile;
 			}
-			__finally {
-				if (inifile) {
-					delete inifile;
-				}
-			}
+		}
 
-			PluginShowOptions();
-		//}
+		PluginShowOptions();
 	}
 }
 //---------------------------------------------------------------------------
@@ -214,7 +209,7 @@ void __fastcall TMainForm::FormCreate(TObject *Sender)
 {
 	last_log_memo->Hint = __("LastLogHint");
 
-	// Çàïóñêàåì òàéìåğ ïîêàçà âğåìåíè ğàáîòû ïëàãèíà è âêëş÷àåì ïîêàç âğåìåíè, åñëè ïîëüçîâàòåëü âûáèğàë ıòó îïöèş.
+	// Ğ—Ğ°Ğ¿ÑƒÑĞºĞ°ĞµĞ¼ Ñ‚Ğ°Ğ¹Ğ¼ĞµÑ€ Ğ¿Ğ¾ĞºĞ°Ğ·Ğ° Ğ²Ñ€ĞµĞ¼ĞµĞ½Ğ¸ Ñ€Ğ°Ğ±Ğ¾Ñ‚Ñ‹ Ğ¿Ğ»Ğ°Ğ³Ğ¸Ğ½Ğ° Ğ¸ Ğ²ĞºĞ»ÑÑ‡Ğ°ĞµĞ¼ Ğ¿Ğ¾ĞºĞ°Ğ· Ğ²Ñ€ĞµĞ¼ĞµĞ½Ğ¸, ĞµÑĞ»Ğ¸ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒ Ğ²Ñ‹Ğ±Ğ¸Ñ€Ğ°Ğ» ÑÑ‚Ñƒ Ğ¾Ğ¿Ñ†Ğ¸Ñ.
 	if (show_work_time) {
 		time_plus_lbl->Visible = true;
 		time_plus_state->Visible = true;
@@ -225,7 +220,6 @@ void __fastcall TMainForm::FormCreate(TObject *Sender)
         cron_timer->Enabled = true;
 	}
 
-	//set_window_height();
 	Application->OnException = exception_handler;
 
 	Caption = GetPluginFullName();
@@ -288,9 +282,6 @@ void __fastcall TMainForm::cron_timerTimer(TObject *Sender)
 		time_to_version_check = 1440;
 		GetVersionInfo();
 	}
-
-	//86400000
-	//cron_timer->Enabled = false;
 }
 //---------------------------------------------------------------------------
 

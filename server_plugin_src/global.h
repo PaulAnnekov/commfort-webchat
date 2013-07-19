@@ -30,78 +30,73 @@
 #include "main_form.h"
 
 
-// Объявления переменных.
+// РћР±СЉСЏРІР»РµРЅРёСЏ РїРµСЂРµРјРµРЅРЅС‹С….
 
-// Структура с названиями таблиц.
+// РЎС‚СЂСѓРєС‚СѓСЂР° СЃ РЅР°Р·РІР°РЅРёСЏРјРё С‚Р°Р±Р»РёС†.
 extern struct TABLE_NAMES_ST {
-	String users_online; //Название таблицы для хранения списка пользователей онлайн
-	String actions;      //Название таблицы для хранения всех действий в чате
-	//String mess_to_send; //Название таблицы для сообщений требующих отправки
-	//String settings;     //Название таблицы для настроек сервера
-	//String web_users;    //Название таблицы для списка пользователей с веба
-	String channels;     //Название со списком отслеживаемых каналов
-	String users;        //Название таблицы для списка зарегистрированных пользователей
-	String user_channel; //Название таблицы для сопоставления пользователя и каналов в которых он находится
+	String users_online; //РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РѕРЅР»Р°Р№РЅ
+	String actions;      //РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РІСЃРµС… РґРµР№СЃС‚РІРёР№ РІ С‡Р°С‚Рµ
+	String channels;     //РќР°Р·РІР°РЅРёРµ СЃРѕ СЃРїРёСЃРєРѕРј РѕС‚СЃР»РµР¶РёРІР°РµРјС‹С… РєР°РЅР°Р»РѕРІ
+	String users;        //РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РґР»СЏ СЃРїРёСЃРєР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+	String user_channel; //РќР°Р·РІР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ РґР»СЏ СЃРѕРїРѕСЃС‚Р°РІР»РµРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рё РєР°РЅР°Р»РѕРІ РІ РєРѕС‚РѕСЂС‹С… РѕРЅ РЅР°С…РѕРґРёС‚СЃСЏ
 } tbl_names;
 
-// Структура с данными для соединения с БД.
+// РЎС‚СЂСѓРєС‚СѓСЂР° СЃ РґР°РЅРЅС‹РјРё РґР»СЏ СЃРѕРµРґРёРЅРµРЅРёСЏ СЃ Р‘Р”.
 extern struct DB_PROP_ST {
-	String host; //Адрес хоста БД
-	String user; //Имя пользователя БД
-	String pass; //Пароль БД
-	String name; //Имя БД
+	String host; //РђРґСЂРµСЃ С…РѕСЃС‚Р° Р‘Р”
+	String user; //РРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Р‘Р”
+	String pass; //РџР°СЂРѕР»СЊ Р‘Р”
+	String name; //РРјСЏ Р‘Р”
 } db_prop;
 
-// Структура с данными для подключения бота.
+// РЎС‚СЂСѓРєС‚СѓСЂР° СЃ РґР°РЅРЅС‹РјРё РґР»СЏ РїРѕРґРєР»СЋС‡РµРЅРёСЏ Р±РѕС‚Р°.
 extern struct BOT_PROP_ST {
-	String name;    //ник бота
-	String ip;      //ip бота
-	String pass;    //пароль бота
-	bool is_female; //Бот женского пола?
+	String name;    //РЅРёРє Р±РѕС‚Р°
+	String ip;      //ip Р±РѕС‚Р°
+	String pass;    //РїР°СЂРѕР»СЊ Р±РѕС‚Р°
+	bool is_female; //Р‘РѕС‚ Р¶РµРЅСЃРєРѕРіРѕ РїРѕР»Р°?
 } bot_prop;
 
-extern int work_time_begin;  // Время начала работы плагина.
+extern int work_time_begin;  // Р’СЂРµРјСЏ РЅР°С‡Р°Р»Р° СЂР°Р±РѕС‚С‹ РїР»Р°РіРёРЅР°.
 
-extern String tables_prefix,       // Префикс таблиц
-              chnls_line, 	       // Список каналовв строку.
-			  plugin_data_path,    // Путь к папке с файлами плагина
-			  data_storage,       // Путь к папке с файловым хранилищем
-			  web_storage,         // Путь к папке в вебе с файловым хранилищем
-              language,            // Язык программы.
-			  config_ini_path;     // Путь к ini файлу конфига
+extern String tables_prefix,       // РџСЂРµС„РёРєСЃ С‚Р°Р±Р»РёС†
+              chnls_line, 	       // РЎРїРёСЃРѕРє РєР°РЅР°Р»РѕРІРІ СЃС‚СЂРѕРєСѓ.
+			  plugin_data_path,    // РџСѓС‚СЊ Рє РїР°РїРєРµ СЃ С„Р°Р№Р»Р°РјРё РїР»Р°РіРёРЅР°
+			  data_storage,       // РџСѓС‚СЊ Рє РїР°РїРєРµ СЃ С„Р°Р№Р»РѕРІС‹Рј С…СЂР°РЅРёР»РёС‰РµРј
+			  web_storage,         // РџСѓС‚СЊ Рє РїР°РїРєРµ РІ РІРµР±Рµ СЃ С„Р°Р№Р»РѕРІС‹Рј С…СЂР°РЅРёР»РёС‰РµРј
+              language,            // РЇР·С‹Рє РїСЂРѕРіСЂР°РјРјС‹.
+			  config_ini_path;     // РџСѓС‚СЊ Рє ini С„Р°Р№Р»Сѓ РєРѕРЅС„РёРіР°
 
 extern const COLORREF color[3];
 
-extern const String plugin_name,      // Название плагина.
-					plugin_version,       // Версия плагина.
-					json_rpc_version; // Версия JSON-RPC.
+extern const String plugin_name,      // РќР°Р·РІР°РЅРёРµ РїР»Р°РіРёРЅР°.
+					plugin_version,       // Р’РµСЂСЃРёСЏ РїР»Р°РіРёРЅР°.
+					json_rpc_version; // Р’РµСЂСЃРёСЏ JSON-RPC.
 
-extern bool visual_log,         //Визуальное логирование в окне включено?
-			file_log,           //Логирование в файлы включено?
-			sync_enabled,       //плагин работает?
-			auto_db_clear,      //автоматически чистить БД?
-			auto_log_clear,     //автоматически чистить визуальный лог?
-            show_work_time,     // Показывать время работы плагина?
-			plugin_started,     //был ли инициализирован плагин? (подгружаются настройки и т.п.)
-			sync_autostart,     //стартует ли плагин при включении?
-			isfirstrun,         //впервые ли запущен плагин?
-			channels_policy,    //политика отслеживания каналов - 0. Все, кроме из списка, 1. Только из списка
-			info_action_using,  //флаг, указывающий на занятость функции Лога. Используется для синхронного доступа нескольких процессов к функции Логирования
-			no_white_ips,       // Указывает как определять скрытие IP: через запрос к серверу или через белый список в настройках
+extern bool visual_log,         //Р’РёР·СѓР°Р»СЊРЅРѕРµ Р»РѕРіРёСЂРѕРІР°РЅРёРµ РІ РѕРєРЅРµ РІРєР»СЋС‡РµРЅРѕ?
+			file_log,           //Р›РѕРіРёСЂРѕРІР°РЅРёРµ РІ С„Р°Р№Р»С‹ РІРєР»СЋС‡РµРЅРѕ?
+			sync_enabled,       //РїР»Р°РіРёРЅ СЂР°Р±РѕС‚Р°РµС‚?
+			auto_db_clear,      //Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё С‡РёСЃС‚РёС‚СЊ Р‘Р”?
+			auto_log_clear,     //Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё С‡РёСЃС‚РёС‚СЊ РІРёР·СѓР°Р»СЊРЅС‹Р№ Р»РѕРі?
+            show_work_time,     // РџРѕРєР°Р·С‹РІР°С‚СЊ РІСЂРµРјСЏ СЂР°Р±РѕС‚С‹ РїР»Р°РіРёРЅР°?
+			plugin_started,     //Р±С‹Р» Р»Рё РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ РїР»Р°РіРёРЅ? (РїРѕРґРіСЂСѓР¶Р°СЋС‚СЃСЏ РЅР°СЃС‚СЂРѕР№РєРё Рё С‚.Рї.)
+			sync_autostart,     //СЃС‚Р°СЂС‚СѓРµС‚ Р»Рё РїР»Р°РіРёРЅ РїСЂРё РІРєР»СЋС‡РµРЅРёРё?
+			isfirstrun,         //РІРїРµСЂРІС‹Рµ Р»Рё Р·Р°РїСѓС‰РµРЅ РїР»Р°РіРёРЅ?
+			channels_policy,    //РїРѕР»РёС‚РёРєР° РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ РєР°РЅР°Р»РѕРІ - 0. Р’СЃРµ, РєСЂРѕРјРµ РёР· СЃРїРёСЃРєР°, 1. РўРѕР»СЊРєРѕ РёР· СЃРїРёСЃРєР°
+			info_action_using,  //С„Р»Р°Рі, СѓРєР°Р·С‹РІР°СЋС‰РёР№ РЅР° Р·Р°РЅСЏС‚РѕСЃС‚СЊ С„СѓРЅРєС†РёРё Р›РѕРіР°. РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЃРёРЅС…СЂРѕРЅРЅРѕРіРѕ РґРѕСЃС‚СѓРїР° РЅРµСЃРєРѕР»СЊРєРёС… РїСЂРѕС†РµСЃСЃРѕРІ Рє С„СѓРЅРєС†РёРё Р›РѕРіРёСЂРѕРІР°РЅРёСЏ
+			no_white_ips,       // РЈРєР°Р·С‹РІР°РµС‚ РєР°Рє РѕРїСЂРµРґРµР»СЏС‚СЊ СЃРєСЂС‹С‚РёРµ IP: С‡РµСЂРµР· Р·Р°РїСЂРѕСЃ Рє СЃРµСЂРІРµСЂСѓ РёР»Рё С‡РµСЂРµР· Р±РµР»С‹Р№ СЃРїРёСЃРѕРє РІ РЅР°СЃС‚СЂРѕР№РєР°С…
 			log_notifications,  // Add notifications messages to log.
 			check_version,      // Auto version check.
 			auto_update;        // Auto update to newest version.
 
-extern int remaining_time,      //промежуток времени до обновления
-		   elapsed_time,        //промежуток прошедшего времени до обновления
-		   errors_c,            // Счетчик ошибок.
-		   warnings_c;          // Счетчик предупреждений.
+extern int remaining_time,      //РїСЂРѕРјРµР¶СѓС‚РѕРє РІСЂРµРјРµРЅРё РґРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ
+		   elapsed_time,        //РїСЂРѕРјРµР¶СѓС‚РѕРє РїСЂРѕС€РµРґС€РµРіРѕ РІСЂРµРјРµРЅРё РґРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ
+		   errors_c,            // РЎС‡РµС‚С‡РёРє РѕС€РёР±РѕРє.
+		   warnings_c;          // РЎС‡РµС‚С‡РёРє РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёР№.
 
 extern unsigned main_thread_id; // Main thread ID.
 
-extern TStringList *white_ips;     //Список ников пользователей, IP которых не показывается в вебе
-				   //*condit_channels; //Список каналов которые исключены\включены для отслеживания ботом
-				   //*watched_chnls; //Список отслеживаемых ботом каналов, уже полностью сформированный список
+extern TStringList *white_ips;     //РЎРїРёСЃРѕРє РЅРёРєРѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№, IP РєРѕС‚РѕСЂС‹С… РЅРµ РїРѕРєР°Р·С‹РІР°РµС‚СЃСЏ РІ РІРµР±Рµ
 
 extern TMainForm *main_form;
 
@@ -112,10 +107,10 @@ extern CRITICAL_SECTION connections_manipulation_cs;
 extern CRITICAL_SECTION users_manipulation_cs;
 extern CRITICAL_SECTION channels_manipulation_cs;
 
-// Список строк.
+// РЎРїРёСЃРѕРє СЃС‚СЂРѕРє.
 typedef std::vector<String> StringList;
 
-// Список переменная=значение.
+// РЎРїРёСЃРѕРє РїРµСЂРµРјРµРЅРЅР°СЏ=Р·РЅР°С‡РµРЅРёРµ.
 typedef std::map<String, String> MapList;
 
 extern String SaveData(char *data, int data_length);
@@ -123,7 +118,7 @@ extern String LoadImage(String file_name);
 
 extern String Base64BinaryEncode(void* databuf, unsigned int bufsize);
 
-// Извлечение данных из потока.
+// РР·РІР»РµС‡РµРЅРёРµ РґР°РЅРЅС‹С… РёР· РїРѕС‚РѕРєР°.
 extern int GetStreamDword(BYTE **p, DWORD *len);
 extern int GetStreamBinary(BYTE **p, char &data, int len);
 extern int GetStreamString(BYTE **p, UnicodeString *var);
@@ -132,10 +127,10 @@ extern int ShiftBytes(char **ptr, int len, int offset);
 
 extern String implode(StringList array);
 
-// Функция вычисления значений из строки.
+// Р¤СѓРЅРєС†РёСЏ РІС‹С‡РёСЃР»РµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№ РёР· СЃС‚СЂРѕРєРё.
 extern void SetStreamString(BYTE *p, DWORD * offset, UnicodeString var, DWORD len);
 
-// Поиск строки в списке строк.
+// РџРѕРёСЃРє СЃС‚СЂРѕРєРё РІ СЃРїРёСЃРєРµ СЃС‚СЂРѕРє.
 extern int ListSearch(TStringList *list, String line);
 extern int ListSearch(String *list, String line, int count);
 extern StringList::iterator ListSearch(StringList &list, String line);
@@ -144,14 +139,11 @@ extern String GetPluginFullName(String version = "");
 
 extern String FormatError(int error_code);
 extern String FormatError(int error_code, char *library);
-// Функции для кодирования и декодирования строк.
-//extern String Base64Encode(String line);
-//extern String Base64Decode(String line);
 extern String GetMD5(String line);
 
 extern String get_ip(HWND hWindow);
 
-// Получаем время, прошедшее от заданного времени до текущего в формате hh:mm:ss.
+// РџРѕР»СѓС‡Р°РµРј РІСЂРµРјСЏ, РїСЂРѕС€РµРґС€РµРµ РѕС‚ Р·Р°РґР°РЅРЅРѕРіРѕ РІСЂРµРјРµРЅРё РґРѕ С‚РµРєСѓС‰РµРіРѕ РІ С„РѕСЂРјР°С‚Рµ hh:mm:ss.
 extern String get_time_offset(int beg_time);
 //---------------------------------------------------------------------------
 #endif

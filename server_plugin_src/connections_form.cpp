@@ -45,26 +45,17 @@ __fastcall TConnectionsList::TConnectionsList(TComponent* Owner)
 //---------------------------------------------------------------------------
 
 void TConnectionsList::set_col_width() {
-//	int other_space = (connections_grid->ClientWidth - fixed_cols_width) / 2;
-//
-//	connections_grid->ColWidths[1] = other_space;
-//	connections_grid->ColWidths[3] = other_space;
+
 }
 //---------------------------------------------------------------------------
 
 void TConnectionsList::DeleteRow(int index) {
-//	int rows_count = connections_grid->RowCount;
-//	for (int i = index; i <= rows_count - 2; i++) {
-//		connections_grid->Rows[i]->Assign(connections_grid->Rows[i + 1]);
-//	}
-//	connections_grid->RowCount = rows_count - 1;
+
 }
 //---------------------------------------------------------------------------
 
 void TConnectionsList::AddConnection(String conn_id, String ip, String app_name, int time, int last_action_time = 0, int auth_state = 0, String virtual_user = "") {
-	//connections_grid->CellPainter->BackColor = (TColor)RGB(10,15,40);
 	int i = connections_grid->RowCount;
-	//connections_grid->RowCount++;
 	connections_grid->InsertRow(i);
 
 	if (connections_grid->Visible == false) {
@@ -91,11 +82,6 @@ void TConnectionsList::AddConnection(String conn_id, String ip, String app_name,
 	UpdateRowInfo(i, auth_state, time, last_action_time);
 
 	CheckColsWidth();
-//	connections_grid->Rows[i]->Strings[0] = conn_id;
-//	connections_grid->Rows[i]->Strings[2] = ip;
-//	connections_grid->Rows[i]->Strings[3] = app_name;
-//	connections_grid->Rows[i]->Strings[4] = get_time_offset(time);
-//	connections_grid->Rows[i]->Strings[5] = get_time_offset(time);
 }
 //---------------------------------------------------------------------------
 
@@ -177,7 +163,6 @@ TColor TConnectionsList::GetUserColor(int row) {
 	TColor user_color = (TColor) RGB(0, 0, 0);
 	try {
 		if (connections_grid->Rows[row]->Tag) {
-			//return ((TRowInfo *) connections_grid->Rows[row]->Tag)->user_color;
 			user_color = ((TRowInfo *) connections_grid->Rows[row]->Tag)->user_color;
 		}
 	} catch(Exception *E) {
@@ -362,25 +347,6 @@ void TConnectionsList::SetOneConnection() {
 
 void __fastcall TConnectionsList::FormShow(TObject *Sender)
 {
-//	connections_grid->ColWidths[2] = 91;
-//
-//	int border_width = connections_grid->GridLineWidth;
-//	// Ставим последний id колонки - третий, потому что он должен быть равен ширине второй колонки.
-//	int ids[4] = {0, 4, 5, 3};
-//	int width = 0, col_width;
-//	for (int i = 0; i <= 3; i++) {
-//		col_width = connections_grid->Canvas->TextWidth(connections_grid->Rows[0]->Strings[ids[i]]) + border_width + 2;
-//		connections_grid->ColWidths[ids[i]] = col_width;
-//		width += col_width;
-//	}
-//
-//	// Устанавливаем ширину второй колонки на ту же ширину что и четвертая и добавляем ещё к общей ширине ширину третей колонки IP адреса.
-//	connections_grid->ColWidths[1] = col_width;
-//	width += col_width + 91;
-//
-//	conn_list_form->ClientWidth = width + 5;
-//	fixed_cols_width = conn_list_form->ClientWidth - col_width * 2;
-//	conn_list_form->Constraints->MinWidth = conn_list_form->Width;
 	UpdateConnections();
 	CheckColsWidth();
 }
@@ -395,21 +361,11 @@ void __fastcall TConnectionsList::FormResize(TObject *Sender)
 
 bool TConnectionsList::select_row(int x, int y) {
 	int cell_x, cell_y;
-	//TKGridRect myRect;
-	//myRect.Cell1
+
 	bool is_connection_row = false;
 	is_connection_row = connections_grid->MouseToCell(x, y, cell_x, cell_y);
 	if (is_connection_row/*cell_y != 0*/) {
 		connections_grid->SelectRow(cell_y);
-//		myRect.Left = 0;
-//		myRect.Top = cell_y;
-//		myRect.Right = 5;
-//		myRect.Bottom = cell_y;
-//		if (!connections_grid->Cells[0][cell_y].IsEmpty()) {
-//
-//			connections_grid->Selection = myRect;
-//			is_connection_row = true;
-//		}
 	}
 
 	return is_connection_row;

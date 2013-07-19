@@ -33,10 +33,6 @@ bool IsChannelMonitored(String channel);
 bool UserIsMonitoring(String user, String channel);
 void RemoveChannelWatcher(String channel);
 bool ChangeChannelWatcher(String channel);
-//void DeleteChannelWatcher(String channel);
-//bool ChannelExists(String channel);
-//void ReplaceUserInChannel(String channel, String user);
-//bool UserIsWatcher(String user, String channel);
 void CheckChannelsOnUserDisconnect(String user);
 //---------------------------------------------------------------------------
 #endif

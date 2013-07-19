@@ -26,10 +26,9 @@
 //---------------------------------------------------------------------------
 
 namespace meth {
-	String ConnectionInit(String app_name, Socket—onnections::iterator socket_connection, int transport);
+	String ConnectionInit(String app_name, Socket–°onnections::iterator socket_connection, int transport);
     String CheckConnectionID(String conn_id);
 	String ConnectionClose(String conn_id);
-	//void ConnectionInit(String user_nick, String user_pass, String user_sex, String pass_encrypt, String app_name, String conn_type, SOCKET sd, String &response);
 	String VirtualUserConnect(LogicalConnections::iterator conn, String user_nick, String user_pass);
 	String VirtualUserRegister(LogicalConnections::iterator conn, String user_nick, String user_pass, String is_female);
 	void VirtualUserDisconnect(LogicalConnections::iterator conn);

@@ -25,7 +25,7 @@
 #include <winsock2.h>
 //---------------------------------------------------------------------------
 
-// Логическое соединение (пользователь).
+// Р›РѕРіРёС‡РµСЃРєРѕРµ СЃРѕРµРґРёРЅРµРЅРёРµ (РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ).
 struct LogicalConnection {
     LogicalConnection(){};
 	LogicalConnection(String _conn_id, String _app_name, int _time, String _ip, SOCKET _sock, bool _auto_actions_get, unsigned int _transport) :

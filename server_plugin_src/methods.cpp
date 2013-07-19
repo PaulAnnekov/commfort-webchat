@@ -39,8 +39,8 @@
 
 #pragma package(smart_init)
 
-// Инициализация соединения.
-String meth::ConnectionInit(String app_name, SocketСonnections::iterator socket_connection, int transport) {
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРѕРµРґРёРЅРµРЅРёСЏ.
+String meth::ConnectionInit(String app_name, SocketРЎonnections::iterator socket_connection, int transport) {
 	bool persistent;
 	SOCKET sd = socket_connection->sd;
 	String ip = socket_connection->ip;
@@ -60,18 +60,18 @@ String meth::ConnectionInit(String app_name, SocketСonnections::iterator socket_
 	return "{\"conn_id\":\"" + conn_id + "\"}";
 }
 
-// Закрытие соединения.
+// Р—Р°РєСЂС‹С‚РёРµ СЃРѕРµРґРёРЅРµРЅРёСЏ.
 String meth::ConnectionClose(String conn_id) {
 	DeleteConnection(conn_id);
 	return "null";
 }
 
-// Инициализация соединения.
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРѕРµРґРёРЅРµРЅРёСЏ.
 String meth::CheckConnectionID(String conn_id) {
 	return (ConnectionExists(conn_id)) ? "true" : "false";
 }
 
-// Подключение пользователя.
+// РџРѕРґРєР»СЋС‡РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 String meth::VirtualUserConnect(LogicalConnections::iterator conn, String user_nick, String user_pass) {
 	String response = "";
 
@@ -93,7 +93,7 @@ void meth::VirtualUserDisconnect(LogicalConnections::iterator conn) {
 }
 
 
-// Регистрация пользователя.
+// Р РµРіРёСЃС‚СЂР°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 String meth::VirtualUserRegister(LogicalConnections::iterator conn, String user_nick, String user_pass, String is_female) {
 	String response = "";
 
@@ -109,12 +109,12 @@ String meth::VirtualUserRegister(LogicalConnections::iterator conn, String user_
 	return response;
 }
 
-// Отправка сообщения в общий канал.
+// РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ РІ РѕР±С‰РёР№ РєР°РЅР°Р».
 void meth::SendPublicMessage(LogicalConnections::iterator conn, String channel, String mode, String message, String &response) {
 	String user = GetOnlineUserName(GetConnectionUser(conn));
 
 	if (IsUserInChannel(user, channel)) {
-		/* TODO : Сделать проверку бана на пользователе */
+		/* TODO : РЎРґРµР»Р°С‚СЊ РїСЂРѕРІРµСЂРєСѓ Р±Р°РЅР° РЅР° РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ */
 		SendChannelMessage(user, mode.ToInt(), channel, message);
 		response = "null";
 	} else {
@@ -122,25 +122,21 @@ void meth::SendPublicMessage(LogicalConnections::iterator conn, String channel, 
 	}
 }
 
-// Получение последних событий.
+// РџРѕР»СѓС‡РµРЅРёРµ РїРѕСЃР»РµРґРЅРёС… СЃРѕР±С‹С‚РёР№.
 String meth::GetActions(LogicalConnections::iterator conn, SOCKET sd) {
 	String response = "";
 
-	//if (IsHTTPConnection(conn)) {
-		response = GetMessagesByConnection(GetConnectionID(conn));
+	response = GetMessagesByConnection(GetConnectionID(conn));
 
-		if (response.IsEmpty()) {
-			SetConnectionSocket(conn, sd);
-			SetConnectionActionsGet(conn, true);
-		}
-	//} else {
-	//	throw(JSONError(-1006, "Method is only for HTTP connections"));
-	//}
+	if (response.IsEmpty()) {
+		SetConnectionSocket(conn, sd);
+		SetConnectionActionsGet(conn, true);
+	}
 
 	return response;
 }
 
-// Получение состояния авторизации.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё.
 void meth::GetAuthState(String conn_id, String &response) {
 	LogicalConnections::iterator connection = SearchConnection(conn_id);
 	response = String(GetAuthorizationStatus(conn_id));
@@ -172,7 +168,7 @@ void meth::GetChannelsList(LogicalConnections::iterator conn, String user_chnls,
 	response += "]";
 }
 
-// Получение списка пользователей указанного канала.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ СѓРєР°Р·Р°РЅРЅРѕРіРѕ РєР°РЅР°Р»Р°.
 void meth::GetChannelUsers(LogicalConnections::iterator conn, String channel_name, String &response) {
 	if (IsUserInChannel(GetOnlineUserName(GetConnectionUser(conn)), channel_name)) {
 		response = "[" + implode(::GetChannelUsers(channel_name)) + "]";

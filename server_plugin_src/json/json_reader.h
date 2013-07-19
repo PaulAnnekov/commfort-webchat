@@ -35,8 +35,7 @@ String GetJSONStructure(String *req);
 Params ParseJSONObject(String req_obj);
 bool IsJSONStructure(String &value);
 bool IsJSONString(String &value);
-//map<int, String> ParseJSONArray(String request);
-String ParseJSONRequest(String request, Socket—onnections::iterator socket_connection, int transport);
+String ParseJSONRequest(String request, Socket–°onnections::iterator socket_connection, int transport);
 String BuildJSONResult(map<int, String>);
 
 #endif

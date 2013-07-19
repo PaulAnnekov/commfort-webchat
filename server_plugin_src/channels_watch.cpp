@@ -33,14 +33,14 @@ using namespace std;
 
 MapList ChannelsUsers;
 
-// Добавляет ассоциацию виртуального пользователя с каналом.
-// Тем самым пользователь становится пользователем, который отслеживает данный канал.
+// Р”РѕР±Р°РІР»СЏРµС‚ Р°СЃСЃРѕС†РёР°С†РёСЋ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃ РєР°РЅР°Р»РѕРј.
+// РўРµРј СЃР°РјС‹Рј РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃС‚Р°РЅРѕРІРёС‚СЃСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј, РєРѕС‚РѕСЂС‹Р№ РѕС‚СЃР»РµР¶РёРІР°РµС‚ РґР°РЅРЅС‹Р№ РєР°РЅР°Р».
 void AddChannelMonitoring(String channel, String user) {
 	ChannelsUsers.insert(pair<String, String>(channel, user));
 	channels.push_back(Channel(channel));
 }
 
-// Удаляет канал из списка отслеживаемых.
+// РЈРґР°Р»СЏРµС‚ РєР°РЅР°Р» РёР· СЃРїРёСЃРєР° РѕС‚СЃР»РµР¶РёРІР°РµРјС‹С….
 void DeleteChannelMonitoring(String channel) {
 	MapList::iterator it = ChannelsUsers.find(channel);
 	if (it != ChannelsUsers.end()) {
@@ -49,7 +49,7 @@ void DeleteChannelMonitoring(String channel) {
 	}
 }
 
-// Проверяет отслеживается ли канал.
+// РџСЂРѕРІРµСЂСЏРµС‚ РѕС‚СЃР»РµР¶РёРІР°РµС‚СЃСЏ Р»Рё РєР°РЅР°Р».
 bool ChannelExists(String channel) {
 	bool result = false;
 
@@ -61,7 +61,7 @@ bool ChannelExists(String channel) {
 	return result;
 }
 
-// Проверяет отслеживает ли данный пользователь указанный канал.
+// РџСЂРѕРІРµСЂСЏРµС‚ РѕС‚СЃР»РµР¶РёРІР°РµС‚ Р»Рё РґР°РЅРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРєР°Р·Р°РЅРЅС‹Р№ РєР°РЅР°Р».
 bool UserIsMonitoring(String user, String channel) {
 	bool user_is_monitor = false;
 
@@ -75,7 +75,7 @@ bool UserIsMonitoring(String user, String channel) {
 	return user_is_monitor;
 }
 
-// Заменяет пользователя, который отслеживает данный канал, другим пользователем.
+// Р—Р°РјРµРЅСЏРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РєРѕС‚РѕСЂС‹Р№ РѕС‚СЃР»РµР¶РёРІР°РµС‚ РґР°РЅРЅС‹Р№ РєР°РЅР°Р», РґСЂСѓРіРёРј РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј.
 void ReplaceUserInChannel(String channel, String user) {
 	MapList::iterator it = ChannelsUsers.find(channel);
 
@@ -84,7 +84,7 @@ void ReplaceUserInChannel(String channel, String user) {
 	}
 }
 
-// Проверяет список ассоциаций, когда виртуальный пользователь отключается.
+// РџСЂРѕРІРµСЂСЏРµС‚ СЃРїРёСЃРѕРє Р°СЃСЃРѕС†РёР°С†РёР№, РєРѕРіРґР° РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РѕС‚РєР»СЋС‡Р°РµС‚СЃСЏ.
 void CheckChannelsOnUserDisconnect(String user) {
 	MapList::iterator it;
 

@@ -39,7 +39,6 @@ int file_size;
 volatile long download_stop;
 bool no_error = true, downloading = false;
 String new_version, new_version_url, download_target, last_error, new_version_save_path;
-//TIdHTTP *connection = NULL;
 String get = "http://www.steelrat.info/?target=cf_webchat&version=" + plugin_version + "&download=cf_webchat_";
 TStringStream *download_data = NULL;
 //---------------------------------------------------------------------------
@@ -58,7 +57,7 @@ int TUpdateForm::UFControl(TMessage &Message) {
 		break;
 		case 1:
 			download_progress->Position = Message.LParam;
-			downloading_state_label->Caption = Format("%d / %d Κα", ARRAYOFCONST(((int) ceil(Message.LParam / 1024.0), file_size)));
+			downloading_state_label->Caption = Format("%d / %d ΠΠ±", ARRAYOFCONST(((int) ceil(Message.LParam / 1024.0), file_size)));
 		break;
 		case 2:
 			downloading_state_label->Caption = "";

@@ -26,17 +26,11 @@
 //---------------------------------------------------------------------------
 
 using namespace std;
-//void SetupSocketFDSet(fd_set& ReadFDs);
-//void AddNewSocketConnection(SOCKET sd);
-//void CheckSockets(fd_set &ReadFDs, fd_set &ExceptFDs);
 extern SOCKET simple_listening_socket;
 extern CRITICAL_SECTION socket_write_cs;
-extern Socket—onnections socket_connections;
+extern Socket–°onnections socket_connections;
 extern HANDLE SocketThread;
-//extern volatile long http_listen_stop;
 
-extern int GetCleanMessageLength(Socket—onnection &conn, char *received_data, int len);
+extern int GetCleanMessageLength(Socket–°onnection &conn, char *received_data, int len);
 extern bool SocketThreadStart();
-//extern void SocketThreadStop();
-//extern void SocketWrite(SOCKET sd, String response);
 #endif

@@ -1,4 +1,4 @@
-﻿/*
+/*
 	CommFort WebChat 5 Plugin
 	Copyright (C) 2012  Paul Annekov (global@steelrat.info)
 
@@ -398,17 +398,7 @@ String get_ip(HWND hWindow)
 		(String)THIRD_IPADDRESS((LPARAM)long_ip) + "." +
 		(String)FOURTH_IPADDRESS((LPARAM)long_ip);
 	return ip;
-}
-// ---------------------------------------------------------------------------
-//void Base64BinaryEncode(char *data, String &encoded_data) {
-//	TIdEncoderMIME *Base64Encode = new TIdEncoderMIME(Application);
-//
-//	try {
-//		encoded_data = Base64Encode->EncodeBytes(;
-//	} __finally {
-//		delete Base64Encode;
-//	}
-//}
+}
 // ---------------------------------------------------------------------------
 String Base64Encode(String line)
 {
@@ -462,40 +452,3 @@ String get_time_offset(int beg_time) {
 	return Format("%.2d:%.2d:%.2d", ARRAYOFCONST((hh, mm, ss)));
 }
 // ---------------------------------------------------------------------------
-
-
-//String url_decode(String source) {
-//  int len = source.Length();
-//  int offset = 0;
-//  String dest = "";
-//  char * start = dest;
-//
-//  while (offset < len) {
-//	switch (source[offset]) {
-//	case '+':
-//	  dest += " ";
-//	  break;
-//	case '%':
-//	  if (source[offset + 1] && source[offset + 2]) {
-//		int value = HexPairValue(source + 1);
-//		if (value >= 0) {
-//		  *(dest++) = value;
-//		  source += 2;
-//        }
-//		else {
-//          *dest++ = '?';
-//		}
-//      }
-//	  else {
-//        *dest++ = '?';
-//	  }
-//	  break;
-//    default:
-//	  *dest++ = *source;
-//	}
-//	source++;
-//  }
-//
-//  *dest = 0;
-//  return dest - start;
-//}

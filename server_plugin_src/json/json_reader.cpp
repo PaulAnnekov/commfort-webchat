@@ -264,53 +264,11 @@ Params ParseJSONObject(String req_obj) {
 	return value_pairs;
 }
 
-// Parse batch(array of objects) request.
-/*
-    map<int, String> ParseJSONArray(String request, SOCKET sd) {
-    	int parsed_n = 0,
-    		next_obj;
-    	String t_request = request, err = NULL, response;
-    	map<int, String> response_arr;
-
-    	try {
-    		next_obj = t_request.Pos("{");
-    		if (next_obj) {
-    			while (next_obj) {
-    				// Delete all letters from beggining till the first left brace.
-    				t_request = t_request.Delete(1, next_obj - 1);
-
-    				try {
-    					// Get string line of the object and send it to object parser.
-    					pRequest req = CheckObject(ParseJSONObject(GetJSONStructure(&t_request)));
-    					response = CallMethod(req.id, req.meth_id, req.params, sd);
-    					SetJSONResponseObject(req.meth_name, req.id, response);
-    					response_arr.insert(pair<int, String>(parsed_n, response));
-    				} catch (JSONERROR je) {
-    					response_arr.insert(pair<int, String>(parsed_n, BuildJSONError(je.type, je.data, je.id)));
-    				}
-
-    				parsed_n++;
-
-    				next_obj = t_request.Pos("{");
-    			}
-    		} else {
-    			throw(Exception("Can't find any object in array(batch)"));
-    		}
-    	} catch(Exception *E) {
-    		response_arr.insert(pair<int, String>(0, BuildJSONError(-32600, "Error while parsing array of requests: '" + E->Message + "'", NULL)));
-    	} catch(JSONERROR je) {
-    		response_arr.insert(pair<int, String>(0, BuildJSONError(je.type, je.data, je.id)));
-    	}
-
-    	return response_arr;
-    }
-*/
-
 // Parse full request string.
 // transport - http or clear sockets:
 //   0 - clear sockets,
 //   1 - http
-String ParseJSONRequest(String request, Socket—onnections::iterator socket_connection, int transport) {
+String ParseJSONRequest(String request, Socket–°onnections::iterator socket_connection, int transport) {
 	String response;
 	map<int, String> response_arr;
 

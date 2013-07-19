@@ -23,8 +23,6 @@
 
 #include <System.hpp>
 #include "global.h"
-//#include <windows.h>
-//#include <mysql.h>
 
 extern void SetJSONResponseObject(String &result_obj, String method, String id);
 extern String BuildJSONError(int code, String data, String id);

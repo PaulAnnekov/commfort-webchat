@@ -43,24 +43,18 @@
 
 MapList watched_channels;
 
-// Обновляет список IP-адресов из белого списка.
+// РћР±РЅРѕРІР»СЏРµС‚ СЃРїРёСЃРѕРє IP-Р°РґСЂРµСЃРѕРІ РёР· Р±РµР»РѕРіРѕ СЃРїРёСЃРєР°.
 void GetWhiteIPs() {
 	white_ips = new TStringList();
 	white_ips->LoadFromFile(plugin_data_path + "white_ips.txt");
 }
 
-// Получает и записывает в глобальные переменные настройки из файла настроек.
+// РџРѕР»СѓС‡Р°РµС‚ Рё Р·Р°РїРёСЃС‹РІР°РµС‚ РІ РіР»РѕР±Р°Р»СЊРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё РёР· С„Р°Р№Р»Р° РЅР°СЃС‚СЂРѕРµРє.
 void GetPluginOptions() {
 	TIniFile *inifile = NULL;
 	try {
 		config_ini_path = plugin_data_path + "settings.ini";
 		inifile = new TIniFile(config_ini_path);
-//		bot_prop.name      =  inifile->ReadString("Bot Properties", "Nick", "FromWeb");
-//		bot_prop.ip        =  inifile->ReadString("Bot Properties", "IP Address", "192.168.0.1");
-//		bot_prop.pass      =  inifile->ReadString("Bot Properties", "Password", "veryStrongPass");
-//		bot_prop.is_female =  inifile->ReadBool("Bot Properties", "IsFemale", false);
-//		channels_policy    =  inifile->ReadBool("Bot Properties", "Channels Policy", false);
-//		chnls_line         =  inifile->ReadString("Bot Properties", "Channels", "");
 		tables_prefix      =  inifile->ReadString("DB Connection Properties", "Prefix", "");
 		file_log           =  inifile->ReadBool("Additional Properties", "FileLogging", true);
 		log_notifications  =  inifile->ReadBool("Additional Properties", "LogNotifications", false);
@@ -82,7 +76,7 @@ void GetPluginOptions() {
 	}
 }
 
-// Инициализирует базовые настройки плагина.
+// РРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚ Р±Р°Р·РѕРІС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё РїР»Р°РіРёРЅР°.
 void LoadBasePluginInfo() {
     // Get main thread id to compare it in imported functions.
 	main_thread_id = GetCurrentThreadId();
@@ -90,7 +84,7 @@ void LoadBasePluginInfo() {
 	if (plugin_data_path == "") {
 		plugin_data_path = GetPluginDirectory() + "WebChat\\";
 
-		// Создаем подпапки для плагина и для логов плагина.
+		// РЎРѕР·РґР°РµРј РїРѕРґРїР°РїРєРё РґР»СЏ РїР»Р°РіРёРЅР° Рё РґР»СЏ Р»РѕРіРѕРІ РїР»Р°РіРёРЅР°.
 		if (!DirectoryExists(plugin_data_path)) {
 			ForceDirectories(plugin_data_path);
 		}
@@ -99,21 +93,16 @@ void LoadBasePluginInfo() {
 		}
 	}
 
-	// Если список белых IP пуст - загружаем его.
-	//if (!white_ips) {
-	//	GetWhiteIPs();
-	//}
-
 	GetPluginOptions();
 
-	// Записываем время начала работы плагина.
+	// Р—Р°РїРёСЃС‹РІР°РµРј РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° СЂР°Р±РѕС‚С‹ РїР»Р°РіРёРЅР°.
 	work_time_begin = time(NULL);
 
 	// Load options selected localization.
 	LoadLocalizationFromFile(language);
 
 	try {
-		// Инициализируем файл логов.
+		// РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј С„Р°Р№Р» Р»РѕРіРѕРІ.
 		LogFileInit();
 	} catch (Exception *E) {
 		file_log = false;
@@ -122,7 +111,7 @@ void LoadBasePluginInfo() {
 	}
 }
 
-// Проверяет опции, которые должны проверяться и выполняться при запуске плагина.
+// РџСЂРѕРІРµСЂСЏРµС‚ РѕРїС†РёРё, РєРѕС‚РѕСЂС‹Рµ РґРѕР»Р¶РЅС‹ РїСЂРѕРІРµСЂСЏС‚СЊСЃСЏ Рё РІС‹РїРѕР»РЅСЏС‚СЊСЃСЏ РїСЂРё Р·Р°РїСѓСЃРєРµ РїР»Р°РіРёРЅР°.
 void CheckActionOptions() {
 	if (sync_autostart) {
 		StartSync();
@@ -131,7 +120,9 @@ void CheckActionOptions() {
     	main_form->cron_timer->Enabled = true;
 	}
 }
-// Обновляет список каналов.void UpdateChannelsList() {
+
+// РћР±РЅРѕРІР»СЏРµС‚ СЃРїРёСЃРѕРє РєР°РЅР°Р»РѕРІ.
+void UpdateChannelsList() {
 	CFChannelsList channels = GetChannelsList();
 
 	try {
@@ -146,8 +137,9 @@ void CheckActionOptions() {
 	} catch (Exception *E) {
 		throw Exception(Format(__("UpdateChannelsError"), ARRAYOFCONST((E->Message))));
 	}
-}
-// Обновляет список пользователей.
+}
+
+// РћР±РЅРѕРІР»СЏРµС‚ СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№.
 void UpdateUsersList() {
 	CFUsersList cf_users_list = GetChatUsersList();
 	CFUsersList cf_online_users_list = GetChatOnlineUsersList();
@@ -168,11 +160,11 @@ void UpdateUsersList() {
 	}
 }
 
-// Выполняет действия по загрузке всей базовой информации.
+// Р’С‹РїРѕР»РЅСЏРµС‚ РґРµР№СЃС‚РІРёСЏ РїРѕ Р·Р°РіСЂСѓР·РєРµ РІСЃРµР№ Р±Р°Р·РѕРІРѕР№ РёРЅС„РѕСЂРјР°С†РёРё.
 bool SetBaseInfo() {
 	bool success = false;
 
-	// Прерываем обработку поступающих от сервера событий на время получения базовых данных.
+	// РџСЂРµСЂС‹РІР°РµРј РѕР±СЂР°Р±РѕС‚РєСѓ РїРѕСЃС‚СѓРїР°СЋС‰РёС… РѕС‚ СЃРµСЂРІРµСЂР° СЃРѕР±С‹С‚РёР№ РЅР° РІСЂРµРјСЏ РїРѕР»СѓС‡РµРЅРёСЏ Р±Р°Р·РѕРІС‹С… РґР°РЅРЅС‹С….
 	sync_enabled = false;
 
 	if (main_form) {
@@ -180,10 +172,10 @@ bool SetBaseInfo() {
 	}
 
 	try {
-		// Обновляем список каналов.
+		// РћР±РЅРѕРІР»СЏРµРј СЃРїРёСЃРѕРє РєР°РЅР°Р»РѕРІ.
 		UpdateChannelsList();
 
-		// Полностью обновляем список пользователей.
+		// РџРѕР»РЅРѕСЃС‚СЊСЋ РѕР±РЅРѕРІР»СЏРµРј СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№.
 		UpdateUsersList();
 
 		success = true;
@@ -194,7 +186,7 @@ bool SetBaseInfo() {
 	return success;
 }
 
-// Включает синхронизацию.
+// Р’РєР»СЋС‡Р°РµС‚ СЃРёРЅС…СЂРѕРЅРёР·Р°С†РёСЋ.
 void StartSync() {
 	InitializeChannelsList();
 	InitializeOnlineUsersList();
@@ -210,7 +202,7 @@ void StartSync() {
 		InitializeCriticalSection(&users_manipulation_cs);
 		InitializeCriticalSection(&channels_manipulation_cs);
 
-		// Запускаем прослушку порта.
+		// Р—Р°РїСѓСЃРєР°РµРј РїСЂРѕСЃР»СѓС€РєСѓ РїРѕСЂС‚Р°.
 		listen_stop = 0;
 		success = SocketThreadStart();
 		if (success) {
@@ -218,9 +210,6 @@ void StartSync() {
 		}
 
 		if (success) {
-        	// Запускаем таймер проверки соединений.
-			//conn_check_timer = new TConnCheckTimer();
-
 			if (main_form) {
 				main_form->plug_sync_but->Glyph->LoadFromResourceName((unsigned int)Instance, "plug_off");
 				main_form->plug_sync_but->Hint = t_plug_off;
@@ -237,7 +226,7 @@ void StartSync() {
 }
 
 void FinishSync() {
-    // Отключаем прослушку портов.
+    // РћС‚РєР»СЋС‡Р°РµРј РїСЂРѕСЃР»СѓС€РєСѓ РїРѕСЂС‚РѕРІ.
 	InterlockedIncrement(&listen_stop);
 	HANDLE handles[2] = {HTTPThread, SocketThread};
 	WaitForMultipleObjects(2, handles, true, INFINITE);

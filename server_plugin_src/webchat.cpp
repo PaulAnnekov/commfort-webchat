@@ -49,106 +49,24 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 }
 //---------------------------------------------------------------------------
 void plug_initialize() {
-//	BYTE * data = NULL, *pCopy;
-//	String chnls_line;
-//
-//	TIniFile *inifile = NULL;
-//	try {
-//		if (plugin_data_path == "") {
-//			DWORD size = (*CommFortGetData)(dwPluginID, 2010, NULL, NULL, NULL, NULL);
-//			data = new BYTE[size];
-//			pCopy = data;
-//
-//			(*CommFortGetData)(dwPluginID, 2010, data, size, NULL, NULL);
-//			GetStreamString(&pCopy, &plugin_data_path);
-//
-//			plugin_data_path += "WebChat\\";
-//
-//			if (!DirectoryExists(plugin_data_path))
-//				ForceDirectories(plugin_data_path);
-//			if (!DirectoryExists(plugin_data_path + "Logs\\"))
-//				ForceDirectories(plugin_data_path + "Logs\\");
-//		}
-//
-//		if (!white_ips) {
-//			white_ips = new TStringList();
-//			white_ips->LoadFromFile(plugin_data_path + "white_ips.txt");
-//		}
-//
-//		config_ini_path = plugin_data_path + "webchat_settings.ini";
-//		inifile = new TIniFile(config_ini_path);
-//
-//		bot_prop.name      =  inifile->ReadString("Bot Properties", "Nick", "FromWeb");
-//		bot_prop.ip        =  inifile->ReadString("Bot Properties", "IP Address", "192.168.0.1");
-//		bot_prop.pass      =  inifile->ReadString("Bot Properties", "Password", "veryStrongPass");
-//		bot_prop.is_female =  inifile->ReadBool("Bot Properties", "IsFemale", false);
-//		channels_policy    =  inifile->ReadBool("Bot Properties", "Channels Policy", false);
-//		chnls_line         =  inifile->ReadString("Bot Properties", "Channels", "");
-//		tables_prefix      =  inifile->ReadString("DB Connection Properties", "Prefix", "");
-//		file_log           =  inifile->ReadBool("Additional Properties", "FileLogging", true);
-//		auto_db_clear      =  inifile->ReadBool("Additional Properties", "AutoBDClear", true);
-//		show_work_time     =  inifile->ReadBool("Additional Properties", "ShowWorkTime", true);
-//		no_white_ips       =  inifile->ReadBool("Additional Properties", "NoWhiteIPs", false);
-//		isfirstrun         =  inifile->ReadBool("Additional Properties", "FirstPlugRun", 0);
-//		sync_autostart         =  inifile->ReadBool("Additional Properties", "AutoStart", 1);
-//		db_prop.host       =  inifile->ReadString("DB Connection Properties", "HostName", "");
-//		db_prop.user       =  inifile->ReadString("DB Connection Properties", "User_Name", "");
-//		db_prop.pass       =  Base64Decode(inifile->ReadString("DB Connection Properties", "Password", ""));
-//		db_prop.name       =  inifile->ReadString("DB Connection Properties", "Database", "");
-//		//auto_log_clear     =  inifile->ReadBool("Additional Properties", "AutoLogClear", true);
-//		//visual_log         =  inifile->ReadBool("Additional Properties", "VisualLogging", true);
-//	} __finally {
-//		if (data) {
-//			delete []data;
-//			if (inifile) {
-//				delete inifile;
-//			}
-//		}
-//	}
-//
-//    // Çàïèñûâàåì âğåìÿ íà÷àëà ğàáîòû ïëàãèíà.
-//	work_time_begin = time(NULL);
-//
-//	//ôîğìèğóåì ñïèñîê êàíàëîâ
-//	condit_chnls = new TStringList();
-//	if (chnls_line.Length() != 0) {
-//		int pos = chnls_line.Pos("|");
-//		if (pos == 0) {
-//			condit_chnls->Add(chnls_line);
-//		} else {
-//			while (chnls_line.Pos("|") != 0) {
-//				condit_chnls->Add(chnls_line.SubString(1, pos-1));
-//				chnls_line.Delete(1, pos);
-//				pos = chnls_line.Pos("|");
-//			}
-//			condit_chnls->Add(chnls_line);
-//		}
-//	}
-//
-//	//ñîçäà¸ì îáúåêò ñïèñêà îòñëåæèâàåìûõ êàíàëîâ
-//	watched_chnls = new TStringList();
-//
-//	//ñîçäàåì îáúåêò ñîåäèíåíèÿ ñ mysql
-//	db_conn = new MySQLConn();
-//
-//	plugin_started = true;
+
 }
 
 //---------------------------------------------------------------------------
 BOOL PluginStart(DWORD dwThisPluginID, typeCommFortProcess func1, typeCommFortGetData func2) {
 	try {
 		dwPluginID = dwThisPluginID;
-	//Ïğè èíèöèàëèçàöèè ïëàíèíó ïğèñâàèâàåòñÿ óíèêàëüíûé èäåíòèôèêàòîğ
-	//åãî íåîáõîäèìî îáÿçàòåëüíî ñîõğàíèòü, è óêàçûâàòü
-	//â êà÷åñòâå ïåğâîãî ïàğàìåòğà ïğè èíèöèèğîâàíèè ñîáûòèé
+	//ĞŸÑ€Ğ¸ Ğ¸Ğ½Ğ¸Ñ†Ğ¸Ğ°Ğ»Ğ¸Ğ·Ğ°Ñ†Ğ¸Ğ¸ Ğ¿Ğ»Ğ°Ğ½Ğ¸Ğ½Ñƒ Ğ¿Ñ€Ğ¸ÑĞ²Ğ°Ğ¸Ğ²Ğ°ĞµÑ‚ÑÑ ÑƒĞ½Ğ¸ĞºĞ°Ğ»ÑŒĞ½Ñ‹Ğ¹ Ğ¸Ğ´ĞµĞ½Ñ‚Ğ¸Ñ„Ğ¸ĞºĞ°Ñ‚Ğ¾Ñ€
+	//ĞµĞ³Ğ¾ Ğ½ĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ğ¾ Ğ¾Ğ±ÑĞ·Ğ°Ñ‚ĞµĞ»ÑŒĞ½Ğ¾ ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒ, Ğ¸ ÑƒĞºĞ°Ğ·Ñ‹Ğ²Ğ°Ñ‚ÑŒ
+	//Ğ² ĞºĞ°Ñ‡ĞµÑÑ‚Ğ²Ğµ Ğ¿ĞµÑ€Ğ²Ğ¾Ğ³Ğ¾ Ğ¿Ğ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ğ° Ğ¿Ñ€Ğ¸ Ğ¸Ğ½Ğ¸Ñ†Ğ¸Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğ¸ ÑĞ¾Ğ±Ñ‹Ñ‚Ğ¸Ğ¹
 
 		CommFortProcess = func1;
-	//óêàçûâàåì ôóíêöèş îáğàòíîãî âûçîâà,
-	//ñ ïîìîùüş êîòîğîé ïëàãèí ñìîæåò èíèöèèğîâàòü ñîáûòèÿ
+	//ÑƒĞºĞ°Ğ·Ñ‹Ğ²Ğ°ĞµĞ¼ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ Ğ¾Ğ±Ñ€Ğ°Ñ‚Ğ½Ğ¾Ğ³Ğ¾ Ğ²Ñ‹Ğ·Ğ¾Ğ²Ğ°,
+	//Ñ Ğ¿Ğ¾Ğ¼Ğ¾Ñ‰ÑŒÑ ĞºĞ¾Ñ‚Ğ¾Ñ€Ğ¾Ğ¹ Ğ¿Ğ»Ğ°Ğ³Ğ¸Ğ½ ÑĞ¼Ğ¾Ğ¶ĞµÑ‚ Ğ¸Ğ½Ğ¸Ñ†Ğ¸Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ ÑĞ¾Ğ±Ñ‹Ñ‚Ğ¸Ñ
 
 		CommFortGetData = func2;
-	//óêàçûâàåì ôóíêöèş îáğàòíîãî âûçîâà,
-	//ñ ïîìîùüş êîòîğîé ìîæíî áóäåò çàïğàøèâàòü íåîáõîäèìûå äàííûå îò ïğîãğàììû
+	//ÑƒĞºĞ°Ğ·Ñ‹Ğ²Ğ°ĞµĞ¼ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ Ğ¾Ğ±Ñ€Ğ°Ñ‚Ğ½Ğ¾Ğ³Ğ¾ Ğ²Ñ‹Ğ·Ğ¾Ğ²Ğ°,
+	//Ñ Ğ¿Ğ¾Ğ¼Ğ¾Ñ‰ÑŒÑ ĞºĞ¾Ñ‚Ğ¾Ñ€Ğ¾Ğ¹ Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ Ğ±ÑƒĞ´ĞµÑ‚ Ğ·Ğ°Ğ¿Ñ€Ğ°ÑˆĞ¸Ğ²Ğ°Ñ‚ÑŒ Ğ½ĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ñ‹Ğµ Ğ´Ğ°Ğ½Ğ½Ñ‹Ğµ Ğ¾Ñ‚ Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹
 		if (!plugin_started) plug_initialize();
 
 		LoadBasePluginInfo();
@@ -165,93 +83,67 @@ BOOL PluginStart(DWORD dwThisPluginID, typeCommFortProcess func1, typeCommFortGe
 		ShowMsg(Application->Handle, Format(e_plug_start, ARRAYOFCONST((E->Message))), 1);
 	}
 
-	//Âîçâğàùàåìûå çíà÷åíèÿ:
-	//TRUE - çàïóñê ïğîøåë óñïåøíî
-	//FALSE - çàïóñê íåâîçìîæåí
+	//Ğ’Ğ¾Ğ·Ğ²Ñ€Ğ°Ñ‰Ğ°ĞµĞ¼Ñ‹Ğµ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ:
+	//TRUE - Ğ·Ğ°Ğ¿ÑƒÑĞº Ğ¿Ñ€Ğ¾ÑˆĞµĞ» ÑƒÑĞ¿ĞµÑˆĞ½Ğ¾
+	//FALSE - Ğ·Ğ°Ğ¿ÑƒÑĞº Ğ½ĞµĞ²Ğ¾Ğ·Ğ¼Ğ¾Ğ¶ĞµĞ½
 	return TRUE;
 }
 
-//Ôóíêöèÿ ïğèåìà äàííûõ îò ïğîãğàììû ê ïëàãèíó
-	//Ïàğàìåòğû:
-		//dwMessageID - èäåíòèôèêàòîğ áëîêà äàííûõ
-		//bMessage - óêàçàòåëü íà äàííûå
-		//dwMessageLength - óêàçàòåëü íà ïåğåìåííóş ñîäåğæàùóş îáúåì äàííûõ â áàéòàõ
+//Ğ¤ÑƒĞ½ĞºÑ†Ğ¸Ñ Ğ¿Ñ€Ğ¸ĞµĞ¼Ğ° Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ… Ğ¾Ñ‚ Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹ Ğº Ğ¿Ğ»Ğ°Ğ³Ğ¸Ğ½Ñƒ
+	//ĞŸĞ°Ñ€Ğ°Ğ¼ĞµÑ‚Ñ€Ñ‹:
+		//dwMessageID - Ğ¸Ğ´ĞµĞ½Ñ‚Ğ¸Ñ„Ğ¸ĞºĞ°Ñ‚Ğ¾Ñ€ Ğ±Ğ»Ğ¾ĞºĞ° Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ…
+		//bMessage - ÑƒĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ÑŒ Ğ½Ğ° Ğ´Ğ°Ğ½Ğ½Ñ‹Ğµ
+		//dwMessageLength - ÑƒĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ÑŒ Ğ½Ğ° Ğ¿ĞµÑ€ĞµĞ¼ĞµĞ½Ğ½ÑƒÑ ÑĞ¾Ğ´ĞµÑ€Ğ¶Ğ°Ñ‰ÑƒÑ Ğ¾Ğ±ÑŠĞµĞ¼ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ… Ğ² Ğ±Ğ°Ğ¹Ñ‚Ğ°Ñ…
 
-	//Âîçâğàùàåìîå çíà÷åíèå:
-		//íà äàííûé ìîìåíò íå èñïîëüçóåòñÿ
+	//Ğ’Ğ¾Ğ·Ğ²Ñ€Ğ°Ñ‰Ğ°ĞµĞ¼Ğ¾Ğµ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ:
+		//Ğ½Ğ° Ğ´Ğ°Ğ½Ğ½Ñ‹Ğ¹ Ğ¼Ğ¾Ğ¼ĞµĞ½Ñ‚ Ğ½Ğµ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·ÑƒĞµÑ‚ÑÑ
 VOID PluginProcess(DWORD dwID, BYTE * bInBuffer, DWORD dwInBufferSize) {
 	if (sync_enabled) {
 		BYTE *pCopy = bInBuffer;
 		try {
 			switch (dwID) {
-				case 1070 : // Ïóáëèêàöèÿ â îáùèé êàíàë.
+				case 1070 : // ĞŸÑƒĞ±Ğ»Ğ¸ĞºĞ°Ñ†Ğ¸Ñ Ğ² Ğ¾Ğ±Ñ‰Ğ¸Ğ¹ ĞºĞ°Ğ½Ğ°Ğ».
 					OnPublicChannelMessage(pCopy);
 				break;
 
-				case 1062: // Ïîäêëş÷åíèå ê êàíàëó âèğòóàëüíîãî ïîëüçîâàòåëÿ.
+				case 1062: // ĞŸĞ¾Ğ´ĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ Ğº ĞºĞ°Ğ½Ğ°Ğ»Ñƒ Ğ²Ğ¸Ñ€Ñ‚ÑƒĞ°Ğ»ÑŒĞ½Ğ¾Ğ³Ğ¾ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ.
 					OnVirtualUserChannelConnect(pCopy);
 				break;
 
-				case 1072: // Ïîäêëş÷åíèå ê êàíàëó ñòîğîííåãî ïîëüçîâàòåëÿ.
+				case 1072: // ĞŸĞ¾Ğ´ĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ Ğº ĞºĞ°Ğ½Ğ°Ğ»Ñƒ ÑÑ‚Ğ¾Ñ€Ğ¾Ğ½Ğ½ĞµĞ³Ğ¾ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ.
 					OnUserChannelConnect(pCopy);
 				break;
 
-				case 1078: // Âõîä â ÷àò.
+				case 1078: // Ğ’Ñ…Ğ¾Ğ´ Ğ² Ñ‡Ğ°Ñ‚.
 					OnUserConnect(pCopy);
 				break;
 
-				case 1073: // Îòêëş÷åíèå îò êàíàëà ñòîğîííåãî èëè âèğòóàëüíîãî ïîëüçîâàòåëÿ.
+				case 1073: // ĞÑ‚ĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ Ğ¾Ñ‚ ĞºĞ°Ğ½Ğ°Ğ»Ğ° ÑÑ‚Ğ¾Ñ€Ğ¾Ğ½Ğ½ĞµĞ³Ğ¾ Ğ¸Ğ»Ğ¸ Ğ²Ğ¸Ñ€Ñ‚ÑƒĞ°Ğ»ÑŒĞ½Ğ¾Ğ³Ğ¾ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ.
 					OnUserChannelDisconnect(pCopy);
 				break;
 
-				case 1079: // Âûõîä èç ÷àòà.
+				case 1079: // Ğ’Ñ‹Ñ…Ğ¾Ğ´ Ğ¸Ğ· Ñ‡Ğ°Ñ‚Ğ°.
 					OnUserDisconnect(pCopy);
 				break;
 
-				case 1077: // Èçìåíåíèå ñîñòîÿíèÿ ïîëüçîâàòåëÿ.
+				case 1077: // Ğ˜Ğ·Ğ¼ĞµĞ½ĞµĞ½Ğ¸Ğµ ÑĞ¾ÑÑ‚Ğ¾ÑĞ½Ğ¸Ñ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ.
 					OnUserStateChanged(pCopy);
 				break;
 
-				case 1076: // Èçìåíåíèå èêîíêè ïîëüçîâàòåëÿ.
+				case 1076: // Ğ˜Ğ·Ğ¼ĞµĞ½ĞµĞ½Ğ¸Ğµ Ğ¸ĞºĞ¾Ğ½ĞºĞ¸ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ.
 					OnUserSexChanged(pCopy);
 				break;
 
-				case 1071: // Èçìåíåíèå òåìû.
+				case 1071: // Ğ˜Ğ·Ğ¼ĞµĞ½ĞµĞ½Ğ¸Ğµ Ñ‚ĞµĞ¼Ñ‹.
 					OnChannelTopicChanged(pCopy);
 				break;
 
-				case 1090: // Àâòîğèçàöèÿ âèğòóàëüíîãî ïîëüçîâàòåëÿ íåâîçìîæíà.
+				case 1090: // ĞĞ²Ñ‚Ğ¾Ñ€Ğ¸Ğ·Ğ°Ñ†Ğ¸Ñ Ğ²Ğ¸Ñ€Ñ‚ÑƒĞ°Ğ»ÑŒĞ½Ğ¾Ğ³Ğ¾ Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ Ğ½ĞµĞ²Ğ¾Ğ·Ğ¼Ğ¾Ğ¶Ğ½Ğ°.
 					OnUnsuccessAuth(pCopy);
 				break;
 				case 1081: // New user registered.
 					OnUserRegistered(pCopy);
 				break;
-					/*case 1062: //Ïîäêëş÷åíèå ê êàíàëó âèğòóàëüíîãî ïîëüçîâàòåëÿ
-					try
-					{
-						//bot nick
-						GetStreamString (&pCopy, &bot);
-						//channel
-						GetStreamString (&pCopy, &channel);
-						//channel theme
-						GetStreamString (&pCopy, NULL);
-						//channel greeting
-						GetStreamString (&pCopy, NULL);
-
-						query = Format(
-							"INSERT INTO `%s%s` (`variable`, `nick`, `male`, `channel`, `type`, `datetime`)"
-							" VALUES (\"%s\", \"%s\", '%d', \"%s\", '4', '%d')",
-							ARRAYOFCONST((tables_prefix, tbl_names.actions, ip, nick, male, channel, timestamp))
-						);
-						if (mysql_connection->query(query))
-							InfoAction(Format(n_user_channel_connect, ARRAYOFCONST((channel, nick, ip))), false, 0);
-						}
-					}
-					catch (Exception *E)
-					{
-						InfoAction(Format(e_user_channel_connect, ARRAYOFCONST((E->Message))), false, 2);
-					}
-				break; */
 			}
 		} catch (String error) {
 			InfoAction(error, false, 2, 1);
@@ -260,19 +152,19 @@ VOID PluginProcess(DWORD dwID, BYTE * bInBuffer, DWORD dwInBufferSize) {
 }
 DWORD PluginGetData(DWORD dwID, BYTE * bInBuffer, DWORD dwInBufferSize, BYTE * bOutBuffer, DWORD dwOutBufferSize)
 {
-	//ôóíêöèÿ ïåğåäà÷è äàííûõ ïğîãğàììå
-	//ïğè çíà÷åíèè dwOutBufferSize ğàâíûì íóëş ôóíêöèÿ äîëæíà âåğíóòü îáúåì äàííûõ, íè÷åãî íå çàïèñûâàÿ
+	//Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ Ğ¿ĞµÑ€ĞµĞ´Ğ°Ñ‡Ğ¸ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ… Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ğµ
+	//Ğ¿Ñ€Ğ¸ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğ¸ dwOutBufferSize Ñ€Ğ°Ğ²Ğ½Ñ‹Ğ¼ Ğ½ÑƒĞ»Ñ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ Ğ´Ğ¾Ğ»Ğ¶Ğ½Ğ° Ğ²ĞµÑ€Ğ½ÑƒÑ‚ÑŒ Ğ¾Ğ±ÑŠĞµĞ¼ Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ…, Ğ½Ğ¸Ñ‡ĞµĞ³Ğ¾ Ğ½Ğµ Ğ·Ğ°Ğ¿Ğ¸ÑÑ‹Ğ²Ğ°Ñ
 
 	DWORD result = 0;
 	switch (dwID) {
-		case 2800: //Ïğåäíàçíà÷åíèå ïëàãèíà
+		case 2800: //ĞŸÑ€ĞµĞ´Ğ½Ğ°Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ğ¿Ğ»Ğ°Ğ³Ğ¸Ğ½Ğ°
 			result = 4;
 			if (dwOutBufferSize != 0) {
 				DWORD pr_type = 1;
 				memcpy(bOutBuffer, &pr_type, 4);
 			}
 			break;
-		case 2810: //Íàçâàíèå ïëàãèíà
+		case 2810: //ĞĞ°Ğ·Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ¿Ğ»Ğ°Ğ³Ğ¸Ğ½Ğ°
 			String name = GetPluginFullName();
 			int size = name.Length();
 			result = size * 2 + 4;
@@ -283,7 +175,7 @@ DWORD PluginGetData(DWORD dwID, BYTE * bInBuffer, DWORD dwInBufferSize, BYTE * b
 			break;
 	}
 
-	return result;//âîçâğàùàåìîå çíà÷åíèå - îáúåì çàïèñàííûõ äàííûõ
+	return result;//Ğ²Ğ¾Ğ·Ğ²Ñ€Ğ°Ñ‰Ğ°ĞµĞ¼Ğ¾Ğµ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ - Ğ¾Ğ±ÑŠĞµĞ¼ Ğ·Ğ°Ğ¿Ğ¸ÑĞ°Ğ½Ğ½Ñ‹Ñ… Ğ´Ğ°Ğ½Ğ½Ñ‹Ñ…
 }
 VOID PluginShowOptions() {
 	if (!settings_form) {
@@ -325,14 +217,9 @@ VOID PluginStop() {
 			delete white_ips;
 			white_ips = NULL;
 		}
-//		if (condit_channels) {
-//			delete condit_channels;
-//			condit_channels = NULL;
-//		}
-
 		plugin_started = false;
 
-		//ïğè óíè÷òîæåíèè îòêëş÷åíèå ïëàãèíà çàêğûâàåì ôàéë ëîãîâ
+		//Ğ¿Ñ€Ğ¸ ÑƒĞ½Ğ¸Ñ‡Ñ‚Ğ¾Ğ¶ĞµĞ½Ğ¸Ğ¸ Ğ¾Ñ‚ĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ Ğ¿Ğ»Ğ°Ğ³Ğ¸Ğ½Ğ° Ğ·Ğ°ĞºÑ€Ñ‹Ğ²Ğ°ĞµĞ¼ Ñ„Ğ°Ğ¹Ğ» Ğ»Ğ¾Ğ³Ğ¾Ğ²
 		FileClose(file_pos);
 	} catch (Exception *E) {
 		ShowMsg(Application->Handle, Format(e_plug_stop, ARRAYOFCONST((E->Message))), 1);

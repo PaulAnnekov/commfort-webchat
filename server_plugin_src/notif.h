@@ -26,13 +26,13 @@
 #include <fstream>
 //---------------------------------------------------------------------------
 
-//handle для файла логов
+//handle РґР»СЏ С„Р°Р№Р»Р° Р»РѕРіРѕРІ
 extern int file_pos;
 
 extern ofstream log_file;
 
 extern const String
-	// Сообщения об ошибках.
+	// РЎРѕРѕР±С‰РµРЅРёСЏ РѕР± РѕС€РёР±РєР°С….
     e_sql_on_init,
 	e_cant_connect,
 	e_sql_syntax,
@@ -70,7 +70,7 @@ extern const String
 	e_image_unexpected,
 	e_bot_base_load,
 
-	// Уведомления.
+	// РЈРІРµРґРѕРјР»РµРЅРёСЏ.
 	n_connect_success,
 	n_disconnect_success,
 	n_plugin_sync_started,
@@ -85,16 +85,16 @@ extern const String
 	n_user_sex_changed,
 	n_channel_theme_changed,
 
-	// Дополнительный текст.
+	// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ С‚РµРєСЃС‚.
 	a_sql_streams[3],
 
-	// Заголовки для окон уведомлений.
+	// Р—Р°РіРѕР»РѕРІРєРё РґР»СЏ РѕРєРѕРЅ СѓРІРµРґРѕРјР»РµРЅРёР№.
 	sm_warning,
 	sm_error,
 	sm_question,
 	sm_asterisk,
 
-	// Текст элементов форм.
+	// РўРµРєСЃС‚ СЌР»РµРјРµРЅС‚РѕРІ С„РѕСЂРј.
 	t_show_connection_button,
 	t_db_connection_yes,
 	t_db_connection_no,
@@ -106,25 +106,25 @@ extern const String
 	t_online_users_unknown,
 	t_bot_auth_wait;
 
-// Инициализация файла логов.
+// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С„Р°Р№Р»Р° Р»РѕРіРѕРІ.
 void LogFileInit();
 
-// Загрузка лога из файла в Memo поле.
+// Р—Р°РіСЂСѓР·РєР° Р»РѕРіР° РёР· С„Р°Р№Р»Р° РІ Memo РїРѕР»Рµ.
 void LoadLog();
 
-// Функция для упрощения вывода предупреждения от сокетов.
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СѓРїСЂРѕС‰РµРЅРёСЏ РІС‹РІРѕРґР° РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ РѕС‚ СЃРѕРєРµС‚РѕРІ.
 void SocketWarn(String text);
 
-// Функция для упрощения вывода общих логов.
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СѓРїСЂРѕС‰РµРЅРёСЏ РІС‹РІРѕРґР° РѕР±С‰РёС… Р»РѕРіРѕРІ.
 void MainEvent(String text, int type);
 
-// Файловое \ Визуальное логирование.
+// Р¤Р°Р№Р»РѕРІРѕРµ \ Р’РёР·СѓР°Р»СЊРЅРѕРµ Р»РѕРіРёСЂРѕРІР°РЅРёРµ.
 void InfoAction(String text, bool show_message, int group, int type);
 
-// Показ сообщения.
+// РџРѕРєР°Р· СЃРѕРѕР±С‰РµРЅРёСЏ.
 int ShowMsg(HWND handle, String main_t, int type);
 
-// Вывод сообщения в Memo поле.
+// Р’С‹РІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ РІ Memo РїРѕР»Рµ.
 void RTFInsert(String text, int type);
 //---------------------------------------------------------------------------
 #endif

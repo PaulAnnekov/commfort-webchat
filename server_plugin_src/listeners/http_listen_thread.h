@@ -27,32 +27,12 @@
 
 using namespace std;
 
-//extern volatile long http_listen_stop;
 extern SOCKET http_listening_socket;
-extern Socket—onnections http_connections;
+extern Socket–°onnections http_connections;
 extern HANDLE HTTPThread;
-//void SetupHTTPFDSet(fd_set& ReadFDs);
-//void AddNewHTTPConnection(SOCKET sd);
-//void CheckHTTPSockets(fd_set &ReadFDs, fd_set &ExceptFDs);
 
-extern int GetHTTPMessageLength(Socket—onnection &conn, char *received_data, int len);
+extern int GetHTTPMessageLength(Socket–°onnection &conn, char *received_data, int len);
 
 extern bool HTTPThreadStart();
-//extern void HTTPThreadStop();
-//extern void HTTPAccept(SOCKET listening_sock);
-
-// HTTP ÒÓÂ‰ËÌÂÌËÂ.
-/*
-    struct HTTPConnection {
-    	HTTPConnection(SOCKET sd_) : sd(sd_), buffer(NULL), buffer_length(0), headers_count(0), content_length(0), headers_received(false) { };
-    	SOCKET sd;
-    	char *buffer;
-    	int buffer_length, headers_count, content_length;
-    	bool headers_received;
-    };
-
-    typedef list<HTTPConnection> HTTPConnections;
-    extern HTTPConnections http_connections;
-*/
 
 #endif

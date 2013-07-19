@@ -26,9 +26,9 @@
 #include <winsock2.h>
 #include <list>
 //---------------------------------------------------------------------------
-// Ïîëíàÿ èíôîğìàöèÿ ïî ôèçè÷åñêîìó ñîåäèíåíèş.
-struct SocketÑonnection {
-	SocketÑonnection(SOCKET _sd, String _ip) : sd(_sd), ip(_ip), in_buffer(NULL), out_buffer(NULL), in_buf_length(0),
+// ĞŸĞ¾Ğ»Ğ½Ğ°Ñ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ğ¸Ñ Ğ¿Ğ¾ Ñ„Ğ¸Ğ·Ğ¸Ñ‡ĞµÑĞºĞ¾Ğ¼Ñƒ ÑĞ¾ĞµĞ´Ğ¸Ğ½ĞµĞ½Ğ¸Ñ.
+struct SocketĞ¡onnection {
+	SocketĞ¡onnection(SOCKET _sd, String _ip) : sd(_sd), ip(_ip), in_buffer(NULL), out_buffer(NULL), in_buf_length(0),
 	out_buf_length(0), json_length(0), json_length_received(false) { };
 	SOCKET sd;
 	char *in_buffer, *out_buffer;
@@ -37,10 +37,10 @@ struct SocketÑonnection {
 	String ip;
 };
 
-typedef list<SocketÑonnection> SocketÑonnections;
+typedef list<SocketĞ¡onnection> SocketĞ¡onnections;
 
 extern SOCKET SocketListen(int port);
-extern void SocketAccept(SOCKET listening_sock, SocketÑonnections &connections, int (*GetSocketMessageLength)(SocketÑonnection &, char *, int), bool is_persistent);
+extern void SocketAccept(SOCKET listening_sock, SocketĞ¡onnections &connections, int (*GetSocketMessageLength)(SocketĞ¡onnection &, char *, int), bool is_persistent);
 extern void SocketClose(SOCKET sd);
 extern String GetSocketError(SOCKET *sock);
 extern String GetSocketIP(SOCKET sd);

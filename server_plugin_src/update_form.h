@@ -44,9 +44,6 @@ __published:	// IDE-managed Components
 	TScrollBox *ScrollBox1;
 	TLabel *new_version_label;
 	TLabel *new_version_info_label;
-	//void __fastcall IdHTTP1Work(TObject *ASender, TWorkMode AWorkMode, __int64 AWorkCount);
-	//void __fastcall IdHTTP1WorkBegin(TObject *ASender, TWorkMode AWorkMode, __int64 AWorkCountMax);
-	//void __fastcall IdHTTP1WorkEnd(TObject *ASender, TWorkMode AWorkMode);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall update_plugin_buttonClick(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);

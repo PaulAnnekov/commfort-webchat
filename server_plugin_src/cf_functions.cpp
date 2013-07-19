@@ -29,7 +29,7 @@
 
 #pragma package(smart_init)
 
-// Получение адреса папки, предназначенной для хранилища настроек плагинов.
+// РџРѕР»СѓС‡РµРЅРёРµ Р°РґСЂРµСЃР° РїР°РїРєРё, РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРЅРѕР№ РґР»СЏ С…СЂР°РЅРёР»РёС‰Р° РЅР°СЃС‚СЂРѕРµРє РїР»Р°РіРёРЅРѕРІ.
 String GetPluginDirectory() {
 	String dir;
 	BYTE *data = NULL, *pCopy;
@@ -44,8 +44,8 @@ String GetPluginDirectory() {
 	return dir;
 }
 
-// Получение списка пользователей онлайн всего чата.
-// Возвращает список пользователей с информацией о них.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РѕРЅР»Р°Р№РЅ РІСЃРµРіРѕ С‡Р°С‚Р°.
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ СЃ РёРЅС„РѕСЂРјР°С†РёРµР№ Рѕ РЅРёС….
 CFUsersList GetChatUsersList() {
 	BYTE *pCopy,
 		 *data = NULL,
@@ -73,7 +73,7 @@ CFUsersList GetChatUsersList() {
 			users_list.push_back(CFUser(nick, ip, male));
 		}
 	} catch (Exception *E) {
-		InfoAction("Произошла ошибка при получении списка зарегистрированных пользователей. Ошибка: \"" + E->Message + "\"", false, 0, 2);
+		InfoAction("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё СЃРїРёСЃРєР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№. РћС€РёР±РєР°: \"" + E->Message + "\"", false, 0, 2);
 	}
 
 	delete []bOutBuffer;
@@ -87,8 +87,8 @@ CFUsersList GetChatUsersList() {
 	return users_list;
 }
 
-// Получение списка пользователей онлайн всего чата.
-// Возвращает список пользователей с информацией о них.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РѕРЅР»Р°Р№РЅ РІСЃРµРіРѕ С‡Р°С‚Р°.
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ СЃ РёРЅС„РѕСЂРјР°С†РёРµР№ Рѕ РЅРёС….
 CFUsersList GetChatOnlineUsersList() {
 	BYTE *pCopy,
 		 *data = NULL,
@@ -116,7 +116,7 @@ CFUsersList GetChatOnlineUsersList() {
 			users_list.push_back(CFUser(nick, ip, male));
 		}
 	} catch (Exception *E) {
-		InfoAction("Произошла ошибка при получении списка пользователей в чате. Ошибка: \"" + E->Message + "\"", false, 0, 2);
+		InfoAction("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РІ С‡Р°С‚Рµ. РћС€РёР±РєР°: \"" + E->Message + "\"", false, 0, 2);
 	}
 
 	delete []bOutBuffer;
@@ -130,7 +130,7 @@ CFUsersList GetChatOnlineUsersList() {
 	return users_list;
 }
 
-// Получение списка пользователей указанного канала.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ СѓРєР°Р·Р°РЅРЅРѕРіРѕ РєР°РЅР°Р»Р°.
 StringList GetChannelUsersList(String user, String channel) {
 	BYTE *pCopy,
 		 *data = NULL,
@@ -167,7 +167,7 @@ StringList GetChannelUsersList(String user, String channel) {
 			users_list.push_back(nick);
         }
 	} catch (Exception *E) {
-		InfoAction("Произошла ошибка при получении списка пользователей. Ошибка: \"" + E->Message + "\"", false, 0, 2);
+		InfoAction("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё СЃРїРёСЃРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№. РћС€РёР±РєР°: \"" + E->Message + "\"", false, 0, 2);
 	}
 
 	delete []bOutBuffer;
@@ -181,7 +181,7 @@ StringList GetChannelUsersList(String user, String channel) {
 	return users_list;
 }
 
-// Получает список каналов в чате от сервера и возвращает его.
+// РџРѕР»СѓС‡Р°РµС‚ СЃРїРёСЃРѕРє РєР°РЅР°Р»РѕРІ РІ С‡Р°С‚Рµ РѕС‚ СЃРµСЂРІРµСЂР° Рё РІРѕР·РІСЂР°С‰Р°РµС‚ РµРіРѕ.
 CFChannelsList GetChannelsList() {
 	BYTE * data = NULL, *pCopy;
 	DWORD num, users_online;
@@ -191,8 +191,8 @@ CFChannelsList GetChannelsList() {
 	try {
 	/*
 		ID: 1040
-		Блок данных (исходящий): [нулевое значение]
-		Блок данных (входящий): число(количество) + (текст(название канала) + число(количество пользователей в канале) + текст(тема канала))*количество
+		Р‘Р»РѕРє РґР°РЅРЅС‹С… (РёСЃС…РѕРґСЏС‰РёР№): [РЅСѓР»РµРІРѕРµ Р·РЅР°С‡РµРЅРёРµ]
+		Р‘Р»РѕРє РґР°РЅРЅС‹С… (РІС…РѕРґСЏС‰РёР№): С‡РёСЃР»Рѕ(РєРѕР»РёС‡РµСЃС‚РІРѕ) + (С‚РµРєСЃС‚(РЅР°Р·РІР°РЅРёРµ РєР°РЅР°Р»Р°) + С‡РёСЃР»Рѕ(РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РІ РєР°РЅР°Р»Рµ) + С‚РµРєСЃС‚(С‚РµРјР° РєР°РЅР°Р»Р°))*РєРѕР»РёС‡РµСЃС‚РІРѕ
 	*/
 		DWORD size = (*CommFortGetData)(dwPluginID, 1040, NULL, NULL, NULL, NULL);
 		data = new BYTE[size];
@@ -218,7 +218,7 @@ CFChannelsList GetChannelsList() {
 	return channels;
 }
 
-// Получает информацию о указанном канале.
+// РџРѕР»СѓС‡Р°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СѓРєР°Р·Р°РЅРЅРѕРј РєР°РЅР°Р»Рµ.
 Channel GetChannelInfo(String channel_name) {
 	BYTE *data = NULL, *bOutBuffer = NULL, *pCopy;
 	DWORD length, channel_length, visibility, access, topic_edit, position_offset = 0;
@@ -232,10 +232,10 @@ Channel GetChannelInfo(String channel_name) {
 	try {
 	/*
 		ID: 1064
-		Блок данных (исходящий): текст(название канала)
-		Блок данных (входящий): текст(тема канала) + текст(имя последнего пользователя, изменившего тему) +
-		дата_и_время(последнего редактирования темы) + текст(приветствие) + число(режим публикации изображений) +
-		число(видимость в списке) + число(режим доступности входа) + число(режим доступности редактирования темы)
+		Р‘Р»РѕРє РґР°РЅРЅС‹С… (РёСЃС…РѕРґСЏС‰РёР№): С‚РµРєСЃС‚(РЅР°Р·РІР°РЅРёРµ РєР°РЅР°Р»Р°)
+		Р‘Р»РѕРє РґР°РЅРЅС‹С… (РІС…РѕРґСЏС‰РёР№): С‚РµРєСЃС‚(С‚РµРјР° РєР°РЅР°Р»Р°) + С‚РµРєСЃС‚(РёРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РёР·РјРµРЅРёРІС€РµРіРѕ С‚РµРјСѓ) +
+		РґР°С‚Р°_Рё_РІСЂРµРјСЏ(РїРѕСЃР»РµРґРЅРµРіРѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚РµРјС‹) + С‚РµРєСЃС‚(РїСЂРёРІРµС‚СЃС‚РІРёРµ) + С‡РёСЃР»Рѕ(СЂРµР¶РёРј РїСѓР±Р»РёРєР°С†РёРё РёР·РѕР±СЂР°Р¶РµРЅРёР№) +
+		С‡РёСЃР»Рѕ(РІРёРґРёРјРѕСЃС‚СЊ РІ СЃРїРёСЃРєРµ) + С‡РёСЃР»Рѕ(СЂРµР¶РёРј РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё РІС…РѕРґР°) + С‡РёСЃР»Рѕ(СЂРµР¶РёРј РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚РµРјС‹)
 	*/
 		SetStreamString(bOutBuffer, &position_offset, channel_name, channel_length);
 		DWORD size = (*CommFortGetData)(dwPluginID, 1064, NULL, NULL, bOutBuffer, length);
@@ -247,26 +247,26 @@ Channel GetChannelInfo(String channel_name) {
 
 		// channel topic.
 		GetStreamString(&pCopy, &channel.topic);
-		// имя последнего пользователя, изменившего тему.
+		// РёРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РёР·РјРµРЅРёРІС€РµРіРѕ С‚РµРјСѓ.
 		GetStreamString(&pCopy, &channel.topic_editor);
-		// последнего редактирования темы.
+		// РїРѕСЃР»РµРґРЅРµРіРѕ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚РµРјС‹.
 		GetStreamTime(&pCopy, topic_edit_time);
 		channel.topic_date = (topic_edit_time != 0) ? Dateutils::DateTimeToUnix(topic_edit_time) : 0;
-		// приветствие.
+		// РїСЂРёРІРµС‚СЃС‚РІРёРµ.
 		GetStreamString(&pCopy, &channel.greeting);
-		// режим публикации изображений.
+		// СЂРµР¶РёРј РїСѓР±Р»РёРєР°С†РёРё РёР·РѕР±СЂР°Р¶РµРЅРёР№.
 		GetStreamDword(&pCopy, &channel.images_type);
-		// видимость в списке.
+		// РІРёРґРёРјРѕСЃС‚СЊ РІ СЃРїРёСЃРєРµ.
 		GetStreamDword(&pCopy, &visibility);
 		channel.visibility = visibility;
-		// режим доступности входа.
+		// СЂРµР¶РёРј РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё РІС…РѕРґР°.
 		GetStreamDword(&pCopy, &access);
 		channel.access = access;
-		// режим доступности редактирования темы.
+		// СЂРµР¶РёРј РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚РµРјС‹.
 		GetStreamDword(&pCopy, &topic_edit);
 		channel.topic_edit = topic_edit;
 	} catch (Exception *E) {
-		InfoAction("Произошла ошибка во время получения информации о канале \"" + channel_name + "\". Ошибка: \"" + E->Message + "\"", false, 0, 1);
+		InfoAction("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІРѕ РІСЂРµРјСЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РєР°РЅР°Р»Рµ \"" + channel_name + "\". РћС€РёР±РєР°: \"" + E->Message + "\"", false, 0, 1);
 	}
 
 	delete []bOutBuffer;
@@ -279,7 +279,7 @@ Channel GetChannelInfo(String channel_name) {
 	return channel;
 }
 
-// Получает полную информацию о пользователе.
+// РџРѕР»СѓС‡Р°РµС‚ РїРѕР»РЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ.
 CFUserInfo GetUserInfo(String name) {
 	BYTE *data = NULL, *bOutBuffer = NULL, *pCopy;
 	DWORD len, name_len, pos_offset = 0;
@@ -299,27 +299,27 @@ CFUserInfo GetUserInfo(String name) {
 			pCopy = data;
 
 			(*CommFortGetData)(dwPluginID, 1063, data, size, bOutBuffer, len);
-			// IP-адрес.
+			// IP-Р°РґСЂРµСЃ.
 			GetStreamString(&pCopy, &user_info.ip);
-			// публично отображаемый IP-адрес.
+			// РїСѓР±Р»РёС‡РЅРѕ РѕС‚РѕР±СЂР°Р¶Р°РµРјС‹Р№ IP-Р°РґСЂРµСЃ.
 			GetStreamString(&pCopy, &user_info.public_ip);
-			// ID компьютера.
+			// ID РєРѕРјРїСЊСЋС‚РµСЂР°.
 			GetStreamString(&pCopy, &user_info.computer_id);
-			// иконка пользователя.
+			// РёРєРѕРЅРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 			GetStreamDword(&pCopy, &user_info.male);
-			// состояние.
+			// СЃРѕСЃС‚РѕСЏРЅРёРµ.
 			GetStreamString(&pCopy, &user_info.state);
-			// версия клиента.
+			// РІРµСЂСЃРёСЏ РєР»РёРµРЅС‚Р°.
 			GetStreamString(&pCopy, &user_info.client_version);
-			// состояние активности окна программы.
+			// СЃРѕСЃС‚РѕСЏРЅРёРµ Р°РєС‚РёРІРЅРѕСЃС‚Рё РѕРєРЅР° РїСЂРѕРіСЂР°РјРјС‹.
 			GetStreamDword(&pCopy, &user_info.window_activity);
-			// время простоя в секундах.
+			// РІСЂРµРјСЏ РїСЂРѕСЃС‚РѕСЏ РІ СЃРµРєСѓРЅРґР°С….
 			GetStreamDword(&pCopy, &user_info.downtime);
-			// активный процесс.
+			// Р°РєС‚РёРІРЅС‹Р№ РїСЂРѕС†РµСЃСЃ.
 			GetStreamString(&pCopy, &user_info.process);
 		}
 	} catch (Exception *E) {
-		InfoAction("Произошла ошибка во время получения информации о пользователе \"" + name + "\". Ошибка: \"" + E->Message + "\"", false, 0, 1);
+		InfoAction("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІРѕ РІСЂРµРјСЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ \"" + name + "\". РћС€РёР±РєР°: \"" + E->Message + "\"", false, 0, 1);
 	}
 
 	delete []bOutBuffer;
@@ -332,7 +332,7 @@ CFUserInfo GetUserInfo(String name) {
 	return user_info;
 }
 
-// Проверка зарегистрирован ли пользователь (проверка IP адреса).
+// РџСЂРѕРІРµСЂРєР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ Р»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ (РїСЂРѕРІРµСЂРєР° IP Р°РґСЂРµСЃР°).
 bool GetUserRegState(String nick) {
 	BYTE * data = NULL, *bOutBuffer = NULL, *pCopy;
 	DWORD len, nick_len, pos_offset = 0;
@@ -353,7 +353,7 @@ bool GetUserRegState(String nick) {
 		(*CommFortGetData)(dwPluginID, 1061, data, size, bOutBuffer, len);
 		GetStreamString(&pCopy, &ip);
 	} catch (Exception *E) {
-		InfoAction("Произошла ошибка во время проверки регистрации пользователя \"" + nick + "\". Ошибка: \"" + E->Message + "\"", false, 0, 1);
+		InfoAction("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІРѕ РІСЂРµРјСЏ РїСЂРѕРІРµСЂРєРё СЂРµРіРёСЃС‚СЂР°С†РёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ \"" + nick + "\". РћС€РёР±РєР°: \"" + E->Message + "\"", false, 0, 1);
 	}
 
 	delete []bOutBuffer;
@@ -403,8 +403,8 @@ String GetComputerID(String name) {
 	return computer_id;
 }
 
-// Проверка скрытости IP-адреса пользователя.
-// Возвращаемое значение - N/A, если IP скрыт или ник пользователя в белом списке; IP-адрес, если IP не скрыт.
+// РџСЂРѕРІРµСЂРєР° СЃРєСЂС‹С‚РѕСЃС‚Рё IP-Р°РґСЂРµСЃР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
+// Р’РѕР·РІСЂР°С‰Р°РµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ - N/A, РµСЃР»Рё IP СЃРєСЂС‹С‚ РёР»Рё РЅРёРє РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ Р±РµР»РѕРј СЃРїРёСЃРєРµ; IP-Р°РґСЂРµСЃ, РµСЃР»Рё IP РЅРµ СЃРєСЂС‹С‚.
 bool IsHiddenIP(String name) {
 	BYTE * data = NULL, *bOutBuffer = NULL, *pCopy;
 	DWORD len, nick_len, ip_state, pos_offset = 0;
@@ -423,7 +423,7 @@ bool IsHiddenIP(String name) {
 		(*CommFortGetData)(dwPluginID, 1050, data, size, bOutBuffer, len);
 		GetStreamDword(&pCopy, &ip_state);
 	} catch (Exception *E) {
-		InfoAction("Произошла ошибка во время проверки состояния скрытия IP пользователя \"" + name + "\". Ошибка: \"" + E->Message + "\"", false, 2, 1);
+		InfoAction("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РІРѕ РІСЂРµРјСЏ РїСЂРѕРІРµСЂРєРё СЃРѕСЃС‚РѕСЏРЅРёСЏ СЃРєСЂС‹С‚РёСЏ IP РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ \"" + name + "\". РћС€РёР±РєР°: \"" + E->Message + "\"", false, 2, 1);
 	}
 
 	delete []bOutBuffer;
@@ -436,10 +436,10 @@ bool IsHiddenIP(String name) {
 	return ip_state;
 }
 
-// Вход виртуального пользователя в чат.
+// Р’С…РѕРґ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ С‡Р°С‚.
 // pass_encrypt:
-//  0 – пароль в открытом виде
-//  1 – 32х символьный MD5 хэш-код пароля
+//  0 вЂ“ РїР°СЂРѕР»СЊ РІ РѕС‚РєСЂС‹С‚РѕРј РІРёРґРµ
+//  1 вЂ“ 32С… СЃРёРјРІРѕР»СЊРЅС‹Р№ MD5 С…СЌС€-РєРѕРґ РїР°СЂРѕР»СЏ
 // is_female:
 //  0 - male
 //  1 - female
@@ -449,7 +449,7 @@ void UserConnect(String name, String ip, bool pass_encrypt, String pass, int is_
 	name_len = name.Length();
 	ip_len = ip.Length();
 	pass_len = pass.Length();
-	//текст(имя) + текст(IP-адрес) + число(тип пароля) + текст(пароль) + число(иконка)
+	//С‚РµРєСЃС‚(РёРјСЏ) + С‚РµРєСЃС‚(IP-Р°РґСЂРµСЃ) + С‡РёСЃР»Рѕ(С‚РёРї РїР°СЂРѕР»СЏ) + С‚РµРєСЃС‚(РїР°СЂРѕР»СЊ) + С‡РёСЃР»Рѕ(РёРєРѕРЅРєР°)
 	//len = 4 + bot_prop.name.Length() * 2 + 4 + bot_prop.ip.Length() * 2 + 4 + 4 + bot_prop.pass.Length() * 2 + 4;
 
 	len = 20 + (name_len + ip_len + pass_len) * 2;
@@ -469,12 +469,12 @@ void UserConnect(String name, String ip, bool pass_encrypt, String pass, int is_
 	}
 }
 
-// Выход виртуального пользователя из чата.
+// Р’С‹С…РѕРґ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РёР· С‡Р°С‚Р°.
 void UserDisconnect(String name) {
 	DWORD len, pos_offset = 0, name_len;
 	name_len = name.Length();
 
-	//текст(имя)
+	//С‚РµРєСЃС‚(РёРјСЏ)
 	len = 4 + name_len * 2;
 	BYTE * bOutBuffer = new char[len];
 	try {
@@ -496,14 +496,14 @@ void UserDisconnect(String name) {
 	}
 }
 
-// Подключение виртуального пользователя к каналу.
+// РџРѕРґРєР»СЋС‡РµРЅРёРµ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рє РєР°РЅР°Р»Сѓ.
 bool UserChannelConnect(String user_name, String chnl_name, int visibility, int enter_type) {
 	DWORD len, pos_offset = 0, user_name_len, chnl_name_len;
 	user_name_len = user_name.Length();
 	chnl_name_len = chnl_name.Length();
 	bool result = false;
 
-	//текст(имя виртуального пользователя) + текст(название канала) + число(видимость) + число(тип входа)
+	//С‚РµРєСЃС‚(РёРјСЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ) + С‚РµРєСЃС‚(РЅР°Р·РІР°РЅРёРµ РєР°РЅР°Р»Р°) + С‡РёСЃР»Рѕ(РІРёРґРёРјРѕСЃС‚СЊ) + С‡РёСЃР»Рѕ(С‚РёРї РІС…РѕРґР°)
 	//len = 4 + user_name_len.Length() * 2 + 4 + chnl_name_len.Length() * 2 + 4 + 4;
 
 	len = 16 + (user_name_len + chnl_name_len) * 2;
@@ -524,14 +524,14 @@ bool UserChannelConnect(String user_name, String chnl_name, int visibility, int 
 	return result;
 }
 
-// Отключение виртуального пользователя от канала.
+// РћС‚РєР»СЋС‡РµРЅРёРµ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РѕС‚ РєР°РЅР°Р»Р°.
 bool UserChannelDisconnect(String user_name, String chnl_name) {
 	DWORD len, pos_offset = 0, user_name_len, chnl_name_len;
 	user_name_len = user_name.Length();
 	chnl_name_len = chnl_name.Length();
 	bool result = false;
 
-	//текст(имя виртуального пользователя) + текст(название канала)
+	//С‚РµРєСЃС‚(РёРјСЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ) + С‚РµРєСЃС‚(РЅР°Р·РІР°РЅРёРµ РєР°РЅР°Р»Р°)
 	//len = 4 + user_name_len.Length() * 2 + 4 + chnl_name_len.Length() * 2;
 
 	len = 8 + (user_name_len + chnl_name_len) * 2;
@@ -549,8 +549,8 @@ bool UserChannelDisconnect(String user_name, String chnl_name) {
 	return result;
 }
 
-// Получение списка каналов, к которым подключен виртуальный пользователь.
-// Возвращаеет список каналов.
+// РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° РєР°РЅР°Р»РѕРІ, Рє РєРѕС‚РѕСЂС‹Рј РїРѕРґРєР»СЋС‡РµРЅ РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ.
+// Р’РѕР·РІСЂР°С‰Р°РµРµС‚ СЃРїРёСЃРѕРє РєР°РЅР°Р»РѕРІ.
 StringList UserChannels(String user_name) {
 	BYTE *pCopy,
 		 *data = NULL,
@@ -586,7 +586,7 @@ StringList UserChannels(String user_name) {
 			channels.push_back(channel);
 		}
 	} catch (Exception *E) {
-		InfoAction("Произошла ошибка при получении списка каналов, к которым подключен бот. Ошибка: \"" + E->Message + "\"", false, 2, 2);
+		InfoAction("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё СЃРїРёСЃРєР° РєР°РЅР°Р»РѕРІ, Рє РєРѕС‚РѕСЂС‹Рј РїРѕРґРєР»СЋС‡РµРЅ Р±РѕС‚. РћС€РёР±РєР°: \"" + E->Message + "\"", false, 2, 2);
 		channels.clear();
 	}
 
@@ -601,11 +601,11 @@ StringList UserChannels(String user_name) {
 	return channels;
 }
 
-// Установка состояния виртуальному пользователю.
+// РЈСЃС‚Р°РЅРѕРІРєР° СЃРѕСЃС‚РѕСЏРЅРёСЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕРјСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ.
 void SetUserState(String name, String state) {
 	/*
 		ID: 1025
-		Блок данных: текст(имя виртуального пользователя) + текст(новое состояние)
+		Р‘Р»РѕРє РґР°РЅРЅС‹С…: С‚РµРєСЃС‚(РёРјСЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ) + С‚РµРєСЃС‚(РЅРѕРІРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ)
 		len = 4 + name_len * 2 + 4 + state_len * 2;
 	*/
 	DWORD len, state_len, name_len, pos_offset;
@@ -626,11 +626,11 @@ void SetUserState(String name, String state) {
 	}
 }
 
-// Публикация сообщения от виртуального пользователя.
+// РџСѓР±Р»РёРєР°С†РёСЏ СЃРѕРѕР±С‰РµРЅРёСЏ РѕС‚ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 bool SendChannelMessage(String name, unsigned int rezim, String channel, String message) {
 	/*
 		ID: 1020
-		Блок данных: текст(имя виртуального пользователя) + число(режим) + текст(канал) + текст(сообщение)
+		Р‘Р»РѕРє РґР°РЅРЅС‹С…: С‚РµРєСЃС‚(РёРјСЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ) + С‡РёСЃР»Рѕ(СЂРµР¶РёРј) + С‚РµРєСЃС‚(РєР°РЅР°Р») + С‚РµРєСЃС‚(СЃРѕРѕР±С‰РµРЅРёРµ)
 		len = 4 + bot_prop.name_len * 2 + 4 + 4 + channel_len * 2 + 4 + body_len * 2
 	*/
 	bool result = true;

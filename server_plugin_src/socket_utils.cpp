@@ -56,9 +56,9 @@ String GetSocketError(SOCKET *sock) {
 // Set up the three FD sets used with select() with the sockets in the
 // connection list.  Also add one for the listener socket, if we have
 // one.
-void SetupFDSet(fd_set& ReadFDs, SocketСonnections &connections) {
+void SetupFDSet(fd_set& ReadFDs, SocketРЎonnections &connections) {
 	// Add client connections
-	SocketСonnections::iterator it = connections.begin();
+	SocketРЎonnections::iterator it = connections.begin();
 	while (it != connections.end()) {
 		FD_SET(it->sd, &ReadFDs);
 
@@ -70,7 +70,7 @@ int SocketRead(SOCKET sd, char **data) {
 	int len = 0;
 	ioctlsocket(sd, FIONREAD, (DWORD *) &len);
 
-	// Если длинна данных в буфере - 0, значит сокет закрылся.
+	// Р•СЃР»Рё РґР»РёРЅРЅР° РґР°РЅРЅС‹С… РІ Р±СѓС„РµСЂРµ - 0, Р·РЅР°С‡РёС‚ СЃРѕРєРµС‚ Р·Р°РєСЂС‹Р»СЃСЏ.
 	if (len != 0) {
 		*data = new char[len];
 		len = recv(sd, *data, len, 0);
@@ -92,7 +92,7 @@ int SocketRead(SOCKET sd, char **data) {
 
 // Copies new portion of the received data to the end of json request string.
 // Launches parser if json request is fully received.
-String GetSocketMessage(SocketСonnection &conn, char *data, int len) {
+String GetSocketMessage(SocketРЎonnection &conn, char *data, int len) {
 	int copy_to_end = conn.json_length - conn.in_buf_length;
 	bool content_received = false;
 	String request = "";
@@ -110,18 +110,12 @@ String GetSocketMessage(SocketСonnection &conn, char *data, int len) {
 	conn.in_buffer = NULL;
 
 	if (content_received) {
-		//InfoAction("Content fully received", false, 3, 0);
 		request = String(tmp).SetLength(conn.json_length);
-		//InfoAction("Content - " + request, false, 3, 0);
 		conn.in_buf_length = 0;
 		conn.json_length_received = false;
 		conn.json_length = 0;
 		delete [] tmp;
-
-		//send buffer to json-parser and send response to client.
-		//SocketWrite(conn.sd, ParseJSONRequest(request, conn.sd, 1));
 	} else {
-		//InfoAction("Content not fully received", false, 3, 0);
 		conn.in_buffer = tmp;
 		conn.in_buf_length += copy_to_end;
 	}
@@ -189,9 +183,9 @@ String GetSocketIP(SOCKET sd) {
 }
 
 // Search socket with the same ip as in parameter.
-bool SearchSocketByIP(SocketСonnections &connections, String ip) {
+bool SearchSocketByIP(SocketРЎonnections &connections, String ip) {
 	bool found = false;
-	SocketСonnections::iterator it = connections.begin();
+	SocketРЎonnections::iterator it = connections.begin();
 
 	while (it != connections.end()) {
 		if (it->ip == ip) {
@@ -213,7 +207,7 @@ void SocketClose(SOCKET sd) {
 }
 
 // Spin forever handling connections.  If something bad happens, we return.
-void SocketAccept(SOCKET listening_sock, SocketСonnections &connections, int (*GetSocketMessageLength)(SocketСonnection &, char *, int), bool is_persistent) {
+void SocketAccept(SOCKET listening_sock, SocketРЎonnections &connections, int (*GetSocketMessageLength)(SocketРЎonnection &, char *, int), bool is_persistent) {
 	sockaddr_in sinRemote;
 	int nAddrSize = sizeof(sinRemote);
 	int socket_result;
@@ -229,19 +223,18 @@ void SocketAccept(SOCKET listening_sock, SocketСonnections &connections, int (*G
 		FD_SET(listening_sock, &fds);
 	}
 
-	//SetupFDSet(read_fds, connections);
 	read_fds_copy = except_fds_copy = fds;
 
 	while (1) {
 		if (listen_stop) {
-            /* TODO : Освобождать память всех буферов всех соединений при отключении прослушки портов */
+            /* TODO : РћСЃРІРѕР±РѕР¶РґР°С‚СЊ РїР°РјСЏС‚СЊ РІСЃРµС… Р±СѓС„РµСЂРѕРІ РІСЃРµС… СЃРѕРµРґРёРЅРµРЅРёР№ РїСЂРё РѕС‚РєР»СЋС‡РµРЅРёРё РїСЂРѕСЃР»СѓС€РєРё РїРѕСЂС‚РѕРІ */
 			break;
 		}
 
 		// Check thread sockets for new events.
 		socket_result = select(0, &read_fds_copy, NULL, &except_fds_copy, &interval);
 		if (socket_result != SOCKET_ERROR && socket_result != 0) {
-			// Проверка прослушивающего сокета на подключение нового клиента и на ошибки.
+			// РџСЂРѕРІРµСЂРєР° РїСЂРѕСЃР»СѓС€РёРІР°СЋС‰РµРіРѕ СЃРѕРєРµС‚Р° РЅР° РїРѕРґРєР»СЋС‡РµРЅРёРµ РЅРѕРІРѕРіРѕ РєР»РёРµРЅС‚Р° Рё РЅР° РѕС€РёР±РєРё.
 			if (FD_ISSET(listening_sock, &read_fds_copy)) {
 				SOCKET sd = accept(listening_sock,
 						(sockaddr*)&sinRemote, &nAddrSize);
@@ -251,17 +244,12 @@ void SocketAccept(SOCKET listening_sock, SocketСonnections &connections, int (*G
 					if (ip != NULL) {
 						// Check if socket with the same IP address is already exists (don't allow double sockets from one ip).
 						String str_ip = String(ip);
-						//bool found = SearchSocketByIP(connections, str_ip);
-						//if (!found) {
-							// Set socket as non blocking.
-							u_long nNoBlock = 1;
-							ioctlsocket(sd, FIONBIO, &nNoBlock);
-							// Add socket to
-							connections.push_back(SocketСonnection(sd, str_ip));
-							FD_SET(sd, &fds);
-						//} else {
-						//	SocketClose(sd);
-						//}
+						// Set socket as non blocking.
+						u_long nNoBlock = 1;
+						ioctlsocket(sd, FIONBIO, &nNoBlock);
+						// Add socket to
+						connections.push_back(SocketРЎonnection(sd, str_ip));
+						FD_SET(sd, &fds);
 					}
 				} else {
 					SocketWarn(Format(e_tcp_socket_accept, ARRAYOFCONST((GetSocketError(NULL)))));
@@ -270,16 +258,16 @@ void SocketAccept(SOCKET listening_sock, SocketСonnections &connections, int (*G
 				SocketWarn(Format(e_tcp_during_listen, ARRAYOFCONST((GetSocketError(&listening_sock)))));
 			}
 
-            // Проверка клиентских сокетов на события.
-			SocketСonnections::iterator it = connections.begin();
-			SocketСonnections::iterator next_it = it;
+            // РџСЂРѕРІРµСЂРєР° РєР»РёРµРЅС‚СЃРєРёС… СЃРѕРєРµС‚РѕРІ РЅР° СЃРѕР±С‹С‚РёСЏ.
+			SocketРЎonnections::iterator it = connections.begin();
+			SocketРЎonnections::iterator next_it = it;
 			while (it != connections.end()) {
 				bool is_success = true;
 				String err;
                 FILETIME now;
 
 				GetSystemTimeAsFileTime(&now);
-				// Проверяем установлен ли указатель на данный сокет в массиве сокетов с событиями.
+				// РџСЂРѕРІРµСЂСЏРµРј СѓСЃС‚Р°РЅРѕРІР»РµРЅ Р»Рё СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РґР°РЅРЅС‹Р№ СЃРѕРєРµС‚ РІ РјР°СЃСЃРёРІРµ СЃРѕРєРµС‚РѕРІ СЃ СЃРѕР±С‹С‚РёСЏРјРё.
 				if (FD_ISSET(it->sd, &except_fds_copy)) {
 					is_success = false;
 					err = Format(e_tcp_client_during_listen, ARRAYOFCONST((GetSocketError(&(it->sd)))));
@@ -312,7 +300,7 @@ void SocketAccept(SOCKET listening_sock, SocketСonnections &connections, int (*G
 
 								String request = GetSocketMessage(*it, data, len);
 								if (!request.IsEmpty()) {
-									// Если длинна данных меньше 45 символов, то выбиваем ошибку (минимальный запрос состоит из 45 символов).
+									// Р•СЃР»Рё РґР»РёРЅРЅР° РґР°РЅРЅС‹С… РјРµРЅСЊС€Рµ 45 СЃРёРјРІРѕР»РѕРІ, С‚Рѕ РІС‹Р±РёРІР°РµРј РѕС€РёР±РєСѓ (РјРёРЅРёРјР°Р»СЊРЅС‹Р№ Р·Р°РїСЂРѕСЃ СЃРѕСЃС‚РѕРёС‚ РёР· 45 СЃРёРјРІРѕР»РѕРІ).
 									if (request.Length() > 45) {
 										String response = ParseJSONRequest(request, it, !is_persistent);
 										if (!response.IsEmpty()) {
@@ -341,7 +329,7 @@ void SocketAccept(SOCKET listening_sock, SocketСonnections &connections, int (*G
 				next_it = ++it;
 				it--;
 
-				// Если что-то случилось с сокетом или клиент отключился, то закрываем сокет и удаляем его из списка.
+				// Р•СЃР»Рё С‡С‚Рѕ-С‚Рѕ СЃР»СѓС‡РёР»РѕСЃСЊ СЃ СЃРѕРєРµС‚РѕРј РёР»Рё РєР»РёРµРЅС‚ РѕС‚РєР»СЋС‡РёР»СЃСЏ, С‚Рѕ Р·Р°РєСЂС‹РІР°РµРј СЃРѕРєРµС‚ Рё СѓРґР°Р»СЏРµРј РµРіРѕ РёР· СЃРїРёСЃРєР°.
 				if (!is_success) {
 					// Find logical connection with such socket.
 					LogicalConnections::iterator connection = SearchBySocket(it->sd);
@@ -357,7 +345,7 @@ void SocketAccept(SOCKET listening_sock, SocketСonnections &connections, int (*G
 					connections.erase(it);
 				}
 
-				// Переходим на следующий сокет.
+				// РџРµСЂРµС…РѕРґРёРј РЅР° СЃР»РµРґСѓСЋС‰РёР№ СЃРѕРєРµС‚.
 				it = next_it;
 			}
 		} else if (socket_result == SOCKET_ERROR) {
@@ -368,7 +356,7 @@ void SocketAccept(SOCKET listening_sock, SocketСonnections &connections, int (*G
 	}
 }
 
-// Запуск прослушки порта.
+// Р—Р°РїСѓСЃРє РїСЂРѕСЃР»СѓС€РєРё РїРѕСЂС‚Р°.
 SOCKET SocketListen(int port) {
 	SOCKET sd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sd != INVALID_SOCKET) {
@@ -380,7 +368,6 @@ SOCKET SocketListen(int port) {
 			if (listen(sd, SOMAXCONN) == SOCKET_ERROR) {
 				throw Exception(Format(__("ListenStartError"), ARRAYOFCONST((GetSocketError(NULL)))));
 			};
-			//freeaddrinfo(sinInterface);
 		} else {
 			throw Exception(Format(__("PortBindError"), ARRAYOFCONST((GetSocketError(NULL)))));
 		}

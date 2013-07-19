@@ -32,10 +32,9 @@
 
 #pragma package(smart_init)
 HANDLE HTTPThread;
-//volatile long http_listen_stop;
 
 SOCKET http_listening_socket;
-SocketСonnections http_connections;
+SocketРЎonnections http_connections;
 
 unsigned __stdcall HTTPListenLoop(void* pArguments) {
 	try {
@@ -49,7 +48,6 @@ unsigned __stdcall HTTPListenLoop(void* pArguments) {
 }
 
 bool HTTPThreadStart() {
-	//http_listen_stop = 0;
     bool success = true;
 
 	try {
@@ -145,34 +143,34 @@ int GetHTTPContentLength(char *header, int length) {
 	return output_length;
 }
 
-int GetHTTPMessageLength(SocketСonnection &conn, char *received_data, int len) {
-	// Исходя из размера данных в текущем буфере, длинны полученных на сокет данных и максимальной возможной длинны
-	// заголовка, просчитываем сколько данных надо добавить к новому буферу.
+int GetHTTPMessageLength(SocketРЎonnection &conn, char *received_data, int len) {
+	// РСЃС…РѕРґСЏ РёР· СЂР°Р·РјРµСЂР° РґР°РЅРЅС‹С… РІ С‚РµРєСѓС‰РµРј Р±СѓС„РµСЂРµ, РґР»РёРЅРЅС‹ РїРѕР»СѓС‡РµРЅРЅС‹С… РЅР° СЃРѕРєРµС‚ РґР°РЅРЅС‹С… Рё РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РІРѕР·РјРѕР¶РЅРѕР№ РґР»РёРЅРЅС‹
+	// Р·Р°РіРѕР»РѕРІРєР°, РїСЂРѕСЃС‡РёС‚С‹РІР°РµРј СЃРєРѕР»СЊРєРѕ РґР°РЅРЅС‹С… РЅР°РґРѕ РґРѕР±Р°РІРёС‚СЊ Рє РЅРѕРІРѕРјСѓ Р±СѓС„РµСЂСѓ.
 	int read_length = 2000 - conn.in_buf_length;
 	if (len < read_length) {
 		read_length = len;
 	}
 
-	// Создаем новый буфер и копируем в него по возможности старый + данные, которые пришли на сокет.
+	// РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ Р±СѓС„РµСЂ Рё РєРѕРїРёСЂСѓРµРј РІ РЅРµРіРѕ РїРѕ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЃС‚Р°СЂС‹Р№ + РґР°РЅРЅС‹Рµ, РєРѕС‚РѕСЂС‹Рµ РїСЂРёС€Р»Рё РЅР° СЃРѕРєРµС‚.
 	char *new_buffer = new char[conn.in_buf_length + read_length];
 	if (conn.in_buf_length != 0) {
 		memcpy(new_buffer, conn.in_buffer, conn.in_buf_length);
 	}
 	memcpy(new_buffer + conn.in_buf_length, received_data, read_length);
 
-	// Если длинна нового буфера больше 4 символов, то имеет смысл проверить конец заголовка.
+	// Р•СЃР»Рё РґР»РёРЅРЅР° РЅРѕРІРѕРіРѕ Р±СѓС„РµСЂР° Р±РѕР»СЊС€Рµ 4 СЃРёРјРІРѕР»РѕРІ, С‚Рѕ РёРјРµРµС‚ СЃРјС‹СЃР» РїСЂРѕРІРµСЂРёС‚СЊ РєРѕРЅРµС† Р·Р°РіРѕР»РѕРІРєР°.
 	if (conn.in_buf_length + read_length >= 4) {
-		// Копируем указатель на новый буфер для движения по нему.
+		// РљРѕРїРёСЂСѓРµРј СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅРѕРІС‹Р№ Р±СѓС„РµСЂ РґР»СЏ РґРІРёР¶РµРЅРёСЏ РїРѕ РЅРµРјСѓ.
 		char *tmp = new_buffer;
 
-		// Указываем максимально возможное количество передвижений по новой части буфера.
+		// РЈРєР°Р·С‹РІР°РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕ РІРѕР·РјРѕР¶РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРµРґРІРёР¶РµРЅРёР№ РїРѕ РЅРѕРІРѕР№ С‡Р°СЃС‚Рё Р±СѓС„РµСЂР°.
 		int loop = read_length;
 
 		int offset = 0;
 
-		// Если длинна старого буфера была больше 3-ех символов, то возможно в его последних трех символах
-		// содержалось сочетание "\r\n\r", которое могло быть началом конца заголовка. Следовательно надо
-		// начинать поиск с начала этих 3-ех символов.
+		// Р•СЃР»Рё РґР»РёРЅРЅР° СЃС‚Р°СЂРѕРіРѕ Р±СѓС„РµСЂР° Р±С‹Р»Р° Р±РѕР»СЊС€Рµ 3-РµС… СЃРёРјРІРѕР»РѕРІ, С‚Рѕ РІРѕР·РјРѕР¶РЅРѕ РІ РµРіРѕ РїРѕСЃР»РµРґРЅРёС… С‚СЂРµС… СЃРёРјРІРѕР»Р°С…
+		// СЃРѕРґРµСЂР¶Р°Р»РѕСЃСЊ СЃРѕС‡РµС‚Р°РЅРёРµ "\r\n\r", РєРѕС‚РѕСЂРѕРµ РјРѕРіР»Рѕ Р±С‹С‚СЊ РЅР°С‡Р°Р»РѕРј РєРѕРЅС†Р° Р·Р°РіРѕР»РѕРІРєР°. РЎР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ РЅР°РґРѕ
+		// РЅР°С‡РёРЅР°С‚СЊ РїРѕРёСЃРє СЃ РЅР°С‡Р°Р»Р° СЌС‚РёС… 3-РµС… СЃРёРјРІРѕР»РѕРІ.
 		if (conn.in_buf_length >= 3) {
 			offset = conn.in_buf_length - 3;
 			tmp += offset;
@@ -181,13 +179,13 @@ int GetHTTPMessageLength(SocketСonnection &conn, char *received_data, int len) {
 
 		int read = 0;
 
-		// Пока количество прочитанных символов меньше чем надо прочитать.
+		// РџРѕРєР° РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕС‡РёС‚Р°РЅРЅС‹С… СЃРёРјРІРѕР»РѕРІ РјРµРЅСЊС€Рµ С‡РµРј РЅР°РґРѕ РїСЂРѕС‡РёС‚Р°С‚СЊ.
 		while (read < loop) {
-			// Если символ совпал с "\r".
+			// Р•СЃР»Рё СЃРёРјРІРѕР» СЃРѕРІРїР°Р» СЃ "\r".
 			if (!strncmp(tmp, "\r", 1)) {
-				// Если 4 символа совпали с "\r\n\r\n".
+				// Р•СЃР»Рё 4 СЃРёРјРІРѕР»Р° СЃРѕРІРїР°Р»Рё СЃ "\r\n\r\n".
 				if (!strncmp(tmp, "\r\n\r\n", 4)) {
-					// Отправляем заголовок на обработку функции парсинга заголовка.
+					// РћС‚РїСЂР°РІР»СЏРµРј Р·Р°РіРѕР»РѕРІРѕРє РЅР° РѕР±СЂР°Р±РѕС‚РєСѓ С„СѓРЅРєС†РёРё РїР°СЂСЃРёРЅРіР° Р·Р°РіРѕР»РѕРІРєР°.
 					String header = String(new_buffer);
 					header.SetLength(offset + read + 2);
 					conn.json_length = GetHTTPHeaderValue(header, "Content-Length", false).ToInt();
@@ -198,25 +196,6 @@ int GetHTTPMessageLength(SocketСonnection &conn, char *received_data, int len) {
 					if (ValidateIP(new_ip) && conn.ip != new_ip) {
 						conn.ip = new_ip;
 					}
-
-					// Если старый буфер существовал - удаляем его.
-//					if (conn.length > 0) {
-//						delete [] conn.buffer;
-//					}
-
-					// Определяем длинну, которую мы щас запишем в новый буфер.
-//					conn.length = (conn.length + read_length) - (offset + read + 4);
-
-					// Если длинна записываемых данных больше или равна длинне контента, который надо считать,
-					// то мы получили контент.
-//					if (conn.length >= conn.content_length) {
-//						conn.length = conn.content_length;
-//						content_received = true;
-//					}
-
-					// Записываем в буффер новые данные и удаляем временный буффер.
-//					conn.buffer = new char[conn.content_length];
-//					memcpy(conn.buffer, new_buffer + offset + read + 4, conn.buffer_length);
 					read_length = read + 4;
 
 					delete [] new_buffer;
@@ -224,29 +203,23 @@ int GetHTTPMessageLength(SocketСonnection &conn, char *received_data, int len) {
 					//conn.headers_received = true;
 					break;
 				} else {
-					// Смещаемся на 4 символа.
+					// РЎРјРµС‰Р°РµРјСЃСЏ РЅР° 4 СЃРёРјРІРѕР»Р°.
 					tmp += 4;
 					read += 4;
 				}
 			} else {
-				// Смещаемся на 1 символ.
+				// РЎРјРµС‰Р°РµРјСЃСЏ РЅР° 1 СЃРёРјРІРѕР».
 				tmp++;
 				read++;
 			}
 		}
 	}
 
-	// Если  мы не нашли конец заголовка, да и длинна заголовка уже равна или привысила 2000 символов.
+	// Р•СЃР»Рё  РјС‹ РЅРµ РЅР°С€Р»Рё РєРѕРЅРµС† Р·Р°РіРѕР»РѕРІРєР°, РґР° Рё РґР»РёРЅРЅР° Р·Р°РіРѕР»РѕРІРєР° СѓР¶Рµ СЂР°РІРЅР° РёР»Рё РїСЂРёРІС‹СЃРёР»Р° 2000 СЃРёРјРІРѕР»РѕРІ.
 	if (!conn.json_length_received) {
-		//if (conn.length >= 2000) {
-		//	delete [] conn.buffer;
-			//send error.
-			//result = false;
-		//} else {
-			// Если заголовок ещё не получен, то надо скопировать созданный буфер в буфер соединения.
-			conn.in_buffer = new_buffer;
-			conn.in_buf_length += read_length;
-		//}
+		// Р•СЃР»Рё Р·Р°РіРѕР»РѕРІРѕРє РµС‰С‘ РЅРµ РїРѕР»СѓС‡РµРЅ, С‚Рѕ РЅР°РґРѕ СЃРєРѕРїРёСЂРѕРІР°С‚СЊ СЃРѕР·РґР°РЅРЅС‹Р№ Р±СѓС„РµСЂ РІ Р±СѓС„РµСЂ СЃРѕРµРґРёРЅРµРЅРёСЏ.
+		conn.in_buffer = new_buffer;
+		conn.in_buf_length += read_length;
 	} else {
 		delete [] conn.in_buffer;
 		conn.in_buffer = NULL;

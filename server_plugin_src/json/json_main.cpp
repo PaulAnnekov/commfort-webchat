@@ -70,8 +70,8 @@ int GetMethodID(String method) {
 	return meth_id;
 }
 
-// Дополнительная проверка значения переменной. Проверка учитывает наличие значения, его тип
-// и может устанавливать значение по умолчанию.
+// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР° Р·РЅР°С‡РµРЅРёСЏ РїРµСЂРµРјРµРЅРЅРѕР№. РџСЂРѕРІРµСЂРєР° СѓС‡РёС‚С‹РІР°РµС‚ РЅР°Р»РёС‡РёРµ Р·РЅР°С‡РµРЅРёСЏ, РµРіРѕ С‚РёРї
+// Рё РјРѕР¶РµС‚ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.
 String GetMemberValue(map<String, String> *method_obj, String member, bool is_req, String def = "", int type = NULL) {
 	/*
 	type:
@@ -80,16 +80,16 @@ String GetMemberValue(map<String, String> *method_obj, String member, bool is_re
 	*/
 	String value = GetMemberValue(method_obj, member);
 
-	// Если значение пустое или отсутствует.
+	// Р•СЃР»Рё Р·РЅР°С‡РµРЅРёРµ РїСѓСЃС‚РѕРµ РёР»Рё РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚.
 	if (value.IsEmpty()) {
-		// Если значение должно быть не пустое - ошибка.
+		// Р•СЃР»Рё Р·РЅР°С‡РµРЅРёРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РЅРµ РїСѓСЃС‚РѕРµ - РѕС€РёР±РєР°.
 		if (is_req) {
 			throw(JSONError(-32602, "Parameter " + member + " does not exist or empty"));
-		// Если у нас есть значение по умолчанию для этой переменной, то берем его.
+		// Р•СЃР»Рё Сѓ РЅР°СЃ РµСЃС‚СЊ Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґР»СЏ СЌС‚РѕР№ РїРµСЂРµРјРµРЅРЅРѕР№, С‚Рѕ Р±РµСЂРµРј РµРіРѕ.
 		} else if (!def.IsEmpty()) {
 			value = def;
 		}
-    // Если поле не пустое, то проверяем его на тип.
+    // Р•СЃР»Рё РїРѕР»Рµ РЅРµ РїСѓСЃС‚РѕРµ, С‚Рѕ РїСЂРѕРІРµСЂСЏРµРј РµРіРѕ РЅР° С‚РёРї.
 	} else {
 		if (type != NULL) {
 			bool is_valid = true;
@@ -112,7 +112,7 @@ String GetMemberValue(map<String, String> *method_obj, String member, bool is_re
 	return value;
 }
 
-// Получение значения переменной.
+// РџРѕР»СѓС‡РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ РїРµСЂРµРјРµРЅРЅРѕР№.
 String GetMemberValue(map<String, String> *method_obj, String member) {
 	map<String, String>::iterator pair;
 	String value = "";
@@ -129,7 +129,7 @@ String GetMemberValue(map<String, String> *method_obj, String member) {
 }
 
 // Call method by it's id.
-String CallMethod(String id, int meth_id, Params params, SocketСonnections::iterator socket_connection, int transport) {
+String CallMethod(String id, int meth_id, Params params, SocketРЎonnections::iterator socket_connection, int transport) {
 	LogicalConnections::iterator conn = NULL;
 	String response;
 

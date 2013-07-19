@@ -36,7 +36,7 @@
 HANDLE SocketThread;
 SOCKET simple_listening_socket;
 CRITICAL_SECTION socket_write_cs;
-Socket—onnections socket_connections;
+Socket–°onnections socket_connections;
 
 unsigned __stdcall SocketListenLoop(void* pArguments) {
 	try {
@@ -71,8 +71,9 @@ bool SocketThreadStart() {
 
 // Gets the JSON request length from the first 4 bytes received.
 // Returns the number of copied bytes from the received data.
-int GetCleanMessageLength(Socket—onnection &conn, char *received_data, int len) {
-	int copy_to_end = 4 - conn.in_buf_length;
+int GetCleanMessageLength(Socket–°onnection &conn, char *received_data, int len) {
+
+	int copy_to_end = 4 - conn.in_buf_length;
 
 	if (len < copy_to_end) {
 		copy_to_end = len;
@@ -85,7 +86,7 @@ int GetCleanMessageLength(Socket—onnection &conn, char *received_data, int len) 
 	memcpy(tmp + conn.in_buf_length, received_data, copy_to_end);
 
 	if (conn.json_length_received) {
-		/* TODO : —‰ÂÎ‡Ú¸ Ó·‡·ÓÚÍÛ Ó¯Ë·ÍË ÔË‚Â‰ÂÌËˇ ÚËÔ‡ */
+		/* TODO : –°–¥–µ–ª–∞—Ç—å –æ–±—Ä–∞–±–æ—Ç–∫—É –æ—à–∏–±–∫–∏ –ø—Ä–∏–≤–µ–¥–µ–Ω–∏—è —Ç–∏–ø–∞ */
 		conn.json_length = *((int *)tmp);
 		delete [] tmp;
 	} else {

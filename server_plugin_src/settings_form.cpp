@@ -50,7 +50,7 @@ void TSettingsForm::add_del_string_list(TButton *btn, TEdit *edit, TListBox *lis
 			edit->Text = "";
 			edit->SetFocus();
 		}
-		else MessageBox(Handle, "Сперва надо вписать название канала", "Предупреждение",
+		else MessageBox(Handle, "РЎРїРµСЂРІР° РЅР°РґРѕ РІРїРёСЃР°С‚СЊ РЅР°Р·РІР°РЅРёРµ РєР°РЅР°Р»Р°", "РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ",
 		MB_OK + MB_ICONWARNING + MB_APPLMODAL);
 	}
 	else
@@ -66,7 +66,7 @@ void TSettingsForm::add_del_string_list(TButton *btn, TEdit *edit, TListBox *lis
 			}
 		}
 		else {
-			MessageBox(Handle, "Сперва надо выделить канал, который надо удалить из списка", "Предупреждение",
+			MessageBox(Handle, "РЎРїРµСЂРІР° РЅР°РґРѕ РІС‹РґРµР»РёС‚СЊ РєР°РЅР°Р», РєРѕС‚РѕСЂС‹Р№ РЅР°РґРѕ СѓРґР°Р»РёС‚СЊ РёР· СЃРїРёСЃРєР°", "РџСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ",
 				MB_OK + MB_ICONWARNING + MB_APPLMODAL);
 		}
 	}
@@ -74,7 +74,7 @@ void TSettingsForm::add_del_string_list(TButton *btn, TEdit *edit, TListBox *lis
 //---------------------------------------------------------------------------
 
 void TSettingsForm::SaveDBSettings()
-//процедура сохранения конфигурации. производится проверка данных в полях.
+//РїСЂРѕС†РµРґСѓСЂР° СЃРѕС…СЂР°РЅРµРЅРёСЏ РєРѕРЅС„РёРіСѓСЂР°С†РёРё. РїСЂРѕРёР·РІРѕРґРёС‚СЃСЏ РїСЂРѕРІРµСЂРєР° РґР°РЅРЅС‹С… РІ РїРѕР»СЏС….
 {
 	db_prop.host  = db_host_edit->Text;
 	db_prop.name  = db_name_edit->Text;
@@ -153,26 +153,23 @@ void __fastcall TSettingsForm::FormCreate(TObject *Sender)
 {
 	//TranslateFormElements(this);
 
-	// Ставим первой станичку настроек БД + выделяем этот пункт в списке настроек + выставляем индекс выделения
+	// РЎС‚Р°РІРёРј РїРµСЂРІРѕР№ СЃС‚Р°РЅРёС‡РєСѓ РЅР°СЃС‚СЂРѕРµРє Р‘Р” + РІС‹РґРµР»СЏРµРј СЌС‚РѕС‚ РїСѓРЅРєС‚ РІ СЃРїРёСЃРєРµ РЅР°СЃС‚СЂРѕРµРє + РІС‹СЃС‚Р°РІР»СЏРµРј РёРЅРґРµРєСЃ РІС‹РґРµР»РµРЅРёСЏ
 	db_s_page->BringToFront();
 	settings_list->ItemIndex = 0;
 	s_index = 0;
 
-	//подгрузка в поля значений настроек соединения с БД
+	//РїРѕРґРіСЂСѓР·РєР° РІ РїРѕР»СЏ Р·РЅР°С‡РµРЅРёР№ РЅР°СЃС‚СЂРѕРµРє СЃРѕРµРґРёРЅРµРЅРёСЏ СЃ Р‘Р”
 	db_host_edit->Text = db_prop.host;
 	db_name_edit->Text = db_prop.name;
 	db_user_edit->Text = db_prop.user;
 	db_pass_edit->Text = db_prop.pass;
 	db_prf_edit->Text  = tables_prefix;
 
-	//подгрузка в поля значений настроек изображений
+	//РїРѕРґРіСЂСѓР·РєР° РІ РїРѕР»СЏ Р·РЅР°С‡РµРЅРёР№ РЅР°СЃС‚СЂРѕРµРє РёР·РѕР±СЂР°Р¶РµРЅРёР№
 	image_folder_edit->Text = data_storage;
 	images_count_lbl->Caption = CountFilesInFolder(data_storage, "jpg");
 
-	//подгрузка в поля белого списка IP
-	//wht_nick_list->Items =  white_ips;
-
-	//подгрузка в поля значений дополнительных настроек
+	//РїРѕРґРіСЂСѓР·РєР° РІ РїРѕР»СЏ Р·РЅР°С‡РµРЅРёР№ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РЅР°СЃС‚СЂРѕРµРє
 	file_log_check->Checked           =  file_log;
 	auto_start_check->Checked         =  sync_autostart;
 	show_work_time_check->Checked     =  show_work_time;
@@ -189,10 +186,7 @@ void __fastcall TSettingsForm::FormCreate(TObject *Sender)
 
 void __fastcall TSettingsForm::test_conn_butClick(TObject *Sender)
 {
-	//SaveDBSettings();
-	//if (Сonnect(event_db_conn, true) == NULL) {
-	//	InfoAction("Тест подключения прошёл успешно. Настройки сохранены.", true, 0, 0);
-	//}
+
 }
 //---------------------------------------------------------------------------
 
@@ -205,15 +199,14 @@ void __fastcall TSettingsForm::load_first_config_butClick(TObject *Sender)
 
 void __fastcall TSettingsForm::add_chnl_editEnter(TObject *Sender)
 {
-	//add_del_chnl_btn->Caption = "+";
+
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall TSettingsForm::chnl_listClick(TObject *Sender)
 {
-	//if (chnl_list->ItemIndex != -1)
-	//	add_del_chnl_btn->Caption = "-";
+
 }
 //---------------------------------------------------------------------------
 
@@ -248,7 +241,7 @@ void __fastcall TSettingsForm::cancel_btnClick(TObject *Sender)
 
 void __fastcall TSettingsForm::add_del_chnl_btnClick(TObject *Sender)
 {
-	//add_del_string_list(add_del_chnl_btn, add_chnl_edit, chnl_list);
+
 }
 //---------------------------------------------------------------------------
 
@@ -283,18 +276,14 @@ void __fastcall TSettingsForm::add_nick_editKeyPress(TObject *Sender, wchar_t &K
 void __fastcall TSettingsForm::add_chnl_editKeyPress(TObject *Sender, wchar_t &Key)
 
 {
-	//if (Key == VK_RETURN) {
-	//	add_del_string_list(add_del_chnl_btn, add_chnl_edit, chnl_list);
-	//}
+
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TSettingsForm::chnl_listKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
 
 {
-	//if (chnl_list->ItemIndex != -1 && Key == VK_DELETE) {
-	//	add_del_string_list(add_del_chnl_btn, add_chnl_edit, chnl_list);
-	//}
+
 }
 //---------------------------------------------------------------------------
 
@@ -319,9 +308,6 @@ void __fastcall TSettingsForm::settings_listClick(TObject *Sender)
 		else if (c_index == 1) {
 			images_s_page->BringToFront();
 		}
-//		else if (c_index == 2) {
-//			wht_s_page->BringToFront();
-//		}
 		else if (c_index == 2) {
 			add_s_page->BringToFront();
 		}
@@ -332,10 +318,7 @@ void __fastcall TSettingsForm::settings_listClick(TObject *Sender)
 
 void __fastcall TSettingsForm::cr_db_struct_btnClick(TObject *Sender)
 {
-	//bool success = SetBaseDB();
-	//if (success) {
-	//	ShowMsg(Handle, "Базовая структура БД успешно создана", 0);
-	//}
+
 }
 //---------------------------------------------------------------------------
 

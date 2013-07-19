@@ -43,8 +43,8 @@ void DeleteChannelsWatchersMap() {
 	channels_watchers.clear();
 }
 
-// Добавляет ассоциацию виртуального пользователя с каналом.
-// Тем самым пользователь становится пользователем, который отслеживает данный канал.
+// Р”РѕР±Р°РІР»СЏРµС‚ Р°СЃСЃРѕС†РёР°С†РёСЋ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃ РєР°РЅР°Р»РѕРј.
+// РўРµРј СЃР°РјС‹Рј РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃС‚Р°РЅРѕРІРёС‚СЃСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј, РєРѕС‚РѕСЂС‹Р№ РѕС‚СЃР»РµР¶РёРІР°РµС‚ РґР°РЅРЅС‹Р№ РєР°РЅР°Р».
 void AddChannelWatcher(String user, String channel) {
 	try {
 		EnterCriticalSection(&channels_watchers_map_cs);
@@ -59,15 +59,6 @@ void AddChannelWatcher(String user, String channel) {
 	LeaveCriticalSection(&channels_watchers_map_cs);
 }
 
-//// Удаляет канал из списка отслеживаемых.
-//void DeleteChannelWatcher(String channel) {
-//	MapList::iterator it = channels_watchers.find(channel);
-//	if (it != channels_watchers.end()) {
-//		channels_watchers.erase(it);
-//		DeleteChannel(channel);
-//	}
-//}
-//
 // Check channel monitoring state.
 bool IsChannelMonitored(String channel) {
 	bool result = false;
@@ -135,15 +126,6 @@ void RemoveChannelWatcher(String channel) {
 bool ChangeChannelWatcher(String channel) {
 	return false;
 }
-
-//// Заменяет пользователя, который отслеживает данный канал, другим пользователем.
-//void ReplaceUserInChannel(String channel, String user) {
-//	MapList::iterator it = channels_watchers.find(channel);
-//
-//	if (it != NULL) {
-//        it->second = user;
-//	}
-//}
 
 // Check channels on virtual user disconnect.
 void CheckChannelsOnUserDisconnect(String user) {

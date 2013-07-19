@@ -41,7 +41,7 @@
 
 #pragma package(smart_init)
 
-// Вход в чат.
+// Р’С…РѕРґ РІ С‡Р°С‚.
 void OnUserConnect(BYTE *InBuffer) {
 	String name, ip, query;
 	DWORD male;
@@ -81,7 +81,7 @@ void OnUserConnect(BYTE *InBuffer) {
 	}
 }
 
-// Подключение к каналу виртуального пользователя.
+// РџРѕРґРєР»СЋС‡РµРЅРёРµ Рє РєР°РЅР°Р»Сѓ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 void OnVirtualUserChannelConnect(BYTE *InBuffer) {
 	String name, channel_name;
 
@@ -126,7 +126,7 @@ void OnVirtualUserChannelConnect(BYTE *InBuffer) {
 	}
 }
 
-// Подключение к каналу стороннего пользователя.
+// РџРѕРґРєР»СЋС‡РµРЅРёРµ Рє РєР°РЅР°Р»Сѓ СЃС‚РѕСЂРѕРЅРЅРµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 void OnUserChannelConnect(BYTE *InBuffer) {
 	String bot, name, channel, ip, query;
 	DWORD male;
@@ -160,7 +160,7 @@ void OnUserChannelConnect(BYTE *InBuffer) {
 	}
 }
 
-// Отключение от канала стороннего или виртуального пользователя.
+// РћС‚РєР»СЋС‡РµРЅРёРµ РѕС‚ РєР°РЅР°Р»Р° СЃС‚РѕСЂРѕРЅРЅРµРіРѕ РёР»Рё РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 void OnUserChannelDisconnect(BYTE *InBuffer) {
 	String bot, channel, name;
 
@@ -192,7 +192,7 @@ void OnUserChannelDisconnect(BYTE *InBuffer) {
 	}
 }
 
-// Публикация в общий канал.
+// РџСѓР±Р»РёРєР°С†РёСЏ РІ РѕР±С‰РёР№ РєР°РЅР°Р».
 void OnPublicChannelMessage(BYTE *InBuffer) {
 	String bot, name, channel, text;
 	DWORD mode, male, image_length;
@@ -209,7 +209,7 @@ void OnPublicChannelMessage(BYTE *InBuffer) {
 		//channel
 		GetStreamString(&InBuffer, &channel);
 
-		// Если виртуальный пользователь является пользователем, отслеживающим данный канал.
+		// Р•СЃР»Рё РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЏРІР»СЏРµС‚СЃСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј, РѕС‚СЃР»РµР¶РёРІР°СЋС‰РёРј РґР°РЅРЅС‹Р№ РєР°РЅР°Р».
 		if (UserIsMonitoring(bot, channel)) {
 			//rezim
 			GetStreamDword(&InBuffer, &mode);
@@ -238,7 +238,7 @@ void OnPublicChannelMessage(BYTE *InBuffer) {
 	}
 }
 
-// Изменение темы.
+// РР·РјРµРЅРµРЅРёРµ С‚РµРјС‹.
 void OnChannelTopicChanged(BYTE *InBuffer) {
 	String bot, name, channel, topic;
 
@@ -246,7 +246,7 @@ void OnChannelTopicChanged(BYTE *InBuffer) {
 		//bot_prop.name
 		GetStreamString(&InBuffer, &bot);
 
-		// Если виртуальный пользователь является пользователем, отслеживающим данный канал.
+		// Р•СЃР»Рё РІРёСЂС‚СѓР°Р»СЊРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЏРІР»СЏРµС‚СЃСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј, РѕС‚СЃР»РµР¶РёРІР°СЋС‰РёРј РґР°РЅРЅС‹Р№ РєР°РЅР°Р».
 		if (UserIsMonitoring(bot, channel)) {
 			//channel
 			GetStreamString(&InBuffer, &channel);
@@ -277,7 +277,7 @@ void OnChannelTopicChanged(BYTE *InBuffer) {
 	}
 }
 
-// Выход из чата.
+// Р’С‹С…РѕРґ РёР· С‡Р°С‚Р°.
 void OnUserDisconnect(BYTE *InBuffer) {
 	String name;
 
@@ -287,7 +287,7 @@ void OnUserDisconnect(BYTE *InBuffer) {
 
 		RemoveUserFromChannels(name);
 
-		// Проверяем, является ли пользователь виртуальным. Если да, то проверяем список отслеживаний каналов.
+		// РџСЂРѕРІРµСЂСЏРµРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІРёСЂС‚СѓР°Р»СЊРЅС‹Рј. Р•СЃР»Рё РґР°, С‚Рѕ РїСЂРѕРІРµСЂСЏРµРј СЃРїРёСЃРѕРє РѕС‚СЃР»РµР¶РёРІР°РЅРёР№ РєР°РЅР°Р»РѕРІ.
 		LogicalConnections::iterator connection = FindConnectionByUser(name);
 		if (ConnectionExists(connection)) {
 			UnsetConnectionUser(connection);
@@ -305,7 +305,7 @@ void OnUserDisconnect(BYTE *InBuffer) {
 	}
 }
 
-// Изменение состояния пользователя.
+// РР·РјРµРЅРµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 void OnUserStateChanged(BYTE *InBuffer) {
 	String name, state;
 
@@ -332,7 +332,7 @@ void OnUserStateChanged(BYTE *InBuffer) {
 	}
 }
 
-// Изменение иконки пользователя.
+// РР·РјРµРЅРµРЅРёРµ РёРєРѕРЅРєРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
 void OnUserSexChanged(BYTE *InBuffer) {
 	String name;
 	DWORD sex;
@@ -360,7 +360,7 @@ void OnUserSexChanged(BYTE *InBuffer) {
 	}
 }
 
-// Авторизация виртуального пользователя невозможна.
+// РђРІС‚РѕСЂРёР·Р°С†РёСЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµРІРѕР·РјРѕР¶РЅР°.
 void OnUnsuccessAuth(BYTE *InBuffer) {
 	String name;
 	DWORD authorization_status;

@@ -73,7 +73,7 @@ JSONERROR JSONError(int type, String data, String id);
 int GetMethodID(String method);
 String GetMemberValue(map<String, String> *method_obj, String member, bool is_req, String def, int type);
 String GetMemberValue(Params *method_obj, String member);
-String CallMethod(String id, int meth_id, Params params, Socket—onnections::iterator socket_connection, int transport);
+String CallMethod(String id, int meth_id, Params params, Socket–°onnections::iterator socket_connection, int transport);
 pRequest CheckObject(map<String, String> method_obj);
 extern void SendNotification(String method, String json_object, LogicalConnections::iterator connection_ref, bool single_value);
 extern void SendNotification(String method, String json_object, LogicalConnectionsRef connections);

@@ -94,20 +94,9 @@ void LoadDefaultLocalization() {
 	localization_strings->LoadFromStream(localization_resource);
 	TMemIniFile *localization_file = new TMemIniFile("");
 	localization_file->SetStrings(localization_strings);
-	//LoadLocalization(localization_file);
 	delete localization_resource;
 	delete localization_strings;
 	delete localization_file;
-	//TIniFile *c = new TIniFile();
-//	l18n["ActiveConnections"] = "Active Connections";
-//	l18n["NoActiveConnections"] = "No active connections";
-//	l18n["DisconnectConfirm"] = "Are you sure you want to disconnect connection with ID";
-//	l18n["ConnectionID"] = "Connection ID";
-//	l18n["Nick"] = "Nick";
-//	l18n["IP"] = "IP";
-//	l18n["AppName"] = "Application";
-//	l18n["LastAction"] = "Last action";
-//	l18n["ConnectionTime"] = "Connection Time";
 }
 
 void LoadLocalizationFromFile(String language) {
