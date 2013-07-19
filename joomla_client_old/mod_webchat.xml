@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>CommFort WebChat</name>
+	<author>Alexey Tkachenko</author>
+	<creationDate>2011-02-06</creationDate>
+	<copyright>Copyright © 2010-2011 Eterion</copyright>
+	<license></license>
+	<authorEmail>support@steelrat.info</authorEmail>
+	<authorUrl>http://webcf.ru</authorUrl>
+	<version>0.4</version>
+	<description>Displays all users in the webchat.</description>
+	<files>
+        <filename module="mod_webchat">mod_webchat.php</filename>
+        <filename module="mod_webchat">index.html</filename>
+        <filename module="mod_webchat">helper.php</filename>
+        <filename module="mod_webchat">css/style.css</filename>
+        <filename module="mod_webchat">images/clear_chat.png</filename>
+        <filename module="mod_webchat">images/from_web.png</filename>
+        <filename module="mod_webchat">images/man_icon.png</filename>
+        <filename module="mod_webchat">images/settings.png</filename>
+        <filename module="mod_webchat">images/smilies.png</filename>
+        <filename module="mod_webchat">images/stat_error.png</filename>
+        <filename module="mod_webchat">images/stat_ok.png</filename>
+        <filename module="mod_webchat">images/stat_wait.png</filename>
+        <filename module="mod_webchat">images/woman_icon.png</filename>
+        <filename module="mod_webchat">tmpl/default.php</filename>
+		<filename module="mod_webchat">tmpl/index.html</filename>
+	</files>
+	<params>
+		<!--<param name="chattype" type="text" default="" label="Webchat Name" description="The name of the webchat (default is webchat)" />-->
+        <param name="showIp" type="radio" default="0" label="SHOW_USERS_IP" description="CHECK_IF_IPS_MUST_BE_SHOWN_IN_USERS_BLOCK">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+	</params>
+</install>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0">
+	<name>Webchat</name>
+    <!-- The following elements are optional and free of formatting conttraints -->
+    <creationDate>2011-02-06</creationDate>
+    <author>Alexey Tkachenko</author>
+    <authorEmail>support@steelrat.info</authorEmail>
+    <authorUrl>http://webcf.ru</authorUrl>
+    <copyright>Copyright © 2010-2011 Eterion</copyright>
+    <license></license>
+    <!--  The version string is recorded in the components table -->
+    <version>0.4</version>
+    <!-- The description is optional and defaults to the name -->
+    <description>CommFort WebChat component for CommFort 5.xx</description>
+
+        <languages>
+            <language tag="ru-RU">language/site/ru-RU.com_webchat.ini</language>
+            <language tag="ru-RU">language/site/ru-RU.mod_webchat.ini</language>
+            <language tag="en-GB">language/site/en-GB.com_webchat.ini</language>
+            <language tag="en-GB">language/site/en-GB.mod_webchat.ini</language>
+        </languages>
+    
+	<!-- Site Main File Copy Section -->
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>webchat.php</filename>
+        <filename>index.html</filename>
+        <filename>assets/script.js</filename>
+        <filename>assets/style.css</filename>
+        <filename>images/clear_chat.png</filename>
+        <filename>images/from_web.png</filename>
+        <filename>images/man_icon.png</filename>
+        <filename>images/settings.png</filename>
+        <filename>images/smilies.png</filename>
+        <filename>images/stat_error.png</filename>
+        <filename>images/stat_ok.png</filename>
+        <filename>images/stat_wait.png</filename>
+        <filename>images/woman_icon.png</filename>
+        <filename>models/webchat.php</filename>
+        <filename>smilies/index.html</filename>
+        <filename>sounds/new_mess.mp3</filename>
+        <filename>views/webchat/index.html</filename>
+        <filename>views/webchat/metadata.xml</filename>
+        <filename>views/webchat/view.html.php</filename>
+        <filename>views/webchat/tmpl/default.php</filename>
+        <filename>views/webchat/tmpl/default.xml</filename>
+		<filename>views/webchat/tmpl/index.html</filename>
+	</files>
+
+	<install>
+		<sql>
+			<file charset="utf8" driver="mysql">install.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file charset="utf8" driver="mysql">uninstall.sql</file>
+		</sql>
+	</uninstall>	
+
+	<administration>
+		<!-- Administration Menu Section -->
+		<menu>CommFort WebChat</menu>
+        
+        <languages>
+            <language tag="ru-RU">language/admin/ru-RU.com_webchat.ini</language>
+            <language tag="en-GB">language/admin/en-GB.com_webchat.ini</language>
+        </languages>
+		
+		<!-- Administration Main File Copy Section -->
+		<!-- Note the folder attribute: This attribute describes the folder
+			to copy FROM in the package to install therefore files copied
+			in this section are copied from /admin/ in the package -->
+		<files folder="admin">
+			<!-- Site Main File Copy Section -->
+			<filename>webchat.php</filename>
+			<filename>index.html</filename>
+			<filename>install.sql</filename>
+			<filename>uninstall.sql</filename>
+			<filename>controller.php</filename>
+			<filename>models/webchats.php</filename>
+			<filename>models/index.html</filename>
+			<filename>views/webchats/view.html.php</filename>
+            <filename>views/webchats/index.html</filename>
+            <filename>views/webchats/tmpl/default.php</filename>
+			<filename>views/webchats/tmpl/index.html</filename>
+		</files>		
+	</administration>
+</install>

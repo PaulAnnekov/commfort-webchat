@@ -1,0 +1,343 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  cf_webchat.admin.inc: n/a
+#  cf_webchat.common.inc: n/a
+#  cf_webchat.module: n/a
+#  templates/users_online.tpl.php: n/a
+#  cf_webchat.js: n/a
+#  cf_webchat.info: n/a
+#  cf_webchat.install: n/a
+#  templates/messages_area.tpl.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2011-01-11 02:33+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: cf_webchat.admin.inc:14
+msgid "Chat URL"
+msgstr ""
+
+#: cf_webchat.admin.inc:19
+msgid "Enter the URL, where the chat would be located. Do not include base root (http://sait_name/)! Examples: chat, node/1..."
+msgstr ""
+
+#: cf_webchat.admin.inc:24
+msgid "Show users IP's"
+msgstr ""
+
+#: cf_webchat.admin.inc:27
+msgid "Check, if IPs must be shown in users block"
+msgstr ""
+
+#: cf_webchat.admin.inc:32
+msgid "Enable smilies"
+msgstr ""
+
+#: cf_webchat.admin.inc:35
+msgid "Smilies have to be located at path - \"!foldername\". File \"!filename\" must have encoding UTF8"
+msgstr ""
+
+#: cf_webchat.admin.inc:40
+msgid "Enable sound notification"
+msgstr ""
+
+#: cf_webchat.admin.inc:43
+msgid "Check, to enable sound notification by default. The sound will be played on each chat event"
+msgstr ""
+
+#: cf_webchat.admin.inc:48
+msgid "Enable checking ping from plugin"
+msgstr ""
+
+#: cf_webchat.admin.inc:51
+msgid "Check, to enable checking ping from plugin, to determine connection state between plugin and webchat (webchat users will see tips, if connection problems appeared). When connection state would set to unactive - all webchat talking will be only among webchat users. Time between machine, where plugin placed and machine, where webchat works, must be strongly SYNCHRONIZED"
+msgstr ""
+
+#: cf_webchat.admin.inc:56
+msgid "Optimize smilies"
+msgstr ""
+
+#: cf_webchat.admin.inc:114
+msgid "Smilies successfully optimized"
+msgstr ""
+
+#: cf_webchat.admin.inc:117
+msgid "Smilies file does not exist. Please, locate file \"smilies_serv.txt\" in folder \"@foldername\""
+msgstr ""
+
+#: cf_webchat.common.inc:32
+msgid "Path module was enabled"
+msgstr ""
+
+#: cf_webchat.common.inc:54
+msgid "Chat will be based here"
+msgstr ""
+
+#: cf_webchat.common.inc:60
+msgid "Page for chat was created"
+msgstr ""
+
+#: cf_webchat.common.inc:63
+msgid "Page for chat is already exists"
+msgstr ""
+
+#: cf_webchat.common.inc:67
+msgid "Go to chat page"
+msgstr ""
+
+#: cf_webchat.module:45
+msgid "CommFort users online"
+msgstr ""
+
+#: cf_webchat.module:61 templates/users_online.tpl.php:5
+msgid "Users online"
+msgstr ""
+
+#: cf_webchat.module:90
+msgid "You are not authorized to view and post messages in chat."
+msgstr ""
+
+#: cf_webchat.module:127
+msgid "User from web"
+msgstr ""
+
+#: cf_webchat.module:127
+msgid "Insert nick in the posting input"
+msgstr ""
+
+#: cf_webchat.module:154
+msgid "Show / Hide smilies in this tab"
+msgstr ""
+
+#: cf_webchat.module:193
+msgid "Smile"
+msgstr ""
+
+#: cf_webchat.module:215;216
+msgid "Open link in new window"
+msgstr ""
+
+#: cf_webchat.module:219
+msgid "User has inserted an image, images are not supported"
+msgstr ""
+
+#: cf_webchat.module:281
+msgid "User !user_name"
+msgstr ""
+
+#: cf_webchat.module:410 cf_webchat.js:0
+msgid "You are not registred in chat"
+msgstr ""
+
+#: cf_webchat.module:411 cf_webchat.js:0;0
+msgid "Already in chat"
+msgstr ""
+
+#: cf_webchat.module:412 cf_webchat.js:0
+msgid "Waiting for authorization.."
+msgstr ""
+
+#: cf_webchat.module:413 cf_webchat.js:0
+msgid "You are not logged in on sait"
+msgstr ""
+
+#: cf_webchat.module:414 cf_webchat.js:0
+msgid "Too much users online"
+msgstr ""
+
+#: cf_webchat.module:415 cf_webchat.js:0
+msgid "Nick is out of rules"
+msgstr ""
+
+#: cf_webchat.module:416 cf_webchat.js:0
+msgid "You are banned"
+msgstr ""
+
+#: cf_webchat.module:417 cf_webchat.js:0
+msgid "Nick includes bad words"
+msgstr ""
+
+#: cf_webchat.module:418 cf_webchat.js:0
+msgid "Nick is already registred"
+msgstr ""
+
+#: cf_webchat.module:419 cf_webchat.js:0
+msgid "Too much users from IP"
+msgstr ""
+
+#: cf_webchat.module:420 cf_webchat.js:0
+msgid "Activation request sended"
+msgstr ""
+
+#: cf_webchat.module:421 cf_webchat.js:0
+msgid "Wrong password"
+msgstr ""
+
+#: cf_webchat.module:422 cf_webchat.js:0
+msgid "Activation request denied or in progress"
+msgstr ""
+
+#: cf_webchat.module:430
+msgid "leaved the chat"
+msgstr ""
+
+#: cf_webchat.module:431
+msgid "joined the chat"
+msgstr ""
+
+#: cf_webchat.module:432
+msgid "joined the channel"
+msgstr ""
+
+#: cf_webchat.module:433
+msgid "leaved the channel"
+msgstr ""
+
+#: cf_webchat.module:441
+msgid "switched to state"
+msgstr ""
+
+#: cf_webchat.module:441
+msgid "is now online"
+msgstr ""
+
+#: cf_webchat.module:444
+msgid "changed sex to"
+msgstr ""
+
+#: cf_webchat.module:444
+msgid "male"
+msgstr ""
+
+#: cf_webchat.module:444
+msgid "female"
+msgstr ""
+
+#: cf_webchat.module:447
+msgid "changed channel theme to"
+msgstr ""
+
+#: cf_webchat.module:515 cf_webchat.js:0;0 templates/users_online.tpl.php:12
+msgid "State"
+msgstr ""
+
+#: cf_webchat.module:526 cf_webchat.js:0
+msgid "Click to change state"
+msgstr ""
+
+#: cf_webchat.module:588 cf_webchat.js:0
+msgid "Connection to the server is not stable. There may be delays."
+msgstr ""
+
+#: cf_webchat.module:592 cf_webchat.js:0
+msgid "Connection to the server is missing. You can communicate only among users from web. Apologies for technical problems."
+msgstr ""
+
+#: cf_webchat.module:34
+msgid "view CommFort chat"
+msgstr ""
+
+#: cf_webchat.module:34
+msgid "send CommFort chat messages"
+msgstr ""
+
+#: cf_webchat.module:9 cf_webchat.info:0
+msgid "CommFort WebChat"
+msgstr ""
+
+#: cf_webchat.module:10
+msgid "Configure CommFort WebChat settings."
+msgstr ""
+
+#: cf_webchat.install:11
+msgid "You must do the initial configuration of the module. Please, visit"
+msgstr ""
+
+#: cf_webchat.install:11
+msgid "settings page"
+msgstr ""
+
+#: cf_webchat.info:0
+msgid "WebChat module for CommFort Plugin."
+msgstr ""
+
+#: cf_webchat.js:0 templates/users_online.tpl.php:11
+msgid "Hidden"
+msgstr ""
+
+#: cf_webchat.js:0 templates/users_online.tpl.php:12
+msgid "Undefined"
+msgstr ""
+
+#: cf_webchat.js:0
+msgid "You write nothing! Please fill text line"
+msgstr ""
+
+#: cf_webchat.js:0
+msgid "Your message succesfully sended"
+msgstr ""
+
+#: cf_webchat.js:0
+msgid "The size of the text line must be less then 40000 symbols"
+msgstr ""
+
+#: templates/messages_area.tpl.php:4
+msgid "Connection state"
+msgstr ""
+
+#: templates/messages_area.tpl.php:5
+msgid "Channel theme"
+msgstr ""
+
+#: templates/messages_area.tpl.php:14
+msgid "Enable or disable sound notification, when new message in chat recieved"
+msgstr ""
+
+#: templates/messages_area.tpl.php:16
+msgid "Sound notification"
+msgstr ""
+
+#: templates/messages_area.tpl.php:18
+msgid "Enable or disable smilies list autohide, when smile added to message text area"
+msgstr ""
+
+#: templates/messages_area.tpl.php:20
+msgid "Autohide smilies"
+msgstr ""
+
+#: templates/messages_area.tpl.php:30
+msgid "Show / Hide smilies block"
+msgstr ""
+
+#: templates/messages_area.tpl.php:30
+msgid "Show / Hide smilies list"
+msgstr ""
+
+#: templates/messages_area.tpl.php:31;31
+msgid "Show / Hide settings block"
+msgstr ""
+
+#: templates/messages_area.tpl.php:32;32
+msgid "Clear chat"
+msgstr ""
+
+#: templates/messages_area.tpl.php:35
+msgid "Send"
+msgstr ""
+
+#: templates/messages_area.tpl.php:36
+msgid "or"
+msgstr ""
+

@@ -1,0 +1,4 @@
+commfort_server\*
+PluginsData\WebChat\*
+system\WindowsCodecs.dll
+CHANGES.txt

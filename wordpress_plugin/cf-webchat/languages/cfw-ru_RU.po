@@ -1,0 +1,344 @@
+# $Id$
+#
+# Russian translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  cf_webchat.admin.inc: n/a
+#  cf_webchat.common.inc: n/a
+#  cf_webchat.module: n/a
+#  templates/users_online.tpl.php: n/a
+#  cf_webchat.js: n/a
+#  cf_webchat.info: n/a
+#  cf_webchat.install: n/a
+#  templates/messages_area.tpl.php: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CommFort WebChat\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-09 14:31+0200\n"
+"PO-Revision-Date: 2011-11-09 17:38+0200\n"
+"Last-Translator: Pavel Annekov <support@steelrat.info>\n"
+"Language-Team: SteelRat <support@steelrat.info>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;_c;__ngettext:1,2;_x;_x:2c,1\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../cf-webchat.php:58
+msgid "Channel theme"
+msgstr "Тема канала"
+
+#: ../cf-webchat.php:59
+msgid "Send"
+msgstr "Отправить"
+
+#: ../cf-webchat.php:71
+msgid "Smiles"
+msgstr "Смайлы"
+
+#: ../cf-webchat.php:72
+msgid "Settings"
+msgstr "Настройки"
+
+#: ../cf-webchat.php:73
+msgid "Clear"
+msgstr "Очистить"
+
+#: ../cf-webchat.php:76
+msgid "Login"
+msgstr "Логин"
+
+#: ../cf-webchat.php:77
+msgid "Password"
+msgstr "Пароль"
+
+#: ../cf-webchat.php:78
+msgid "Male"
+msgstr "Мужской пол"
+
+#: ../cf-webchat.php:79
+msgid "Female"
+msgstr "Женский пол"
+
+#: ../cf-webchat.php:80
+msgid "Log in"
+msgstr "Войти"
+
+#: ../cf-webchat.php:81
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: ../cf-webchat.php:84
+msgid "Name"
+msgstr "Название"
+
+#: ../cf-webchat.php:85
+msgid "Users"
+msgstr "Пользователей"
+
+#: ../cf-webchat.php:86
+msgid "Theme"
+msgstr "Тема"
+
+#: ../cf-webchat.php:106
+msgid "CommFort WebChat"
+msgstr ""
+
+#~ msgid "Chat URL"
+#~ msgstr "Ссылка на страницу с чатом"
+
+#~ msgid ""
+#~ "Enter the URL, where the chat would be located. Do not include base root "
+#~ "(http://sait_name/)! Examples: chat, node/1..."
+#~ msgstr ""
+#~ "Введите путь к странице, где будет расположен чат. Ссылка не должна "
+#~ "содержать базовый путь к сайту(http://sait_name/)! Примеры:  chat, "
+#~ "node/1..."
+
+#~ msgid "Show users IP's"
+#~ msgstr "Показывать IP адреса"
+
+#~ msgid "Check, if IPs must be shown in users block"
+#~ msgstr ""
+#~ "Отметьте, если в списке пользователей надо показывать IP каждого "
+#~ "пользователя"
+
+#~ msgid "Enable smilies"
+#~ msgstr "Включить смайлы"
+
+#~ msgid ""
+#~ "Smilies have to be located at path - \"!foldername\". File \"!filename\" "
+#~ "must have encoding UTF8"
+#~ msgstr ""
+#~ "Смайлы должны быть расположены в папке - \"!foldername\". Файл \"!filename"
+#~ "\" должен иметь кодировку UTF8 "
+
+#~ msgid "Enable sound notification"
+#~ msgstr "Включить звуковое оповещение"
+
+#~ msgid ""
+#~ "Check, to enable sound notification by default. The sound will be played "
+#~ "on each chat event"
+#~ msgstr ""
+#~ "Отметьте, чтобы включить звуковое оповещение по умолчанию. При "
+#~ "возникновении события в чате будет проиграна мелодия оповещения"
+
+#~ msgid "Enable checking ping from plugin"
+#~ msgstr "Включить проверку соединения с плагином"
+
+#~ msgid ""
+#~ "Check, to enable checking ping from plugin, to determine connection state "
+#~ "between plugin and webchat (webchat users will see tips, if connection "
+#~ "problems appeared). When connection state would set to unactive - all "
+#~ "webchat talking will be only among webchat users. Time between machine, "
+#~ "where plugin placed and machine, where webchat works, must be strongly "
+#~ "SYNCHRONIZED"
+#~ msgstr ""
+#~ "Отметьте, чтобы включить проверку соединения с чатом, которая определяет "
+#~ "состояние соединения с плагином (пользователи вебчата увидят "
+#~ "предупреждение, если возникнут проблемы с соединением). Если соединение с "
+#~ "плагином полностью оборвется - то все общение будет идти только между "
+#~ "пользователями вебчата. Время на машине, где установлен плагин, и на "
+#~ "машине, где установлен вебчат, должно быть строго СИНХРОНИЗИРОВАННО"
+
+#~ msgid "Optimize smilies"
+#~ msgstr "Оптимизировать смайлы"
+
+#~ msgid "Smilies successfully optimized"
+#~ msgstr "Смайлы успешно оптимизированы"
+
+#~ msgid ""
+#~ "Smilies file does not exist. Please, locate file \"smilies_serv.txt\" in "
+#~ "folder \"@foldername\""
+#~ msgstr ""
+#~ "Файл смайлов не существует. Пожалуйста, разместите файл \"smilies_serv.txt"
+#~ "\" в папке \"@foldername\""
+
+#~ msgid "Path module was enabled"
+#~ msgstr "Модуль Path был включен"
+
+#~ msgid "Chat will be based here"
+#~ msgstr "Здесь будет расположен чат"
+
+#~ msgid "Page for chat was created"
+#~ msgstr "Страница чата была создана"
+
+#~ msgid "Page for chat is already exists"
+#~ msgstr "Страница чата уже существует"
+
+#~ msgid "Go to chat page"
+#~ msgstr "Перейти на страницу чата"
+
+#~ msgid "CommFort users online"
+#~ msgstr "Онлайн пользователи CommFort"
+
+#~ msgid "Users online"
+#~ msgstr "Пользователей онлайн"
+
+#~ msgid "You are not authorized to view and post messages in chat."
+#~ msgstr "У Вас недостаточно прав для просмотра и отправки сообщений в чат."
+
+#~ msgid "User from web"
+#~ msgstr "Пользователь с веба"
+
+#~ msgid "Insert nick in the posting input"
+#~ msgstr "Вставить ник в поле сообщения"
+
+#~ msgid "Show / Hide smilies in this tab"
+#~ msgstr "Показать / Скрыть смайлы этой вкладки"
+
+#~ msgid "Open link in new window"
+#~ msgstr "Открыть ссылку в новом окне"
+
+#~ msgid "User has inserted an image, images are not supported"
+#~ msgstr ""
+#~ "Пользователь вставил изображение, просмотр изображений не поддерживается"
+
+#~ msgid "User !user_name"
+#~ msgstr "Пользователь !user_name"
+
+#~ msgid "You are not registred in chat"
+#~ msgstr "Вы не зарегистрированы в чате"
+
+#~ msgid "Already in chat"
+#~ msgstr "Уже в чате"
+
+#~ msgid "Waiting for authorization.."
+#~ msgstr "Ожидание авторизации..."
+
+#~ msgid "You are not logged in on sait"
+#~ msgstr "Вы не зарегистрированы на сайте"
+
+#~ msgid "Too much users online"
+#~ msgstr "Превышено максимальное количество пользователей"
+
+#~ msgid "Nick is out of rules"
+#~ msgstr "Ник не соответствует требованиям"
+
+#~ msgid "You are banned"
+#~ msgstr "Вы забанены"
+
+#~ msgid "Nick includes bad words"
+#~ msgstr "Ник содержит слова черного списка"
+
+#~ msgid "Nick is already registred"
+#~ msgstr "Такой ник уже зарегистрирован"
+
+#~ msgid "Too much users from IP"
+#~ msgstr "Превышено кол-во пользователей с одного IP"
+
+#~ msgid "Activation request sended"
+#~ msgstr "Запрос на авторизацию подан"
+
+#~ msgid "Activation request denied or in progress"
+#~ msgstr "Запрос на авторизацию отклонен или на обработке"
+
+#~ msgid "leaved the chat"
+#~ msgstr "вышел из чата"
+
+#~ msgid "joined the chat"
+#~ msgstr "вошел в чат"
+
+#~ msgid "joined the channel"
+#~ msgstr "присоединился к каналу"
+
+#~ msgid "leaved the channel"
+#~ msgstr "покинул канал"
+
+#~ msgid "switched to state"
+#~ msgstr "переключился в состояние"
+
+#~ msgid "is now online"
+#~ msgstr "вернулся в обычное состояние"
+
+#~ msgid "changed sex to"
+#~ msgstr "изменил иконку пола на"
+
+#~ msgid "changed channel theme to"
+#~ msgstr "изменил тему канала на"
+
+#~ msgid "State"
+#~ msgstr "Состояние"
+
+#~ msgid "Click to change state"
+#~ msgstr "Изменить состояние"
+
+#~ msgid "Connection to the server is not stable. There may be delays."
+#~ msgstr "Соединение с сервером чата не стабильно. Возможны задержки."
+
+#~ msgid ""
+#~ "Connection to the server is missing. You can communicate only among users "
+#~ "from web. Apologies for technical problems."
+#~ msgstr ""
+#~ "Соединение с сервером чата отсутствует. Вы можете общаться только между "
+#~ "пользователями вебчата. Приносим свои извинения за технические проблемы."
+
+#~ msgid "view CommFort chat"
+#~ msgstr "просматривать чат CommFort"
+
+#~ msgid "send CommFort chat messages"
+#~ msgstr "отправлять сообщения в чат CommFort"
+
+#~ msgid "Configure CommFort WebChat settings."
+#~ msgstr "Настройка модуля CommFort WebChat."
+
+#~ msgid "You must do the initial configuration of the module. Please, visit"
+#~ msgstr ""
+#~ "Вы должны сделать стартовую настройку модуля. Пожалуйста, перейдите на"
+
+#~ msgid "WebChat module for CommFort Plugin."
+#~ msgstr "Модуль для плагина CommFort WebChat."
+
+#~ msgid "Hidden"
+#~ msgstr "Скрыт"
+
+#~ msgid "Undefined"
+#~ msgstr "Не установлено"
+
+#~ msgid "You write nothing! Please fill text line"
+#~ msgstr "Вы ничего не ввели! Пожалуйста, введите текст в поле"
+
+#~ msgid "Your message succesfully sended"
+#~ msgstr "Ваше сообщение успешно отправлено"
+
+#~ msgid "The size of the text line must be less then 40000 symbols"
+#~ msgstr "Количество букв в текстовом поле должно быть меньше 40000"
+
+#~ msgid "Connection state"
+#~ msgstr "Состояние соединения с чатом"
+
+#~ msgid ""
+#~ "Enable or disable sound notification, when new message in chat recieved"
+#~ msgstr ""
+#~ "Включить или отключить звуковое оповещение при публикации нового "
+#~ "сообщения с веба"
+
+#~ msgid "Sound notification"
+#~ msgstr "Звуковое оповещение"
+
+#~ msgid ""
+#~ "Enable or disable smilies list autohide, when smile added to message text "
+#~ "area"
+#~ msgstr ""
+#~ "Включить или отключить автоскрытие списка смайлов, после выбора смайла"
+
+#~ msgid "Autohide smilies"
+#~ msgstr "Автоскрытие смайлов"
+
+#~ msgid "Show / Hide smilies block"
+#~ msgstr "Показать / Скрыть блок смайлов"
+
+#~ msgid "Show / Hide smilies list"
+#~ msgstr "Показать / Скрыть список смайлов"
+
+#~ msgid "Show / Hide settings block"
+#~ msgstr "Показать / Скрыть настройки"
+
+#~ msgid "or"
+#~ msgstr "или"
