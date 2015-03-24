@@ -31,7 +31,7 @@ The code is in transition state. I had many todos but my motivation fell and I h
 ## Server plugin
 All server plugin images are stored [here](https://github.com/PaulAnnekov/commfort-webchat/tree/master/server_plugin_screen).
 
-![Main form](https://raw.github.com/PaulAnnekov/commfort-webchat/master/server_plugin_screen/main_form.png)
+![Main form](https://raw.github.com/PaulAnnekov/commfort-webchat/master/server_plugin_screen/main_form_en.png)
 ![Connections form](https://raw.github.com/PaulAnnekov/commfort-webchat/master/server_plugin_screen/connections_form.png)
 
 ## Web client
